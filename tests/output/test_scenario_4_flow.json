@@ -1,6 +1,6 @@
 [
   {
-    "id": "Task_329",
+    "id": "Task_366",
     "type": "task",
     "name": "ABPT",
     "x": 370,
@@ -11,12 +11,12 @@
     "color": null,
     "applications": [],
     "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=3830.9 millisecs"
+      "duarationDataSet\nkey=avg duration\nvalue=3990.4 millisecs"
     ],
     "errors": []
   },
   {
-    "id": "Task_330",
+    "id": "Task_367",
     "type": "task",
     "name": "T.Data",
     "x": 640,
@@ -27,12 +27,12 @@
     "color": null,
     "applications": [],
     "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=3964.2 millisecs"
+      "duarationDataSet\nkey=avg duration\nvalue=4028.3 millisecs"
     ],
     "errors": []
   },
   {
-    "id": "Task_331",
+    "id": "Task_368",
     "type": "task",
     "name": "GRP-ICAP",
     "x": 910,
@@ -43,12 +43,12 @@
     "color": null,
     "applications": [],
     "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=4445.9 millisecs"
+      "duarationDataSet\nkey=avg duration\nvalue=4076.5 millisecs"
     ],
     "errors": []
   },
   {
-    "id": "Task_332",
+    "id": "Task_369",
     "type": "task",
     "name": "Amp-MM - Invenio",
     "x": 1180,
@@ -59,12 +59,19 @@
     "color": null,
     "applications": [],
     "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=3947.3 millisecs"
+      "duarationDataSet\nkey=avg duration\nvalue=3864.3 millisecs"
     ],
-    "errors": []
+    "errors": [
+      {
+        "db.name": "db_e",
+        "statement": "SELECT customer_segment FROM db_e.main_table WHERE id = ?",
+        "error_message": "column \"customer_segment\" does not exist",
+        "type": "SQL_COLUMN_NOT_FOUND"
+      }
+    ]
   },
   {
-    "id": "Task_333",
+    "id": "Task_370",
     "type": "task",
     "name": "IDP-Commerce-ES",
     "x": 1450,
@@ -75,12 +82,12 @@
     "color": null,
     "applications": [],
     "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=4521.9 millisecs"
+      "duarationDataSet\nkey=avg duration\nvalue=3974.8 millisecs"
     ],
     "errors": []
   },
   {
-    "id": "Task_334",
+    "id": "Task_371",
     "type": "task",
     "name": "SHM",
     "x": 1720,
@@ -91,12 +98,12 @@
     "color": null,
     "applications": [],
     "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=3834.3 millisecs"
+      "duarationDataSet\nkey=avg duration\nvalue=3757.9 millisecs"
     ],
     "errors": []
   },
   {
-    "id": "Task_335",
+    "id": "Task_372",
     "type": "task",
     "name": "TRiP",
     "x": 1990,
@@ -107,12 +114,12 @@
     "color": null,
     "applications": [],
     "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=1816.6 millisecs"
+      "duarationDataSet\nkey=avg duration\nvalue=1898.7 millisecs"
     ],
     "errors": []
   },
   {
-    "id": "Task_336",
+    "id": "Task_373",
     "type": "task",
     "name": "TDICE",
     "x": 2260,
@@ -123,7 +130,7 @@
     "color": null,
     "applications": [],
     "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=99.3 millisecs"
+      "duarationDataSet\nkey=avg duration\nvalue=83.6 millisecs"
     ],
     "errors": []
   },
@@ -150,9 +157,9 @@
     "color": null
   },
   {
-    "id": "Flow_339",
+    "id": "Flow_376",
     "sourceRef": "Start_1",
-    "targetRef": "Task_329",
+    "targetRef": "Task_366",
     "type": "flow",
     "shape": "line",
     "waypoints": [
@@ -168,9 +175,9 @@
     "color": null
   },
   {
-    "id": "Flow_342",
-    "sourceRef": "Task_329",
-    "targetRef": "Task_330",
+    "id": "Flow_379",
+    "sourceRef": "Task_366",
+    "targetRef": "Task_367",
     "type": "flow",
     "shape": "line",
     "waypoints": [
@@ -186,9 +193,9 @@
     "color": null
   },
   {
-    "id": "Flow_345",
-    "sourceRef": "Task_330",
-    "targetRef": "Task_331",
+    "id": "Flow_382",
+    "sourceRef": "Task_367",
+    "targetRef": "Task_368",
     "type": "flow",
     "shape": "line",
     "waypoints": [
@@ -204,9 +211,9 @@
     "color": null
   },
   {
-    "id": "Flow_348",
-    "sourceRef": "Task_331",
-    "targetRef": "Task_332",
+    "id": "Flow_385",
+    "sourceRef": "Task_368",
+    "targetRef": "Task_369",
     "type": "flow",
     "shape": "line",
     "waypoints": [
@@ -222,9 +229,9 @@
     "color": null
   },
   {
-    "id": "Flow_351",
-    "sourceRef": "Task_332",
-    "targetRef": "Task_333",
+    "id": "Flow_388",
+    "sourceRef": "Task_369",
+    "targetRef": "Task_370",
     "type": "flow",
     "shape": "line",
     "waypoints": [
@@ -240,9 +247,9 @@
     "color": null
   },
   {
-    "id": "Flow_354",
-    "sourceRef": "Task_333",
-    "targetRef": "Task_334",
+    "id": "Flow_391",
+    "sourceRef": "Task_370",
+    "targetRef": "Task_371",
     "type": "flow",
     "shape": "line",
     "waypoints": [
@@ -258,9 +265,9 @@
     "color": null
   },
   {
-    "id": "Flow_357",
-    "sourceRef": "Task_334",
-    "targetRef": "Task_335",
+    "id": "Flow_394",
+    "sourceRef": "Task_371",
+    "targetRef": "Task_372",
     "type": "flow",
     "shape": "line",
     "waypoints": [
@@ -276,9 +283,9 @@
     "color": null
   },
   {
-    "id": "Flow_360",
-    "sourceRef": "Task_335",
-    "targetRef": "Task_336",
+    "id": "Flow_397",
+    "sourceRef": "Task_372",
+    "targetRef": "Task_373",
     "type": "flow",
     "shape": "line",
     "waypoints": [
@@ -294,8 +301,8 @@
     "color": null
   },
   {
-    "id": "Flow_361",
-    "sourceRef": "Task_336",
+    "id": "Flow_398",
+    "sourceRef": "Task_373",
     "targetRef": "End_1",
     "type": "flow",
     "shape": "line",

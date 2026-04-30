@@ -1,86 +1,98 @@
 [
   {
-    "id": "Task_309",
+    "id": "Task_610",
     "type": "task",
     "name": "CCSF",
     "x": 370,
-    "y": 242.5,
+    "y": 277.5,
     "height": 64,
     "width": 120,
     "shape": "rectangle",
     "color": null,
     "applications": [],
-    "metrics": [],
+    "metrics": [
+      "duarationDataSet\nkey=avg duration\nvalue=3882.4 millisecs"
+    ],
     "errors": []
   },
   {
-    "id": "Task_310",
+    "id": "Task_611",
     "type": "task",
     "name": "CCMULE",
     "x": 640,
-    "y": 242.5,
+    "y": 277.5,
     "height": 64,
     "width": 120,
     "shape": "rectangle",
     "color": null,
     "applications": [],
-    "metrics": [],
+    "metrics": [
+      "duarationDataSet\nkey=avg duration\nvalue=4069.5 millisecs"
+    ],
     "errors": []
   },
   {
-    "id": "Task_311",
+    "id": "Task_612",
     "type": "task",
     "name": "IDP-Cloud-CG",
     "x": 910,
-    "y": 242.5,
+    "y": 277.5,
     "height": 64,
     "width": 120,
     "shape": "rectangle",
     "color": null,
     "applications": [],
-    "metrics": [],
+    "metrics": [
+      "duarationDataSet\nkey=avg duration\nvalue=4159.2 millisecs"
+    ],
     "errors": []
   },
   {
-    "id": "Task_312",
+    "id": "Task_613",
     "type": "task",
     "name": "DPG - Sales & Sunrise",
     "x": 1180,
-    "y": 242.5,
+    "y": 277.5,
     "height": 64,
     "width": 120,
     "shape": "rectangle",
     "color": null,
     "applications": [],
-    "metrics": [],
+    "metrics": [
+      "duarationDataSet\nkey=avg duration\nvalue=3879.6 millisecs"
+    ],
     "errors": []
   },
   {
-    "id": "Task_313",
+    "id": "Task_614",
     "type": "task",
     "name": "Platform Support ATTFEDGOV1",
     "x": 1450,
-    "y": 242.5,
+    "y": 277.5,
     "height": 64,
     "width": 120,
     "shape": "rectangle",
     "color": null,
     "applications": [],
-    "metrics": [],
+    "metrics": [
+      "duarationDataSet\nkey=avg duration\nvalue=2183.1 millisecs"
+    ],
     "errors": []
   },
   {
-    "id": "Task_314",
+    "id": "Task_615",
     "type": "task",
     "name": "eTRACS",
     "x": 1720,
-    "y": 242.5,
+    "y": 277.5,
     "height": 64,
     "width": 120,
     "shape": "rectangle",
     "color": null,
     "applications": [],
-    "metrics": [],
+    "metrics": [
+      "duarationDataSet\nkey=avg duration\nvalue=201.2 millisecs"
+    ],
     "errors": []
   },
   {
@@ -88,7 +100,7 @@
     "type": "event",
     "name": "Request\nReceived",
     "x": 180,
-    "y": 256.5,
+    "y": 291.5,
     "height": 36,
     "width": 36,
     "shape": "circle",
@@ -99,134 +111,134 @@
     "type": "event",
     "name": "Completed",
     "x": 1990,
-    "y": 256.5,
+    "y": 291.5,
     "height": 36,
     "width": 36,
     "shape": "circle",
     "color": null
   },
   {
-    "id": "Flow_315",
+    "id": "Flow_618",
     "sourceRef": "Start_1",
-    "targetRef": "Task_309",
+    "targetRef": "Task_610",
     "type": "flow",
     "shape": "line",
     "waypoints": [
       {
         "x": 216,
-        "y": 274.5
+        "y": 309.5
       },
       {
         "x": 370,
-        "y": 274.5
+        "y": 309.5
       }
     ],
     "color": null
   },
   {
-    "id": "Flow_316",
-    "sourceRef": "Task_309",
-    "targetRef": "Task_310",
+    "id": "Flow_621",
+    "sourceRef": "Task_610",
+    "targetRef": "Task_611",
     "type": "flow",
     "shape": "line",
     "waypoints": [
       {
         "x": 490,
-        "y": 274.5
+        "y": 309.5
       },
       {
         "x": 640,
-        "y": 274.5
+        "y": 309.5
       }
     ],
     "color": null
   },
   {
-    "id": "Flow_317",
-    "sourceRef": "Task_310",
-    "targetRef": "Task_311",
+    "id": "Flow_624",
+    "sourceRef": "Task_611",
+    "targetRef": "Task_612",
     "type": "flow",
     "shape": "line",
     "waypoints": [
       {
         "x": 760,
-        "y": 274.5
+        "y": 309.5
       },
       {
         "x": 910,
-        "y": 274.5
+        "y": 309.5
       }
     ],
     "color": null
   },
   {
-    "id": "Flow_318",
-    "sourceRef": "Task_311",
-    "targetRef": "Task_312",
+    "id": "Flow_627",
+    "sourceRef": "Task_612",
+    "targetRef": "Task_613",
     "type": "flow",
     "shape": "line",
     "waypoints": [
       {
         "x": 1030,
-        "y": 274.5
+        "y": 309.5
       },
       {
         "x": 1180,
-        "y": 274.5
+        "y": 309.5
       }
     ],
     "color": null
   },
   {
-    "id": "Flow_319",
-    "sourceRef": "Task_312",
-    "targetRef": "Task_313",
+    "id": "Flow_630",
+    "sourceRef": "Task_613",
+    "targetRef": "Task_614",
     "type": "flow",
     "shape": "line",
     "waypoints": [
       {
         "x": 1300,
-        "y": 274.5
+        "y": 309.5
       },
       {
         "x": 1450,
-        "y": 274.5
+        "y": 309.5
       }
     ],
     "color": null
   },
   {
-    "id": "Flow_320",
-    "sourceRef": "Task_313",
-    "targetRef": "Task_314",
+    "id": "Flow_633",
+    "sourceRef": "Task_614",
+    "targetRef": "Task_615",
     "type": "flow",
     "shape": "line",
     "waypoints": [
       {
         "x": 1570,
-        "y": 274.5
+        "y": 309.5
       },
       {
         "x": 1720,
-        "y": 274.5
+        "y": 309.5
       }
     ],
     "color": null
   },
   {
-    "id": "Flow_321",
-    "sourceRef": "Task_314",
+    "id": "Flow_634",
+    "sourceRef": "Task_615",
     "targetRef": "End_1",
     "type": "flow",
     "shape": "line",
     "waypoints": [
       {
         "x": 1840,
-        "y": 274.5
+        "y": 309.5
       },
       {
         "x": 1990,
-        "y": 274.5
+        "y": 309.5
       }
     ],
     "color": null

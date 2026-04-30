@@ -152,6 +152,7 @@ Outputs:
 import argparse
 import json
 import io
+import math
 import os
 import sys
 import time
@@ -753,6 +754,57 @@ def primary_trace_id(groups: Dict[str, FlowGroup]) -> Optional[str]:
     return None
 
 
+def loki_error_trace_ids(errors_by_service: Dict[str, List[ErrorRecord]]) -> set[str]:
+    """Collect normalized trace IDs that have Loki error records."""
+    trace_ids: set[str] = set()
+    for records in errors_by_service.values():
+        for error in records:
+            trace_id = (error.trace_id or "").strip().lower()
+            if trace_id:
+                trace_ids.add(trace_id)
+    return trace_ids
+
+
+def trace_selection_score(trace: TraceFlow, error_trace_ids: set[str]) -> int:
+    """Score traces so per-chain outputs prefer traces with correlated errors."""
+    trace_id = (trace.trace_id or "").strip().lower()
+    if trace_id and trace_id in error_trace_ids:
+        return 2
+    if not trace.status_ok:
+        return 1
+    return 0
+
+
+def select_traces_for_individual_outputs(
+    trace_flows: List[TraceFlow],
+    errors_by_service: Dict[str, List[ErrorRecord]],
+) -> List[TraceFlow]:
+    """Select one trace per chain ID, preferring traces with matching Loki errors."""
+    error_trace_ids = loki_error_trace_ids(errors_by_service)
+    selected_by_chain: "OrderedDict[str, TraceFlow]" = OrderedDict()
+
+    for trace in trace_flows:
+        chain_token = trace.chain_id or trace.trace_id
+        if not chain_token:
+            continue
+
+        existing = selected_by_chain.get(chain_token)
+        if existing is None:
+            selected_by_chain[chain_token] = trace
+            continue
+
+        existing_score = trace_selection_score(existing, error_trace_ids)
+        candidate_score = trace_selection_score(trace, error_trace_ids)
+        if candidate_score > existing_score:
+            selected_by_chain[chain_token] = trace
+            continue
+
+        if candidate_score == existing_score and trace.earliest_start_ns > existing.earliest_start_ns:
+            selected_by_chain[chain_token] = trace
+
+    return list(selected_by_chain.values())
+
+
 def output_path_with_trace_id(output_path: str, trace_id: Optional[str]) -> str:
     """Append the trace ID to the output file stem."""
     if not trace_id:
@@ -1123,6 +1175,55 @@ class BPMNBuilder:
                 required = adjacent_required
         return required
 
+    def _errors_for_task_spans(
+        self,
+        service_name: str,
+        span_data: List[SpanRecord],
+        errors_by_service: Dict[str, List[ErrorRecord]],
+    ) -> List[ErrorRecord]:
+        """Return only Loki errors that correlate to this task's trace/span IDs."""
+        service_errors = get_errors_for_service_if_any(service_name, errors_by_service)
+        if not service_errors or not span_data:
+            return []
+
+        trace_ids = {
+            (record.trace_id or "").strip().lower()
+            for record in span_data
+            if (record.trace_id or "").strip()
+        }
+        span_ids = {
+            (record.span_id or "").strip()
+            for record in span_data
+            if (record.span_id or "").strip()
+        }
+
+        if not trace_ids and not span_ids:
+            return []
+
+        matched: List[ErrorRecord] = []
+        seen = set()
+        for error in service_errors:
+            error_trace_id = (error.trace_id or "").strip().lower()
+            error_span_id = (error.span_id or "").strip()
+
+            trace_match = bool(error_trace_id and error_trace_id in trace_ids)
+            span_match = bool(error_span_id and error_span_id in span_ids)
+            if not (trace_match or span_match):
+                continue
+
+            dedup_key = (
+                error.timestamp_ns,
+                error.trace_id or "",
+                error.span_id or "",
+                error.message,
+            )
+            if dedup_key in seen:
+                continue
+            seen.add(dedup_key)
+            matched.append(error)
+
+        return matched
+
     def _emit_nodes(self, process, nodes, x, y, x_step, prev_ids, max_y_used, errors_by_service: Optional[Dict[str, List[ErrorRecord]]] = None):
         """Recursively emit BPMN elements for a list of flow nodes."""
         if errors_by_service is None:
@@ -1131,11 +1232,10 @@ class BPMNBuilder:
         for node in nodes:
             if node.kind == "task":
                 task_id = node.id
-                # Extract service name from span data if available
                 service_errors = []
                 if node.span_data:
                     service_name = node.span_data[0].service_name
-                    service_errors = get_errors_for_service_if_any(service_name, errors_by_service)
+                    service_errors = self._errors_for_task_spans(service_name, node.span_data, errors_by_service)
                 
                 self._add_element(process, "serviceTask", task_id, node.label,
                                   span_data=node.span_data, error_data=service_errors)
@@ -1276,11 +1376,10 @@ class BPMNBuilder:
                                 max_y_used, errors_by_service)
                         else:
                             tid = bnode.id
-                            # Extract service name from span data if available
                             service_errors = []
                             if bnode.span_data:
                                 service_name = bnode.span_data[0].service_name
-                                service_errors = get_errors_for_service_if_any(service_name, errors_by_service)
+                                service_errors = self._errors_for_task_spans(service_name, bnode.span_data, errors_by_service)
                             
                             self._add_element(process, "serviceTask", tid,
                                               bnode.label,
@@ -1694,8 +1793,8 @@ def main():
     parser.add_argument("--tempo-url", default="http://localhost:3200")
     parser.add_argument("--loki-url", default="http://localhost:3100", 
                         help="Loki backend URL for querying error logs")
-    parser.add_argument("--loki-hours-back", type=int, default=2,
-                        help="Look back N hours in Loki for error logs")
+    parser.add_argument("--loki-hours-back", type=int, default=None,
+                        help="Look back N hours in Loki for error logs (defaults to --last-hours when provided, else 2)")
     parser.add_argument("--limit", type=int, default=60)
     parser.add_argument("--output", default="flows_all_bpmn2.0.xml")
     parser.add_argument("--segments-output", default="service_segments.txt")
@@ -1736,6 +1835,13 @@ def main():
         print("Both --start and --end must be provided together (or use --last-hours).")
         sys.exit(2)
 
+    loki_hours_back = args.loki_hours_back
+    if loki_hours_back is None:
+        if args.last_hours is not None:
+            loki_hours_back = max(1, int(math.ceil(args.last_hours)))
+        else:
+            loki_hours_back = 2
+
     global _id_counter
     _id_counter = 0
 
@@ -1749,10 +1855,10 @@ def main():
     )
 
     # Query Loki for errors
-    print(f"Querying Loki at {args.loki_url} for error logs (last {args.loki_hours_back} hours)...")
+    print(f"Querying Loki at {args.loki_url} for error logs (last {loki_hours_back} hours)...")
     errors_by_service = query_errors_per_service(
         loki_url=args.loki_url,
-        hours_back=args.loki_hours_back,
+        hours_back=loki_hours_back,
         limit=100,
     )
 
@@ -1793,8 +1899,9 @@ def main():
     with open(resolved_segments_output, "w", encoding="utf-8") as f:
         f.write(output_text)
 
-    individual_count = min(args.individual_limit, len(trace_flows))
-    for trace in trace_flows[:individual_count]:
+    selected_trace_flows = select_traces_for_individual_outputs(trace_flows, errors_by_service)
+    individual_count = min(args.individual_limit, len(selected_trace_flows))
+    for trace in selected_trace_flows[:individual_count]:
         individual_group = FlowGroup(
             service_name=trace.service_name,
             root_span_name=trace.root_span_name,
