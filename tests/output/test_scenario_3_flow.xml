@@ -1,0 +1,532 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:otel="http://opentelemetry.io/bpmn/extensions" id="Definitions_1" targetNamespace="http://opentelemetry.io/bpmn/generated">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1">
+      <bpmndi:BPMNShape id="Start_1_di" bpmnElement="Start_1">
+        <dc:Bounds x="180" y="291.5" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_362_di" bpmnElement="Task_362">
+        <dc:Bounds x="370" y="277.5" width="120" height="64" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DurationAnnotation_369_di" bpmnElement="DurationAnnotation_369">
+        <dc:Bounds x="335.0" y="207.5" width="190" height="54" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DurationAssociation_370_di" bpmnElement="DurationAssociation_370">
+        <di:waypoint x="525.0" y="234.5" />
+        <di:waypoint x="555.0" y="234.5" />
+        <di:waypoint x="555.0" y="309.5" />
+        <di:waypoint x="370" y="309.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_371_di" bpmnElement="Flow_371">
+        <di:waypoint x="216" y="309.5" />
+        <di:waypoint x="370" y="309.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_363_di" bpmnElement="Task_363">
+        <dc:Bounds x="640" y="277.5" width="120" height="64" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DurationAnnotation_372_di" bpmnElement="DurationAnnotation_372">
+        <dc:Bounds x="605.0" y="207.5" width="190" height="54" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DurationAssociation_373_di" bpmnElement="DurationAssociation_373">
+        <di:waypoint x="795.0" y="234.5" />
+        <di:waypoint x="825.0" y="234.5" />
+        <di:waypoint x="825.0" y="309.5" />
+        <di:waypoint x="640" y="309.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_374_di" bpmnElement="Flow_374">
+        <di:waypoint x="490" y="309.5" />
+        <di:waypoint x="640" y="309.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_364_di" bpmnElement="Task_364">
+        <dc:Bounds x="910" y="277.5" width="120" height="64" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DurationAnnotation_375_di" bpmnElement="DurationAnnotation_375">
+        <dc:Bounds x="875.0" y="207.5" width="190" height="54" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DurationAssociation_376_di" bpmnElement="DurationAssociation_376">
+        <di:waypoint x="1065.0" y="234.5" />
+        <di:waypoint x="1095.0" y="234.5" />
+        <di:waypoint x="1095.0" y="309.5" />
+        <di:waypoint x="910" y="309.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_377_di" bpmnElement="Flow_377">
+        <di:waypoint x="760" y="309.5" />
+        <di:waypoint x="910" y="309.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_365_di" bpmnElement="Task_365">
+        <dc:Bounds x="1180" y="277.5" width="120" height="64" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DurationAnnotation_378_di" bpmnElement="DurationAnnotation_378">
+        <dc:Bounds x="1145.0" y="207.5" width="190" height="54" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DurationAssociation_379_di" bpmnElement="DurationAssociation_379">
+        <di:waypoint x="1335.0" y="234.5" />
+        <di:waypoint x="1365.0" y="234.5" />
+        <di:waypoint x="1365.0" y="309.5" />
+        <di:waypoint x="1180" y="309.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_380_di" bpmnElement="Flow_380">
+        <di:waypoint x="1030" y="309.5" />
+        <di:waypoint x="1180" y="309.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_366_di" bpmnElement="Task_366">
+        <dc:Bounds x="1450" y="277.5" width="120" height="64" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DurationAnnotation_381_di" bpmnElement="DurationAnnotation_381">
+        <dc:Bounds x="1415.0" y="207.5" width="190" height="54" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DurationAssociation_382_di" bpmnElement="DurationAssociation_382">
+        <di:waypoint x="1605.0" y="234.5" />
+        <di:waypoint x="1635.0" y="234.5" />
+        <di:waypoint x="1635.0" y="309.5" />
+        <di:waypoint x="1450" y="309.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_383_di" bpmnElement="Flow_383">
+        <di:waypoint x="1300" y="309.5" />
+        <di:waypoint x="1450" y="309.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_367_di" bpmnElement="Task_367">
+        <dc:Bounds x="1720" y="277.5" width="120" height="64" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DurationAnnotation_384_di" bpmnElement="DurationAnnotation_384">
+        <dc:Bounds x="1685.0" y="207.5" width="190" height="54" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DurationAssociation_385_di" bpmnElement="DurationAssociation_385">
+        <di:waypoint x="1875.0" y="234.5" />
+        <di:waypoint x="1905.0" y="234.5" />
+        <di:waypoint x="1905.0" y="309.5" />
+        <di:waypoint x="1720" y="309.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_386_di" bpmnElement="Flow_386">
+        <di:waypoint x="1570" y="309.5" />
+        <di:waypoint x="1720" y="309.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_368_di" bpmnElement="Task_368">
+        <dc:Bounds x="1990" y="277.5" width="120" height="64" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DurationAnnotation_387_di" bpmnElement="DurationAnnotation_387">
+        <dc:Bounds x="1955.0" y="207.5" width="190" height="54" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DurationAssociation_388_di" bpmnElement="DurationAssociation_388">
+        <di:waypoint x="2145.0" y="234.5" />
+        <di:waypoint x="2175.0" y="234.5" />
+        <di:waypoint x="2175.0" y="309.5" />
+        <di:waypoint x="1990" y="309.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_389_di" bpmnElement="Flow_389">
+        <di:waypoint x="1840" y="309.5" />
+        <di:waypoint x="1990" y="309.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="End_1_di" bpmnElement="End_1">
+        <dc:Bounds x="2260" y="291.5" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_390_di" bpmnElement="Flow_390">
+        <di:waypoint x="2110" y="309.5" />
+        <di:waypoint x="2260" y="309.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TraceTitle_1_di" bpmnElement="TraceTitle_1">
+        <dc:Bounds x="1722.0" y="24" width="336" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_1_di" bpmnElement="Participant_1">
+        <dc:Bounds x="60" y="0" width="3660" height="465" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <collaboration id="Collaboration_1">
+    <participant id="Participant_1" name="ABPT / GET /d&#10;(1 traces, avg 5083ms)" processRef="Process_1" />
+  </collaboration>
+  <process id="Process_1" isExecutable="false">
+    <documentation>Auto-generated from OpenTelemetry trace data.
+Service: ABPT
+Root span: GET /d
+Primary trace ID: e62b8b273bfe776948021daaa35de7ce
+Traces analyzed: 1
+Avg duration: 5083.2ms
+Error rate: 0.0%
+Service average durations (ms):
+- ABPT: 3802.4
+- Nimbus: 4122.5
+- ISBUS: 3844.1
+- IDP_Platform: 3880.9
+- IDP-IDM: 3534.1
+- ECO Suite: 1841.0
+- TDICE: 217.2</documentation>
+    <startEvent id="Start_1" name="Request&#10;Received" />
+    <serviceTask id="Task_362" name="ABPT">
+      <extensionElements>
+        <otel:spanDataSet>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="dNlN4+tEqFg=" parentSpanId="" name="GET /d" service="ABPT" durationMs="5083.156" status="OK">
+            <otel:attributes>
+              <otel:attribute key="Business_Flow_ID" value="TechFast-Broadband" />
+              <otel:attribute key="Business_Flow_Instance_ID" value="A0000001" />
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="chain_id" value="test_scenario_3" />
+              <otel:attribute key="http.flavor" value="1.1" />
+              <otel:attribute key="http.host" value="localhost:8004" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.route" value="/d" />
+              <otel:attribute key="http.scheme" value="http" />
+              <otel:attribute key="http.server_name" value="0.0.0.0" />
+              <otel:attribute key="http.status_code" value="200" />
+              <otel:attribute key="http.target" value="/d?chain_id=test_scenario_3" />
+              <otel:attribute key="http.user_agent" value="python-requests/2.32.3" />
+              <otel:attribute key="net.host.name" value="localhost:8004" />
+              <otel:attribute key="net.host.port" value="8004" />
+              <otel:attribute key="net.peer.ip" value="127.0.0.1" />
+              <otel:attribute key="net.peer.port" value="55346" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="aWUM1ukgWpU=" parentSpanId="dNlN4+tEqFg=" name="process-request" service="ABPT" durationMs="5080.407" status="OK">
+            <otel:attributes>
+              <otel:attribute key="Business_Flow_ID" value="TechFast-Broadband" />
+              <otel:attribute key="Business_Flow_Instance_ID" value="A0000001" />
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="chain_id" value="test_scenario_3" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="DXvaq5D36lc=" parentSpanId="aWUM1ukgWpU=" name="db_d SELECT" service="ABPT" durationMs="5.520" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="db.name" value="db_d" />
+              <otel:attribute key="db.operation" value="SELECT" />
+              <otel:attribute key="db.statement" value="SELECT * FROM db_d.main_table WHERE id = ?" />
+              <otel:attribute key="db.system" value="postgresql" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="4jBJ1In35yw=" parentSpanId="aWUM1ukgWpU=" name="GET" service="ABPT" durationMs="5040.476" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.url" value="http://localhost:8016/nimbus" />
+            </otel:attributes>
+          </otel:spanData>
+        </otel:spanDataSet>
+      </extensionElements>
+    </serviceTask>
+    <textAnnotation id="DurationAnnotation_369">
+      <text>duarationDataSet
+key=avg duration
+value=3802.4 millisecs</text>
+    </textAnnotation>
+    <association id="DurationAssociation_370" sourceRef="DurationAnnotation_369" targetRef="Task_362" />
+    <sequenceFlow id="Flow_371" sourceRef="Start_1" targetRef="Task_362" />
+    <serviceTask id="Task_363" name="Nimbus">
+      <extensionElements>
+        <otel:spanDataSet>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="pV9dKOXh2/M=" parentSpanId="4jBJ1In35yw=" name="GET /nimbus" service="Nimbus" durationMs="5754.706" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="http.flavor" value="1.1" />
+              <otel:attribute key="http.host" value="localhost:8016" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.route" value="/nimbus" />
+              <otel:attribute key="http.scheme" value="http" />
+              <otel:attribute key="http.server_name" value="0.0.0.0" />
+              <otel:attribute key="http.status_code" value="200" />
+              <otel:attribute key="http.target" value="/nimbus" />
+              <otel:attribute key="http.user_agent" value="python-requests/2.32.3" />
+              <otel:attribute key="net.host.name" value="localhost:8016" />
+              <otel:attribute key="net.host.port" value="8016" />
+              <otel:attribute key="net.peer.ip" value="127.0.0.1" />
+              <otel:attribute key="net.peer.port" value="60762" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="eCI973lgMJM=" parentSpanId="pV9dKOXh2/M=" name="process-request" service="Nimbus" durationMs="5561.317" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="chain_id" value="test_scenario_3" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="MPkHqfTQAWQ=" parentSpanId="eCI973lgMJM=" name="db_nimbus SELECT" service="Nimbus" durationMs="47.143" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="db.name" value="db_nimbus" />
+              <otel:attribute key="db.operation" value="SELECT" />
+              <otel:attribute key="db.statement" value="SELECT * FROM db_nimbus.main_table WHERE id = ?" />
+              <otel:attribute key="db.system" value="postgresql" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="7Z2mFTzm6kM=" parentSpanId="eCI973lgMJM=" name="GET" service="Nimbus" durationMs="5126.918" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.url" value="http://localhost:8014/isbus" />
+            </otel:attributes>
+          </otel:spanData>
+        </otel:spanDataSet>
+      </extensionElements>
+    </serviceTask>
+    <textAnnotation id="DurationAnnotation_372">
+      <text>duarationDataSet
+key=avg duration
+value=4122.5 millisecs</text>
+    </textAnnotation>
+    <association id="DurationAssociation_373" sourceRef="DurationAnnotation_372" targetRef="Task_363" />
+    <sequenceFlow id="Flow_374" sourceRef="Task_362" targetRef="Task_363" />
+    <serviceTask id="Task_364" name="ISBUS">
+      <extensionElements>
+        <otel:spanDataSet>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="vI21LuV46XI=" parentSpanId="7Z2mFTzm6kM=" name="GET /isbus" service="ISBUS" durationMs="5195.326" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="http.flavor" value="1.1" />
+              <otel:attribute key="http.host" value="localhost:8014" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.route" value="/isbus" />
+              <otel:attribute key="http.scheme" value="http" />
+              <otel:attribute key="http.server_name" value="0.0.0.0" />
+              <otel:attribute key="http.status_code" value="200" />
+              <otel:attribute key="http.target" value="/isbus" />
+              <otel:attribute key="http.user_agent" value="python-requests/2.32.3" />
+              <otel:attribute key="net.host.name" value="localhost:8014" />
+              <otel:attribute key="net.host.port" value="8014" />
+              <otel:attribute key="net.peer.ip" value="127.0.0.1" />
+              <otel:attribute key="net.peer.port" value="60772" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="GbCzcjvfM4Y=" parentSpanId="vI21LuV46XI=" name="process-request" service="ISBUS" durationMs="5106.167" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="chain_id" value="test_scenario_3" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="w1+Pestyo58=" parentSpanId="GbCzcjvfM4Y=" name="db_isbus SELECT" service="ISBUS" durationMs="8.907" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="db.name" value="db_isbus" />
+              <otel:attribute key="db.operation" value="SELECT" />
+              <otel:attribute key="db.statement" value="SELECT * FROM db_isbus.main_table WHERE id = ?" />
+              <otel:attribute key="db.system" value="postgresql" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="GFsTixZQs3A=" parentSpanId="GbCzcjvfM4Y=" name="GET" service="ISBUS" durationMs="5066.019" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.url" value="http://localhost:8010/j" />
+            </otel:attributes>
+          </otel:spanData>
+        </otel:spanDataSet>
+      </extensionElements>
+    </serviceTask>
+    <textAnnotation id="DurationAnnotation_375">
+      <text>duarationDataSet
+key=avg duration
+value=3844.1 millisecs</text>
+    </textAnnotation>
+    <association id="DurationAssociation_376" sourceRef="DurationAnnotation_375" targetRef="Task_364" />
+    <sequenceFlow id="Flow_377" sourceRef="Task_363" targetRef="Task_364" />
+    <serviceTask id="Task_365" name="IDP_Platform">
+      <extensionElements>
+        <otel:spanDataSet>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="+9m5rHYoeU4=" parentSpanId="GFsTixZQs3A=" name="GET /j" service="IDP_Platform" durationMs="5189.164" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="http.flavor" value="1.1" />
+              <otel:attribute key="http.host" value="localhost:8010" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.route" value="/j" />
+              <otel:attribute key="http.scheme" value="http" />
+              <otel:attribute key="http.server_name" value="0.0.0.0" />
+              <otel:attribute key="http.status_code" value="200" />
+              <otel:attribute key="http.target" value="/j" />
+              <otel:attribute key="http.user_agent" value="python-requests/2.32.3" />
+              <otel:attribute key="net.host.name" value="localhost:8010" />
+              <otel:attribute key="net.host.port" value="8010" />
+              <otel:attribute key="net.peer.ip" value="127.0.0.1" />
+              <otel:attribute key="net.peer.port" value="60782" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="nSAvGlA0Q24=" parentSpanId="+9m5rHYoeU4=" name="process-request" service="IDP_Platform" durationMs="5186.396" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="chain_id" value="test_scenario_3" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="4cQr6V4FjP4=" parentSpanId="nSAvGlA0Q24=" name="db_j SELECT" service="IDP_Platform" durationMs="5.819" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="db.name" value="db_j" />
+              <otel:attribute key="db.operation" value="SELECT" />
+              <otel:attribute key="db.statement" value="SELECT * FROM db_j.main_table WHERE id = ?" />
+              <otel:attribute key="db.system" value="postgresql" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="hyHoZYHbLoo=" parentSpanId="nSAvGlA0Q24=" name="GET" service="IDP_Platform" durationMs="5142.196" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.url" value="http://localhost:8002/b" />
+            </otel:attributes>
+          </otel:spanData>
+        </otel:spanDataSet>
+      </extensionElements>
+    </serviceTask>
+    <textAnnotation id="DurationAnnotation_378">
+      <text>duarationDataSet
+key=avg duration
+value=3880.9 millisecs</text>
+    </textAnnotation>
+    <association id="DurationAssociation_379" sourceRef="DurationAnnotation_378" targetRef="Task_365" />
+    <sequenceFlow id="Flow_380" sourceRef="Task_364" targetRef="Task_365" />
+    <serviceTask id="Task_366" name="IDP-IDM">
+      <extensionElements>
+        <otel:spanDataSet>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="9NA5aBqUvV8=" parentSpanId="hyHoZYHbLoo=" name="GET /b" service="IDP-IDM" durationMs="4883.442" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="http.flavor" value="1.1" />
+              <otel:attribute key="http.host" value="localhost:8002" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.route" value="/b" />
+              <otel:attribute key="http.scheme" value="http" />
+              <otel:attribute key="http.server_name" value="0.0.0.0" />
+              <otel:attribute key="http.status_code" value="200" />
+              <otel:attribute key="http.target" value="/b" />
+              <otel:attribute key="http.user_agent" value="python-requests/2.32.3" />
+              <otel:attribute key="net.host.name" value="localhost:8002" />
+              <otel:attribute key="net.host.port" value="8002" />
+              <otel:attribute key="net.peer.ip" value="127.0.0.1" />
+              <otel:attribute key="net.peer.port" value="60789" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="BLoAPkuhTEw=" parentSpanId="9NA5aBqUvV8=" name="process-request" service="IDP-IDM" durationMs="4726.038" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="chain_id" value="test_scenario_3" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="7q8VU47yTeM=" parentSpanId="BLoAPkuhTEw=" name="db_b SELECT" service="IDP-IDM" durationMs="16.297" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="db.name" value="db_b" />
+              <otel:attribute key="db.operation" value="SELECT" />
+              <otel:attribute key="db.statement" value="SELECT * FROM db_b.main_table WHERE id = ?" />
+              <otel:attribute key="db.system" value="postgresql" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="ZXS4PJi7oBg=" parentSpanId="BLoAPkuhTEw=" name="GET" service="IDP-IDM" durationMs="4510.433" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.status_code" value="200" />
+              <otel:attribute key="http.url" value="http://localhost:8006/f" />
+            </otel:attributes>
+          </otel:spanData>
+        </otel:spanDataSet>
+      </extensionElements>
+    </serviceTask>
+    <textAnnotation id="DurationAnnotation_381">
+      <text>duarationDataSet
+key=avg duration
+value=3534.1 millisecs</text>
+    </textAnnotation>
+    <association id="DurationAssociation_382" sourceRef="DurationAnnotation_381" targetRef="Task_366" />
+    <sequenceFlow id="Flow_383" sourceRef="Task_365" targetRef="Task_366" />
+    <serviceTask id="Task_367" name="ECO Suite">
+      <extensionElements>
+        <otel:spanDataSet>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="23JWU5iHuug=" parentSpanId="ZXS4PJi7oBg=" name="GET /f" service="ECO Suite" durationMs="2463.153" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="http.flavor" value="1.1" />
+              <otel:attribute key="http.host" value="localhost:8006" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.route" value="/f" />
+              <otel:attribute key="http.scheme" value="http" />
+              <otel:attribute key="http.server_name" value="0.0.0.0" />
+              <otel:attribute key="http.status_code" value="200" />
+              <otel:attribute key="http.target" value="/f" />
+              <otel:attribute key="http.user_agent" value="python-requests/2.32.3" />
+              <otel:attribute key="net.host.name" value="localhost:8006" />
+              <otel:attribute key="net.host.port" value="8006" />
+              <otel:attribute key="net.peer.ip" value="127.0.0.1" />
+              <otel:attribute key="net.peer.port" value="60793" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="2/k/p86hyz4=" parentSpanId="23JWU5iHuug=" name="process-request" service="ECO Suite" durationMs="2460.762" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="chain_id" value="test_scenario_3" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="ST1FjFDrIh0=" parentSpanId="2/k/p86hyz4=" name="db_f SELECT" service="ECO Suite" durationMs="2.400" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="db.name" value="db_f" />
+              <otel:attribute key="db.operation" value="SELECT" />
+              <otel:attribute key="db.statement" value="SELECT * FROM db_f.main_table WHERE id = ?" />
+              <otel:attribute key="db.system" value="postgresql" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="KRRbTHPHl8g=" parentSpanId="2/k/p86hyz4=" name="GET" service="ECO Suite" durationMs="2437.886" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.status_code" value="200" />
+              <otel:attribute key="http.url" value="http://localhost:8012/tdice" />
+            </otel:attributes>
+          </otel:spanData>
+        </otel:spanDataSet>
+      </extensionElements>
+    </serviceTask>
+    <textAnnotation id="DurationAnnotation_384">
+      <text>duarationDataSet
+key=avg duration
+value=1841.0 millisecs</text>
+    </textAnnotation>
+    <association id="DurationAssociation_385" sourceRef="DurationAnnotation_384" targetRef="Task_367" />
+    <sequenceFlow id="Flow_386" sourceRef="Task_366" targetRef="Task_367" />
+    <serviceTask id="Task_368" name="TDICE">
+      <extensionElements>
+        <otel:spanDataSet>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="uChgytnoQrc=" parentSpanId="KRRbTHPHl8g=" name="GET /tdice" service="TDICE" durationMs="381.021" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="http.flavor" value="1.1" />
+              <otel:attribute key="http.host" value="localhost:8012" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.route" value="/tdice" />
+              <otel:attribute key="http.scheme" value="http" />
+              <otel:attribute key="http.server_name" value="0.0.0.0" />
+              <otel:attribute key="http.status_code" value="200" />
+              <otel:attribute key="http.target" value="/tdice" />
+              <otel:attribute key="http.user_agent" value="python-requests/2.32.3" />
+              <otel:attribute key="net.host.name" value="localhost:8012" />
+              <otel:attribute key="net.host.port" value="8012" />
+              <otel:attribute key="net.peer.ip" value="127.0.0.1" />
+              <otel:attribute key="net.peer.port" value="60800" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="L/k1XPfiCzY=" parentSpanId="uChgytnoQrc=" name="process-request" service="TDICE" durationMs="255.679" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="chain_id" value="test_scenario_3" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="e62b8b273bfe776948021daaa35de7ce" spanId="3rA5RHQqHdY=" parentSpanId="L/k1XPfiCzY=" name="db_tdice SELECT" service="TDICE" durationMs="14.944" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Troubleshoot Broadband (Care)" />
+              <otel:attribute key="db.name" value="db_tdice" />
+              <otel:attribute key="db.operation" value="SELECT" />
+              <otel:attribute key="db.statement" value="SELECT * FROM db_tdice.main_table WHERE id = ?" />
+              <otel:attribute key="db.system" value="postgresql" />
+            </otel:attributes>
+          </otel:spanData>
+        </otel:spanDataSet>
+      </extensionElements>
+    </serviceTask>
+    <textAnnotation id="DurationAnnotation_387">
+      <text>duarationDataSet
+key=avg duration
+value=217.2 millisecs</text>
+    </textAnnotation>
+    <association id="DurationAssociation_388" sourceRef="DurationAnnotation_387" targetRef="Task_368" />
+    <sequenceFlow id="Flow_389" sourceRef="Task_367" targetRef="Task_368" />
+    <endEvent id="End_1" name="Completed" />
+    <sequenceFlow id="Flow_390" sourceRef="Task_368" targetRef="End_1" />
+    <textAnnotation id="TraceTitle_1">
+      <text>Trace ID: e62b8b273bfe776948021daaa35de7ce</text>
+    </textAnnotation>
+  </process>
+</definitions>

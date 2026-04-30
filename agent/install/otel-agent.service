@@ -1,0 +1,22 @@
+[Unit]
+Description=OpenTelemetry Agent (host metrics)
+Documentation=https://opentelemetry.io/docs/collector/
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=otel-agent
+Group=otel-agent
+ExecStart=/usr/local/bin/otel-agent --config /etc/otel-agent/config.yaml
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=65536
+
+# Environment overrides — edit or use drop-in /etc/systemd/system/otel-agent.service.d/override.conf
+Environment="CENTRAL_COLLECTOR_ENDPOINT=collector.example.com:4317"
+Environment="ENVIRONMENT=dev"
+Environment="COLLECTION_INTERVAL=30s"
+
+[Install]
+WantedBy=multi-user.target

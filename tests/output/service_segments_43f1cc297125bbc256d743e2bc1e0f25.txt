@@ -1,0 +1,21 @@
+ABPT -> T.Data
+T.Data -> IDP-IDM
+ABPT -> T.Data -> IDP-IDM
+IDP-IDM -> (FED) - TDICE
+T.Data -> IDP-IDM -> (FED) - TDICE
+ABPT -> T.Data -> IDP-IDM -> (FED) - TDICE
+(FED) - TDICE -> Amp-MM - Invenio
+IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio
+T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio
+ABPT -> T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio
+Amp-MM - Invenio -> ECO Suite
+(FED) - TDICE -> Amp-MM - Invenio -> ECO Suite
+IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite
+T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite
+ABPT -> T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite
+ECO Suite -> TDICE
+Amp-MM - Invenio -> ECO Suite -> TDICE
+(FED) - TDICE -> Amp-MM - Invenio -> ECO Suite -> TDICE
+IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite -> TDICE
+T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite -> TDICE
+ABPT -> T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite -> TDICE

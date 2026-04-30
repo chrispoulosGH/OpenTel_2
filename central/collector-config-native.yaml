@@ -1,0 +1,73 @@
+# ============================================================
+# Central Collector Config — Native / localhost (Phase 1)
+# ============================================================
+# Same as collector-config.yaml but uses localhost instead of
+# Docker service names.
+# ============================================================
+
+extensions:
+  health_check:
+    endpoint: 0.0.0.0:13133
+
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+
+processors:
+  memory_limiter:
+    check_interval: 5s
+    limit_percentage: 70
+    spike_limit_percentage: 20
+
+  resource/loki-labels:
+    attributes:
+      - action: insert
+        key: loki.resource.labels
+        value: service.name,service.instance.id
+
+  attributes/loki-event-label:
+    actions:
+      - key: loki.attribute.labels
+        action: upsert
+        value: event
+
+  batch:
+    send_batch_size: 8192
+    timeout: 2s
+
+exporters:
+  prometheusremotewrite:
+    endpoint: http://localhost:9090/api/v1/write
+    tls:
+      insecure: true
+
+  otlp/tempo:
+    endpoint: localhost:4320
+    tls:
+      insecure: true
+
+  loki:
+    endpoint: http://localhost:3100/loki/api/v1/push
+
+  debug:
+    verbosity: basic
+
+service:
+  extensions: [health_check]
+  pipelines:
+    metrics:
+      receivers: [otlp]
+      processors: [memory_limiter, batch]
+      exporters: [prometheusremotewrite]
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter, batch]
+      exporters: [otlp/tempo]
+    logs:
+      receivers: [otlp]
+      processors: [memory_limiter, resource/loki-labels, attributes/loki-event-label, batch]
+      exporters: [loki]

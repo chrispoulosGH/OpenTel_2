@@ -1,0 +1,7 @@
+{
+    "loki":  65604,
+    "prometheus":  74424,
+    "otelcollector":  74852,
+    "grafana":  81672,
+    "tempo":  93008
+}

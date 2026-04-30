@@ -1,0 +1,36 @@
+# Grafana Tempo config (Phase 1 - local storage, single instance)
+# Receives traces via OTLP from the central OTel Collector.
+
+server:
+  http_listen_port: 3200
+
+distributor:
+  receivers:
+    otlp:
+      protocols:
+        grpc:
+          endpoint: 0.0.0.0:4320
+        http:
+          endpoint: 0.0.0.0:4321
+
+storage:
+  trace:
+    backend: local
+    local:
+      path: C:\code\openTel_2\central\bin\tempo-data
+    wal:
+      path: C:\code\openTel_2\central\bin\tempo-wal
+
+metrics_generator:
+  registry:
+    external_labels:
+      source: tempo
+  storage:
+    path: C:\code\openTel_2\central\bin\tempo-metrics-wal
+    remote_write:
+      - url: http://localhost:9090/api/v1/write
+
+overrides:
+  defaults:
+    metrics_generator:
+      processors: [service-graphs, span-metrics]

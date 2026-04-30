@@ -1,0 +1,60 @@
+# ============================================================
+# OTel Agent — Host Metrics Config — LINUX (Phase 1 / Slim)
+# ============================================================
+# Env vars required:
+#   CENTRAL_COLLECTOR_ENDPOINT  — e.g. collector.example.com:4317
+#   ENVIRONMENT                 — e.g. dev, staging, prod
+#   COLLECTION_INTERVAL         — optional, default 30s
+# ============================================================
+
+extensions:
+  health_check:
+    endpoint: 0.0.0.0:13133
+
+receivers:
+  hostmetrics:
+    collection_interval: ${env:COLLECTION_INTERVAL:-30s}
+    scrapers:
+      cpu: {}
+      memory: {}
+      disk: {}
+      filesystem: {}
+      load: {}
+      network: {}
+
+processors:
+  memory_limiter:
+    check_interval: 5s
+    limit_percentage: 75
+    spike_limit_percentage: 15
+
+  resourcedetection:
+    detectors: ["system"]
+    system:
+      hostname_sources: ["os"]
+
+  batch:
+    send_batch_size: 8192
+    timeout: 5s
+
+exporters:
+  otlp:
+    endpoint: ${env:CENTRAL_COLLECTOR_ENDPOINT}
+    tls:
+      insecure: true          # TODO: enable TLS before production (Phase 2)
+    retry_on_failure:
+      enabled: true
+    sending_queue:
+      enabled: true
+      queue_size: 512
+
+  debug:
+    verbosity: basic
+
+service:
+  extensions: [health_check]
+  pipelines:
+    metrics:
+      receivers: [hostmetrics]
+      processors: [memory_limiter, resourcedetection, batch]
+      exporters: [otlp]

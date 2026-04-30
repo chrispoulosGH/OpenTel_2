@@ -1,0 +1,125 @@
+{
+  "dashboard": {
+    "id": null,
+    "uid": "host-overview",
+    "title": "Host Overview",
+    "tags": ["otel", "host-metrics"],
+    "timezone": "browser",
+    "refresh": "30s",
+    "time": { "from": "now-1h", "to": "now" },
+    "panels": [
+      {
+        "id": 1,
+        "title": "CPU Usage by State",
+        "type": "timeseries",
+        "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+        "datasource": { "type": "prometheus", "uid": "" },
+        "fieldConfig": {
+          "defaults": { "unit": "percentunit", "min": 0, "max": 1 },
+          "overrides": []
+        },
+        "targets": [
+          {
+            "expr": "rate(system_cpu_time_seconds_total[1m])",
+            "legendFormat": "{{cpu}} - {{state}}",
+            "refId": "A"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Memory Usage",
+        "type": "timeseries",
+        "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
+        "datasource": { "type": "prometheus", "uid": "" },
+        "fieldConfig": {
+          "defaults": { "unit": "bytes" },
+          "overrides": []
+        },
+        "targets": [
+          {
+            "expr": "system_memory_usage_bytes",
+            "legendFormat": "{{state}}",
+            "refId": "A"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Disk I/O Throughput",
+        "type": "timeseries",
+        "gridPos": { "h": 8, "w": 12, "x": 0, "y": 8 },
+        "datasource": { "type": "prometheus", "uid": "" },
+        "fieldConfig": {
+          "defaults": { "unit": "Bps" },
+          "overrides": []
+        },
+        "targets": [
+          {
+            "expr": "rate(system_disk_io_bytes_total[1m])",
+            "legendFormat": "{{device}} {{direction}}",
+            "refId": "A"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Network I/O Throughput",
+        "type": "timeseries",
+        "gridPos": { "h": 8, "w": 12, "x": 12, "y": 8 },
+        "datasource": { "type": "prometheus", "uid": "" },
+        "fieldConfig": {
+          "defaults": { "unit": "Bps" },
+          "overrides": []
+        },
+        "targets": [
+          {
+            "expr": "rate(system_network_io_bytes_total[1m])",
+            "legendFormat": "{{device}} {{direction}}",
+            "refId": "A"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Filesystem Usage",
+        "type": "bargauge",
+        "gridPos": { "h": 8, "w": 12, "x": 0, "y": 16 },
+        "datasource": { "type": "prometheus", "uid": "" },
+        "fieldConfig": {
+          "defaults": { "unit": "bytes", "thresholds": { "mode": "percentage", "steps": [{"color": "green", "value": null}, {"color": "yellow", "value": 70}, {"color": "red", "value": 90}] } },
+          "overrides": []
+        },
+        "options": { "orientation": "horizontal", "displayMode": "gradient" },
+        "targets": [
+          {
+            "expr": "system_filesystem_usage_bytes{state=\"used\"}",
+            "legendFormat": "{{mountpoint}}",
+            "refId": "A"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Disk IOPS",
+        "type": "timeseries",
+        "gridPos": { "h": 8, "w": 12, "x": 12, "y": 16 },
+        "datasource": { "type": "prometheus", "uid": "" },
+        "fieldConfig": {
+          "defaults": { "unit": "ops" },
+          "overrides": []
+        },
+        "targets": [
+          {
+            "expr": "rate(system_disk_operations_total[1m])",
+            "legendFormat": "{{device}} {{direction}}",
+            "refId": "A"
+          }
+        ]
+      }
+    ],
+    "schemaVersion": 39,
+    "version": 1
+  },
+  "overwrite": true
+}

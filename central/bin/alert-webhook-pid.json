@@ -1,0 +1,7 @@
+{
+    "port":  8088,
+    "host":  "127.0.0.1",
+    "pid":  9276,
+    "log_file":  "C:\\code\\openTel_2\\central\\bin\\alert-webhook\\alerts.ndjson",
+    "started_at":  "2026-03-31T15:20:55.6395091-04:00"
+}

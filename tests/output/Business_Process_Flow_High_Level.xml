@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://opentelemetry.io/bpmn/generated">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1">
+      <bpmndi:BPMNShape id="HighLevelStart_1_di" bpmnElement="HighLevelStart_1">
+        <dc:Bounds x="180" y="112.0" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="HL_SubProcess_LookupCustomer_1_di" bpmnElement="HL_SubProcess_LookupCustomer_1">
+        <dc:Bounds x="370" y="98" width="120" height="64" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="HL_Flow_1_di" bpmnElement="HL_Flow_1">
+        <di:waypoint x="216" y="130.0" />
+        <di:waypoint x="370" y="130.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="HL_SubProcess_Troubleshoot_1_di" bpmnElement="HL_SubProcess_Troubleshoot_1">
+        <dc:Bounds x="640" y="98" width="120" height="64" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="HL_Flow_2_di" bpmnElement="HL_Flow_2">
+        <di:waypoint x="490" y="130.0" />
+        <di:waypoint x="640" y="130.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="HighLevelEnd_1_di" bpmnElement="HighLevelEnd_1">
+        <dc:Bounds x="910" y="112.0" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="HL_Flow_13_di" bpmnElement="HL_Flow_13">
+        <di:waypoint x="760" y="130.0" />
+        <di:waypoint x="910" y="130.0" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="HighLevelTitle_1_di" bpmnElement="HighLevelTitle_1">
+        <dc:Bounds x="717.5" y="24" width="320" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="HighLevelParticipant_1_di" bpmnElement="HighLevelParticipant_1">
+        <dc:Bounds x="60" y="0" width="1635" height="480" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <collaboration id="Collaboration_1">
+    <participant id="HighLevelParticipant_1" name="Business Process Flow (High Level)" processRef="HighLevelProcess_1" />
+  </collaboration>
+  <process id="HighLevelProcess_1" isExecutable="false">
+    <documentation>High-level business process abstraction.
+Tasks: Lookup Customer, Troubleshoot.</documentation>
+    <startEvent id="HighLevelStart_1" name="Start" />
+    <subProcess id="HL_SubProcess_LookupCustomer_1" name="Lookup Customer">
+      <documentation>See: lookup_customer_chain_flow.xml</documentation>
+    </subProcess>
+    <sequenceFlow id="HL_Flow_1" sourceRef="HighLevelStart_1" targetRef="HL_SubProcess_LookupCustomer_1" />
+    <subProcess id="HL_SubProcess_Troubleshoot_1" name="Troubleshoot">
+      <subProcess id="HL_SubProcess_Troubleshoot_Scenario1_1" name="Test Scenario 1">
+        <documentation>See: test_scenario_1_flow.xml</documentation>
+      </subProcess>
+      <subProcess id="HL_SubProcess_Troubleshoot_Scenario2_1" name="Test Scenario 2">
+        <documentation>See: test_scenario_2_flow.xml</documentation>
+      </subProcess>
+      <sequenceFlow id="HL_Flow_3" sourceRef="HL_SubProcess_Troubleshoot_Scenario1_1" targetRef="HL_SubProcess_Troubleshoot_Scenario2_1" />
+      <subProcess id="HL_SubProcess_Troubleshoot_Scenario3_1" name="Test Scenario 3">
+        <documentation>See: test_scenario_3_flow.xml</documentation>
+      </subProcess>
+      <sequenceFlow id="HL_Flow_4" sourceRef="HL_SubProcess_Troubleshoot_Scenario2_1" targetRef="HL_SubProcess_Troubleshoot_Scenario3_1" />
+      <subProcess id="HL_SubProcess_Troubleshoot_Scenario4_1" name="Test Scenario 4">
+        <documentation>See: test_scenario_4_flow.xml</documentation>
+      </subProcess>
+      <sequenceFlow id="HL_Flow_5" sourceRef="HL_SubProcess_Troubleshoot_Scenario3_1" targetRef="HL_SubProcess_Troubleshoot_Scenario4_1" />
+      <subProcess id="HL_SubProcess_Troubleshoot_Scenario5_1" name="Test Scenario 5">
+        <documentation>See: test_scenario_5_flow.xml</documentation>
+      </subProcess>
+      <sequenceFlow id="HL_Flow_6" sourceRef="HL_SubProcess_Troubleshoot_Scenario4_1" targetRef="HL_SubProcess_Troubleshoot_Scenario5_1" />
+      <subProcess id="HL_SubProcess_Troubleshoot_Scenario6_1" name="Test Scenario 6">
+        <documentation>See: test_scenario_6_flow.xml</documentation>
+      </subProcess>
+      <sequenceFlow id="HL_Flow_7" sourceRef="HL_SubProcess_Troubleshoot_Scenario5_1" targetRef="HL_SubProcess_Troubleshoot_Scenario6_1" />
+      <subProcess id="HL_SubProcess_Troubleshoot_Scenario7_1" name="Test Scenario 7">
+        <documentation>See: test_scenario_7_flow.xml</documentation>
+      </subProcess>
+      <sequenceFlow id="HL_Flow_8" sourceRef="HL_SubProcess_Troubleshoot_Scenario6_1" targetRef="HL_SubProcess_Troubleshoot_Scenario7_1" />
+      <subProcess id="HL_SubProcess_Troubleshoot_Scenario8_1" name="Test Scenario 8">
+        <documentation>See: test_scenario_8_flow.xml</documentation>
+      </subProcess>
+      <sequenceFlow id="HL_Flow_9" sourceRef="HL_SubProcess_Troubleshoot_Scenario7_1" targetRef="HL_SubProcess_Troubleshoot_Scenario8_1" />
+      <subProcess id="HL_SubProcess_Troubleshoot_Scenario9_1" name="Test Scenario 9">
+        <documentation>See: test_scenario_9_flow.xml</documentation>
+      </subProcess>
+      <sequenceFlow id="HL_Flow_10" sourceRef="HL_SubProcess_Troubleshoot_Scenario8_1" targetRef="HL_SubProcess_Troubleshoot_Scenario9_1" />
+      <subProcess id="HL_SubProcess_Troubleshoot_Scenario10_1" name="Test Scenario 10">
+        <documentation>See: test_scenario_10_flow.xml</documentation>
+      </subProcess>
+      <sequenceFlow id="HL_Flow_11" sourceRef="HL_SubProcess_Troubleshoot_Scenario9_1" targetRef="HL_SubProcess_Troubleshoot_Scenario10_1" />
+      <subProcess id="HL_SubProcess_Troubleshoot_AllScenarios_1" name="All Scenarios (Merged)">
+        <documentation>See: flows_all_bpmn2.0.xml</documentation>
+      </subProcess>
+      <sequenceFlow id="HL_Flow_12" sourceRef="HL_SubProcess_Troubleshoot_Scenario10_1" targetRef="HL_SubProcess_Troubleshoot_AllScenarios_1" />
+    </subProcess>
+    <sequenceFlow id="HL_Flow_2" sourceRef="HL_SubProcess_LookupCustomer_1" targetRef="HL_SubProcess_Troubleshoot_1" />
+    <endEvent id="HighLevelEnd_1" name="End" />
+    <sequenceFlow id="HL_Flow_13" sourceRef="HL_SubProcess_Troubleshoot_1" targetRef="HighLevelEnd_1" />
+    <textAnnotation id="HighLevelTitle_1">
+      <text>Business Process Flow (High Level)</text>
+    </textAnnotation>
+  </process>
+</definitions>

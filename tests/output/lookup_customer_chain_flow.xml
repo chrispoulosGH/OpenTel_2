@@ -1,0 +1,375 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:otel="http://opentelemetry.io/bpmn/extensions" id="Definitions_1" targetNamespace="http://opentelemetry.io/bpmn/generated">
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1">
+      <bpmndi:BPMNShape id="Start_1_di" bpmnElement="Start_1">
+        <dc:Bounds x="180" y="256.5" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_309_di" bpmnElement="Task_309">
+        <dc:Bounds x="370" y="242.5" width="120" height="64" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_315_di" bpmnElement="Flow_315">
+        <di:waypoint x="216" y="274.5" />
+        <di:waypoint x="370" y="274.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_310_di" bpmnElement="Task_310">
+        <dc:Bounds x="640" y="242.5" width="120" height="64" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_316_di" bpmnElement="Flow_316">
+        <di:waypoint x="490" y="274.5" />
+        <di:waypoint x="640" y="274.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_311_di" bpmnElement="Task_311">
+        <dc:Bounds x="910" y="242.5" width="120" height="64" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_317_di" bpmnElement="Flow_317">
+        <di:waypoint x="760" y="274.5" />
+        <di:waypoint x="910" y="274.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_312_di" bpmnElement="Task_312">
+        <dc:Bounds x="1180" y="242.5" width="120" height="64" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_318_di" bpmnElement="Flow_318">
+        <di:waypoint x="1030" y="274.5" />
+        <di:waypoint x="1180" y="274.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_313_di" bpmnElement="Task_313">
+        <dc:Bounds x="1450" y="242.5" width="120" height="64" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_319_di" bpmnElement="Flow_319">
+        <di:waypoint x="1300" y="274.5" />
+        <di:waypoint x="1450" y="274.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Task_314_di" bpmnElement="Task_314">
+        <dc:Bounds x="1720" y="242.5" width="120" height="64" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_320_di" bpmnElement="Flow_320">
+        <di:waypoint x="1570" y="274.5" />
+        <di:waypoint x="1720" y="274.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="End_1_di" bpmnElement="End_1">
+        <dc:Bounds x="1990" y="256.5" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_321_di" bpmnElement="Flow_321">
+        <di:waypoint x="1840" y="274.5" />
+        <di:waypoint x="1990" y="274.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TraceTitle_1_di" bpmnElement="TraceTitle_1">
+        <dc:Bounds x="1519.5" y="24" width="336" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Participant_1_di" bpmnElement="Participant_1">
+        <dc:Bounds x="60" y="0" width="3255" height="465" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <collaboration id="Collaboration_1">
+    <participant id="Participant_1" name="CCSF / GET /ccsf&#10;(1 traces, avg 5129ms)" processRef="Process_1" />
+  </collaboration>
+  <process id="Process_1" isExecutable="false">
+    <documentation>Auto-generated from OpenTelemetry trace data.
+Service: CCSF
+Root span: GET /ccsf
+Primary trace ID: 78712f63d3bc684003010c224794d8be
+Traces analyzed: 1
+Avg duration: 5129.3ms
+Error rate: 0.0%</documentation>
+    <startEvent id="Start_1" name="Request&#10;Received" />
+    <serviceTask id="Task_309" name="CCSF">
+      <extensionElements>
+        <otel:spanDataSet>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="LBWbduAdtlA=" parentSpanId="" name="GET /ccsf" service="CCSF" durationMs="5129.295" status="OK">
+            <otel:attributes>
+              <otel:attribute key="Business_Flow_ID" value="TechFast-Broadband" />
+              <otel:attribute key="Business_Flow_Instance_ID" value="A0000001" />
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="chain_id" value="lookup_customer_chain" />
+              <otel:attribute key="http.flavor" value="1.1" />
+              <otel:attribute key="http.host" value="localhost:8020" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.route" value="/ccsf" />
+              <otel:attribute key="http.scheme" value="http" />
+              <otel:attribute key="http.server_name" value="0.0.0.0" />
+              <otel:attribute key="http.status_code" value="200" />
+              <otel:attribute key="http.target" value="/ccsf?chain_id=lookup_customer_chain" />
+              <otel:attribute key="http.user_agent" value="python-requests/2.32.3" />
+              <otel:attribute key="net.host.name" value="localhost:8020" />
+              <otel:attribute key="net.host.port" value="8020" />
+              <otel:attribute key="net.peer.ip" value="127.0.0.1" />
+              <otel:attribute key="net.peer.port" value="58044" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="s+xFRowqKH8=" parentSpanId="LBWbduAdtlA=" name="process-request" service="CCSF" durationMs="5125.153" status="OK">
+            <otel:attributes>
+              <otel:attribute key="Business_Flow_ID" value="TechFast-Broadband" />
+              <otel:attribute key="Business_Flow_Instance_ID" value="A0000001" />
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="chain_id" value="lookup_customer_chain" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="3jwdhTJeXOc=" parentSpanId="s+xFRowqKH8=" name="db_ccsf SELECT" service="CCSF" durationMs="7.943" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="db.name" value="db_ccsf" />
+              <otel:attribute key="db.operation" value="SELECT" />
+              <otel:attribute key="db.statement" value="SELECT * FROM db_ccsf.main_table WHERE id = ?" />
+              <otel:attribute key="db.system" value="postgresql" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="E7dy4pDKCd4=" parentSpanId="s+xFRowqKH8=" name="GET" service="CCSF" durationMs="5065.923" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.url" value="http://localhost:8021/ccmule" />
+            </otel:attributes>
+          </otel:spanData>
+        </otel:spanDataSet>
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="Flow_315" sourceRef="Start_1" targetRef="Task_309" />
+    <serviceTask id="Task_310" name="CCMULE">
+      <extensionElements>
+        <otel:spanDataSet>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="qcGCq+IM0tw=" parentSpanId="E7dy4pDKCd4=" name="GET /ccmule" service="CCMULE" durationMs="5110.688" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="chain_id" value="lookup_customer_chain" />
+              <otel:attribute key="http.flavor" value="1.1" />
+              <otel:attribute key="http.host" value="localhost:8021" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.route" value="/ccmule" />
+              <otel:attribute key="http.scheme" value="http" />
+              <otel:attribute key="http.server_name" value="0.0.0.0" />
+              <otel:attribute key="http.status_code" value="200" />
+              <otel:attribute key="http.target" value="/ccmule" />
+              <otel:attribute key="http.user_agent" value="python-requests/2.32.3" />
+              <otel:attribute key="net.host.name" value="localhost:8021" />
+              <otel:attribute key="net.host.port" value="8021" />
+              <otel:attribute key="net.peer.ip" value="127.0.0.1" />
+              <otel:attribute key="net.peer.port" value="58049" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="jXEbiOMU05o=" parentSpanId="qcGCq+IM0tw=" name="process-request" service="CCMULE" durationMs="5108.343" status="OK">
+            <otel:attributes>
+              <otel:attribute key="Business_Flow_ID" value="TechFast-Broadband" />
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="chain_id" value="lookup_customer_chain" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="l1JSVBbJUyo=" parentSpanId="jXEbiOMU05o=" name="db_ccmule SELECT" service="CCMULE" durationMs="5.986" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="db.name" value="db_ccmule" />
+              <otel:attribute key="db.operation" value="SELECT" />
+              <otel:attribute key="db.statement" value="SELECT * FROM db_ccmule.main_table WHERE id = ?" />
+              <otel:attribute key="db.system" value="postgresql" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="9V5/lmECveg=" parentSpanId="jXEbiOMU05o=" name="GET" service="CCMULE" durationMs="5052.005" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.url" value="http://localhost:8022/idp-cloud-cg" />
+            </otel:attributes>
+          </otel:spanData>
+        </otel:spanDataSet>
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="Flow_316" sourceRef="Task_309" targetRef="Task_310" />
+    <serviceTask id="Task_311" name="IDP-Cloud-CG">
+      <extensionElements>
+        <otel:spanDataSet>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="KS1aY97DelE=" parentSpanId="9V5/lmECveg=" name="GET /idp-cloud-cg" service="IDP-Cloud-CG" durationMs="5098.402" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="chain_id" value="lookup_customer_chain" />
+              <otel:attribute key="http.flavor" value="1.1" />
+              <otel:attribute key="http.host" value="localhost:8022" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.route" value="/idp-cloud-cg" />
+              <otel:attribute key="http.scheme" value="http" />
+              <otel:attribute key="http.server_name" value="0.0.0.0" />
+              <otel:attribute key="http.status_code" value="200" />
+              <otel:attribute key="http.target" value="/idp-cloud-cg" />
+              <otel:attribute key="http.user_agent" value="python-requests/2.32.3" />
+              <otel:attribute key="net.host.name" value="localhost:8022" />
+              <otel:attribute key="net.host.port" value="8022" />
+              <otel:attribute key="net.peer.ip" value="127.0.0.1" />
+              <otel:attribute key="net.peer.port" value="58053" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="pG8aUwjwl40=" parentSpanId="KS1aY97DelE=" name="process-request" service="IDP-Cloud-CG" durationMs="5096.071" status="OK">
+            <otel:attributes>
+              <otel:attribute key="Business_Flow_ID" value="TechFast-Broadband" />
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="chain_id" value="lookup_customer_chain" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="VhPhAQsOHUQ=" parentSpanId="pG8aUwjwl40=" name="db_idp_cloud_cg SELECT" service="IDP-Cloud-CG" durationMs="7.302" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="db.name" value="db_idp_cloud_cg" />
+              <otel:attribute key="db.operation" value="SELECT" />
+              <otel:attribute key="db.statement" value="SELECT * FROM db_idp_cloud_cg.main_table WHERE id = ?" />
+              <otel:attribute key="db.system" value="postgresql" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="uEu6pbx7WoM=" parentSpanId="pG8aUwjwl40=" name="GET" service="IDP-Cloud-CG" durationMs="5060.487" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.url" value="http://localhost:8023/dpg-sales-sunrise" />
+            </otel:attributes>
+          </otel:spanData>
+        </otel:spanDataSet>
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="Flow_317" sourceRef="Task_310" targetRef="Task_311" />
+    <serviceTask id="Task_312" name="DPG - Sales &amp; Sunrise">
+      <extensionElements>
+        <otel:spanDataSet>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="lQgobe+Ohhw=" parentSpanId="uEu6pbx7WoM=" name="GET /dpg-sales-sunrise" service="DPG - Sales &amp; Sunrise" durationMs="4168.866" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="chain_id" value="lookup_customer_chain" />
+              <otel:attribute key="http.flavor" value="1.1" />
+              <otel:attribute key="http.host" value="localhost:8023" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.route" value="/dpg-sales-sunrise" />
+              <otel:attribute key="http.scheme" value="http" />
+              <otel:attribute key="http.server_name" value="0.0.0.0" />
+              <otel:attribute key="http.status_code" value="200" />
+              <otel:attribute key="http.target" value="/dpg-sales-sunrise" />
+              <otel:attribute key="http.user_agent" value="python-requests/2.32.3" />
+              <otel:attribute key="net.host.name" value="localhost:8023" />
+              <otel:attribute key="net.host.port" value="8023" />
+              <otel:attribute key="net.peer.ip" value="127.0.0.1" />
+              <otel:attribute key="net.peer.port" value="58056" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="U4UFC0usM88=" parentSpanId="lQgobe+Ohhw=" name="process-request" service="DPG - Sales &amp; Sunrise" durationMs="4165.819" status="OK">
+            <otel:attributes>
+              <otel:attribute key="Business_Flow_ID" value="TechFast-Broadband" />
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="chain_id" value="lookup_customer_chain" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="7CmB4hQ2gjY=" parentSpanId="U4UFC0usM88=" name="db_dpg_sales_sunrise SELECT" service="DPG - Sales &amp; Sunrise" durationMs="4.244" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="db.name" value="db_dpg_sales_sunrise" />
+              <otel:attribute key="db.operation" value="SELECT" />
+              <otel:attribute key="db.statement" value="SELECT * FROM db_dpg_sales_sunrise.main_table WHERE id = ?" />
+              <otel:attribute key="db.system" value="postgresql" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="CyUbX3tw2a4=" parentSpanId="U4UFC0usM88=" name="GET" service="DPG - Sales &amp; Sunrise" durationMs="4119.154" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.status_code" value="200" />
+              <otel:attribute key="http.url" value="http://localhost:8024/platform-support-attfedgov1" />
+            </otel:attributes>
+          </otel:spanData>
+        </otel:spanDataSet>
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="Flow_318" sourceRef="Task_311" targetRef="Task_312" />
+    <serviceTask id="Task_313" name="Platform Support ATTFEDGOV1">
+      <extensionElements>
+        <otel:spanDataSet>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="JGVKF6TAQRk=" parentSpanId="CyUbX3tw2a4=" name="GET /platform-support-attfedgov1" service="Platform Support ATTFEDGOV1" durationMs="2099.884" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="chain_id" value="lookup_customer_chain" />
+              <otel:attribute key="http.flavor" value="1.1" />
+              <otel:attribute key="http.host" value="localhost:8024" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.route" value="/platform-support-attfedgov1" />
+              <otel:attribute key="http.scheme" value="http" />
+              <otel:attribute key="http.server_name" value="0.0.0.0" />
+              <otel:attribute key="http.status_code" value="200" />
+              <otel:attribute key="http.target" value="/platform-support-attfedgov1" />
+              <otel:attribute key="http.user_agent" value="python-requests/2.32.3" />
+              <otel:attribute key="net.host.name" value="localhost:8024" />
+              <otel:attribute key="net.host.port" value="8024" />
+              <otel:attribute key="net.peer.ip" value="127.0.0.1" />
+              <otel:attribute key="net.peer.port" value="58063" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="3pUv/3ffKWM=" parentSpanId="JGVKF6TAQRk=" name="process-request" service="Platform Support ATTFEDGOV1" durationMs="2098.183" status="OK">
+            <otel:attributes>
+              <otel:attribute key="Business_Flow_ID" value="TechFast-Broadband" />
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="chain_id" value="lookup_customer_chain" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="tC6IDL64img=" parentSpanId="3pUv/3ffKWM=" name="db_platform_support_attfedgov1 SELECT" service="Platform Support ATTFEDGOV1" durationMs="9.729" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="db.name" value="db_platform_support_attfedgov1" />
+              <otel:attribute key="db.operation" value="SELECT" />
+              <otel:attribute key="db.statement" value="SELECT * FROM db_platform_support_attfedgov1.main_table WHERE id = ?" />
+              <otel:attribute key="db.system" value="postgresql" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="Pt1Vo/baIL4=" parentSpanId="3pUv/3ffKWM=" name="GET" service="Platform Support ATTFEDGOV1" durationMs="2065.351" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.status_code" value="200" />
+              <otel:attribute key="http.url" value="http://localhost:8025/etracs" />
+            </otel:attributes>
+          </otel:spanData>
+        </otel:spanDataSet>
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="Flow_319" sourceRef="Task_312" targetRef="Task_313" />
+    <serviceTask id="Task_314" name="eTRACS">
+      <extensionElements>
+        <otel:spanDataSet>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="9GcOej4nh2s=" parentSpanId="Pt1Vo/baIL4=" name="GET /etracs" service="eTRACS" durationMs="36.150" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="chain_id" value="lookup_customer_chain" />
+              <otel:attribute key="http.flavor" value="1.1" />
+              <otel:attribute key="http.host" value="localhost:8025" />
+              <otel:attribute key="http.method" value="GET" />
+              <otel:attribute key="http.route" value="/etracs" />
+              <otel:attribute key="http.scheme" value="http" />
+              <otel:attribute key="http.server_name" value="0.0.0.0" />
+              <otel:attribute key="http.status_code" value="200" />
+              <otel:attribute key="http.target" value="/etracs" />
+              <otel:attribute key="http.user_agent" value="python-requests/2.32.3" />
+              <otel:attribute key="net.host.name" value="localhost:8025" />
+              <otel:attribute key="net.host.port" value="8025" />
+              <otel:attribute key="net.peer.ip" value="127.0.0.1" />
+              <otel:attribute key="net.peer.port" value="58073" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="EXbYtllDsu0=" parentSpanId="9GcOej4nh2s=" name="process-request" service="eTRACS" durationMs="33.743" status="OK">
+            <otel:attributes>
+              <otel:attribute key="Business_Flow_ID" value="TechFast-Broadband" />
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="chain_id" value="lookup_customer_chain" />
+            </otel:attributes>
+          </otel:spanData>
+          <otel:spanData traceId="78712f63d3bc684003010c224794d8be" spanId="plrxM0ZS2WQ=" parentSpanId="EXbYtllDsu0=" name="db_etracs SELECT" service="eTRACS" durationMs="5.481" status="OK">
+            <otel:attributes>
+              <otel:attribute key="E2EUX" value="Lookup Customer" />
+              <otel:attribute key="db.name" value="db_etracs" />
+              <otel:attribute key="db.operation" value="SELECT" />
+              <otel:attribute key="db.statement" value="SELECT * FROM db_etracs.main_table WHERE id = ?" />
+              <otel:attribute key="db.system" value="postgresql" />
+            </otel:attributes>
+          </otel:spanData>
+        </otel:spanDataSet>
+      </extensionElements>
+    </serviceTask>
+    <sequenceFlow id="Flow_320" sourceRef="Task_313" targetRef="Task_314" />
+    <endEvent id="End_1" name="Completed" />
+    <sequenceFlow id="Flow_321" sourceRef="Task_314" targetRef="End_1" />
+    <textAnnotation id="TraceTitle_1">
+      <text>Trace ID: 78712f63d3bc684003010c224794d8be</text>
+    </textAnnotation>
+  </process>
+</definitions>

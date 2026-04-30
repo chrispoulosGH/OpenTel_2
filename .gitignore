@@ -1,0 +1,25 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Runtime PID/lock artifacts
+*.pid
+*.pid.json
+*.lock
+
+# OpenTelemetry stack runtime data (generated)
+central/bin/grafana-data/
+central/bin/loki-data/
+central/bin/prometheus-data/
+central/bin/tempo-data/
+central/bin/tempo-wal/
+central/bin/tempo-metrics-wal/
+
+# Downloaded packages and bundled runtime binaries
+central/downloads/
+central/bin/grafana/
+central/bin/loki/
+central/bin/otelcol-contrib/
+central/bin/prometheus/
+central/bin/tempo/

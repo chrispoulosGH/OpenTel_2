@@ -1,0 +1,2 @@
+{"received_at": "2026-03-31T19:07:52.867509+00:00", "event_type": "grafana_alert", "source": "grafana-webhook", "remote": "127.0.0.1", "payload": {"status": "firing", "title": "High latency", "message": "p95 exceeded"}}
+{"received_at": "2026-03-31T19:17:58.354463+00:00", "event_type": "grafana_alert", "source": "grafana-webhook", "remote": "127.0.0.1", "payload": {"status": "firing", "title": "Auto ingest test", "message": "alert should update bpm.xml"}}

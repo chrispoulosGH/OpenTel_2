@@ -1,0 +1,56 @@
+# Agent config for local testing on the same machine as the central stack.
+# Uses a different health_check port (13134) to avoid conflict with the collector (13133).
+
+extensions:
+  health_check:
+    endpoint: 0.0.0.0:13134
+
+receivers:
+  hostmetrics:
+    collection_interval: 30s
+    scrapers:
+      cpu: {}
+      memory: {}
+      disk: {}
+      filesystem: {}
+      network: {}
+
+processors:
+  memory_limiter:
+    check_interval: 5s
+    limit_percentage: 75
+    spike_limit_percentage: 15
+
+  resourcedetection:
+    detectors: ["system"]
+    system:
+      hostname_sources: ["os"]
+
+  batch:
+    send_batch_size: 8192
+    timeout: 5s
+
+exporters:
+  otlp:
+    endpoint: localhost:4317
+    tls:
+      insecure: true
+    retry_on_failure:
+      enabled: true
+    sending_queue:
+      enabled: true
+      queue_size: 512
+
+  debug:
+    verbosity: basic
+
+service:
+  telemetry:
+    metrics:
+      address: localhost:8889
+  extensions: [health_check]
+  pipelines:
+    metrics:
+      receivers: [hostmetrics]
+      processors: [memory_limiter, resourcedetection, batch]
+      exporters: [otlp, debug]
