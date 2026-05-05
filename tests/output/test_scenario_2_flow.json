@@ -1,280 +1,298 @@
-[
-  {
-    "id": "Task_428",
-    "type": "task",
-    "name": "ABPT",
-    "x": 370,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=3837.5 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_429",
-    "type": "task",
-    "name": "GRP-ICAP",
-    "x": 640,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=3901.8 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_430",
-    "type": "task",
-    "name": "IDP-Commerce-ES",
-    "x": 910,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=4082.5 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_431",
-    "type": "task",
-    "name": "IDP-Order Graph Cloud",
-    "x": 1180,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=3877.5 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_432",
-    "type": "task",
-    "name": "SHM",
-    "x": 1450,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=3791.0 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_433",
-    "type": "task",
-    "name": "TRiP",
-    "x": 1720,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=1976.0 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_434",
-    "type": "task",
-    "name": "TDICE",
-    "x": 1990,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=119.2 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Start_1",
-    "type": "event",
-    "name": "Request\nReceived",
-    "x": 180,
-    "y": 291.5,
-    "height": 36,
-    "width": 36,
-    "shape": "circle",
-    "color": null
-  },
-  {
-    "id": "End_1",
-    "type": "event",
-    "name": "Completed",
-    "x": 2260,
-    "y": 291.5,
-    "height": 36,
-    "width": 36,
-    "shape": "circle",
-    "color": null
-  },
-  {
-    "id": "Flow_437",
-    "sourceRef": "Start_1",
-    "targetRef": "Task_428",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 216,
-        "y": 309.5
-      },
-      {
-        "x": 370,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_440",
-    "sourceRef": "Task_428",
-    "targetRef": "Task_429",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 490,
-        "y": 309.5
-      },
-      {
-        "x": 640,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_443",
-    "sourceRef": "Task_429",
-    "targetRef": "Task_430",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 760,
-        "y": 309.5
-      },
-      {
-        "x": 910,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_446",
-    "sourceRef": "Task_430",
-    "targetRef": "Task_431",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 1030,
-        "y": 309.5
-      },
-      {
-        "x": 1180,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_449",
-    "sourceRef": "Task_431",
-    "targetRef": "Task_432",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 1300,
-        "y": 309.5
-      },
-      {
-        "x": 1450,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_452",
-    "sourceRef": "Task_432",
-    "targetRef": "Task_433",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 1570,
-        "y": 309.5
-      },
-      {
-        "x": 1720,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_455",
-    "sourceRef": "Task_433",
-    "targetRef": "Task_434",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 1840,
-        "y": 309.5
-      },
-      {
-        "x": 1990,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_456",
-    "sourceRef": "Task_434",
-    "targetRef": "End_1",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 2110,
-        "y": 309.5
-      },
-      {
-        "x": 2260,
-        "y": 309.5
-      }
-    ],
-    "color": null
+{
+  "diagram": [
+    {
+      "id": "Task_27",
+      "type": "task",
+      "name": "ABPT",
+      "x": 370,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=3806.1 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_28",
+      "type": "task",
+      "name": "GRP-ICAP",
+      "x": 640,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=3832.5 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_29",
+      "type": "task",
+      "name": "IDP-Commerce-ES",
+      "x": 910,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=3850.7 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_30",
+      "type": "task",
+      "name": "IDP-Order Graph Cloud",
+      "x": 1180,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=3839.2 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_31",
+      "type": "task",
+      "name": "SHM",
+      "x": 1450,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=3179.1 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_32",
+      "type": "task",
+      "name": "TRiP",
+      "x": 1720,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=1607.1 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_33",
+      "type": "task",
+      "name": "TDICE",
+      "x": 1990,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=35.7 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Start_1",
+      "type": "event",
+      "name": "Request\nReceived",
+      "x": 180,
+      "y": 291.5,
+      "height": 36,
+      "width": 36,
+      "shape": "circle",
+      "color": null
+    },
+    {
+      "id": "End_1",
+      "type": "event",
+      "name": "Completed",
+      "x": 2260,
+      "y": 291.5,
+      "height": 36,
+      "width": 36,
+      "shape": "circle",
+      "color": null
+    },
+    {
+      "id": "Flow_36",
+      "sourceRef": "Start_1",
+      "targetRef": "Task_27",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 216,
+          "y": 309.5
+        },
+        {
+          "x": 370,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 2
+    },
+    {
+      "id": "Flow_39",
+      "sourceRef": "Task_27",
+      "targetRef": "Task_28",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 490,
+          "y": 309.5
+        },
+        {
+          "x": 640,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_42",
+      "sourceRef": "Task_28",
+      "targetRef": "Task_29",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 760,
+          "y": 309.5
+        },
+        {
+          "x": 910,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_45",
+      "sourceRef": "Task_29",
+      "targetRef": "Task_30",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 1030,
+          "y": 309.5
+        },
+        {
+          "x": 1180,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_48",
+      "sourceRef": "Task_30",
+      "targetRef": "Task_31",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 1300,
+          "y": 309.5
+        },
+        {
+          "x": 1450,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_51",
+      "sourceRef": "Task_31",
+      "targetRef": "Task_32",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 1570,
+          "y": 309.5
+        },
+        {
+          "x": 1720,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_54",
+      "sourceRef": "Task_32",
+      "targetRef": "Task_33",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 1840,
+          "y": 309.5
+        },
+        {
+          "x": 1990,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_55",
+      "sourceRef": "Task_33",
+      "targetRef": "End_1",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 2110,
+          "y": 309.5
+        },
+        {
+          "x": 2260,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    }
+  ],
+  "volumes": {
+    "service": "ABPT",
+    "root_span": "GET /d",
+    "primary_trace_id": "129d0fb553156d6b7e62c7f5e4a7d347",
+    "transaction_count": 13,
+    "avg_duration_ms": 5116.2,
+    "error_rate_pct": 0.0
   }
-]
+}

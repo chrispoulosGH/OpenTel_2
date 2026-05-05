@@ -1,246 +1,329 @@
-[
-  {
-    "id": "Task_610",
-    "type": "task",
-    "name": "CCSF",
-    "x": 370,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=3882.4 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_611",
-    "type": "task",
-    "name": "CCMULE",
-    "x": 640,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=4069.5 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_612",
-    "type": "task",
-    "name": "IDP-Cloud-CG",
-    "x": 910,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=4159.2 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_613",
-    "type": "task",
-    "name": "DPG - Sales & Sunrise",
-    "x": 1180,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=3879.6 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_614",
-    "type": "task",
-    "name": "Platform Support ATTFEDGOV1",
-    "x": 1450,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=2183.1 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_615",
-    "type": "task",
-    "name": "eTRACS",
-    "x": 1720,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=201.2 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Start_1",
-    "type": "event",
-    "name": "Request\nReceived",
-    "x": 180,
-    "y": 291.5,
-    "height": 36,
-    "width": 36,
-    "shape": "circle",
-    "color": null
-  },
-  {
-    "id": "End_1",
-    "type": "event",
-    "name": "Completed",
-    "x": 1990,
-    "y": 291.5,
-    "height": 36,
-    "width": 36,
-    "shape": "circle",
-    "color": null
-  },
-  {
-    "id": "Flow_618",
-    "sourceRef": "Start_1",
-    "targetRef": "Task_610",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 216,
-        "y": 309.5
-      },
-      {
-        "x": 370,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_621",
-    "sourceRef": "Task_610",
-    "targetRef": "Task_611",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 490,
-        "y": 309.5
-      },
-      {
-        "x": 640,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_624",
-    "sourceRef": "Task_611",
-    "targetRef": "Task_612",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 760,
-        "y": 309.5
-      },
-      {
-        "x": 910,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_627",
-    "sourceRef": "Task_612",
-    "targetRef": "Task_613",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 1030,
-        "y": 309.5
-      },
-      {
-        "x": 1180,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_630",
-    "sourceRef": "Task_613",
-    "targetRef": "Task_614",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 1300,
-        "y": 309.5
-      },
-      {
-        "x": 1450,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_633",
-    "sourceRef": "Task_614",
-    "targetRef": "Task_615",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 1570,
-        "y": 309.5
-      },
-      {
-        "x": 1720,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_634",
-    "sourceRef": "Task_615",
-    "targetRef": "End_1",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 1840,
-        "y": 309.5
-      },
-      {
-        "x": 1990,
-        "y": 309.5
-      }
-    ],
-    "color": null
+{
+  "diagram": [
+    {
+      "id": "Task_53",
+      "type": "task",
+      "name": "CCSF",
+      "x": 370,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=4089.5 millisecs"
+      ],
+      "errors": [
+        {
+          "db.name": "",
+          "statement": "",
+          "error_message": "{\"body\":\"downstream request failed url=http://localhost:8021/ccmule timeout=3.0s retries=0 error=HTTPConnectionPool(host='localhost', port=8021): Read timed out. (read timeout=3.0)\",\"traceid\":\"c7ffe104e4b1c3eb8a5a335eb6f3f275\",\"spanid\":\"13f6e3eb31358cb7\",\"severity\":\"WARN\",\"flags\":1,\"attributes\":{\"code.filepath\":\"C:\\\\code\\\\openTel_2_simulation\\\\common\\\\tracing.py\",\"code.function\":\"call_downstream\",\"code.lineno\":510},\"instrumentation_scope\":{\"name\":\"otel-sim\"}}",
+          "type": "unknown",
+          "event": "unknown"
+        },
+        {
+          "db.name": "",
+          "statement": "",
+          "error_message": "{\"body\":\"downstream request failed url=http://localhost:8021/ccmule timeout=3.0s retries=0 error=HTTPConnectionPool(host='localhost', port=8021): Read timed out. (read timeout=3.0)\",\"traceid\":\"0ecc270eb7184ca68a16fe26837ced7c\",\"spanid\":\"35400c9ffde8ad50\",\"severity\":\"WARN\",\"flags\":1,\"attributes\":{\"code.filepath\":\"C:\\\\code\\\\openTel_2_simulation\\\\common\\\\tracing.py\",\"code.function\":\"call_downstream\",\"code.lineno\":510},\"instrumentation_scope\":{\"name\":\"otel-sim\"}}",
+          "type": "unknown",
+          "event": "unknown"
+        },
+        {
+          "db.name": "",
+          "statement": "",
+          "error_message": "{\"body\":\"downstream request failed url=http://localhost:8021/ccmule timeout=3.0s retries=0 error=HTTPConnectionPool(host='localhost', port=8021): Read timed out. (read timeout=3.0)\",\"traceid\":\"daea4e78a08e19743f9fcdaf52087cbd\",\"spanid\":\"9be260191904d1d8\",\"severity\":\"WARN\",\"flags\":1,\"attributes\":{\"code.filepath\":\"C:\\\\code\\\\openTel_2_simulation\\\\common\\\\tracing.py\",\"code.function\":\"call_downstream\",\"code.lineno\":510},\"instrumentation_scope\":{\"name\":\"otel-sim\"}}",
+          "type": "unknown",
+          "event": "unknown"
+        }
+      ]
+    },
+    {
+      "id": "Task_54",
+      "type": "task",
+      "name": "CCMULE",
+      "x": 640,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=3826.3 millisecs"
+      ],
+      "errors": [
+        {
+          "db.name": "",
+          "statement": "",
+          "error_message": "{\"body\":\"downstream request failed url=http://localhost:8022/idp-cloud-cg timeout=3.0s retries=0 error=HTTPConnectionPool(host='localhost', port=8022): Read timed out. (read timeout=3.0)\",\"traceid\":\"c7ffe104e4b1c3eb8a5a335eb6f3f275\",\"spanid\":\"21b73b0383fc971c\",\"severity\":\"WARN\",\"flags\":1,\"attributes\":{\"code.filepath\":\"C:\\\\code\\\\openTel_2_simulation\\\\common\\\\tracing.py\",\"code.function\":\"call_downstream\",\"code.lineno\":510},\"instrumentation_scope\":{\"name\":\"otel-sim\"}}",
+          "type": "unknown",
+          "event": "unknown"
+        },
+        {
+          "db.name": "",
+          "statement": "",
+          "error_message": "{\"body\":\"downstream request failed url=http://localhost:8022/idp-cloud-cg timeout=3.0s retries=0 error=HTTPConnectionPool(host='localhost', port=8022): Read timed out. (read timeout=3.0)\",\"traceid\":\"0ecc270eb7184ca68a16fe26837ced7c\",\"spanid\":\"7a569034ef14e72e\",\"severity\":\"WARN\",\"flags\":1,\"attributes\":{\"code.filepath\":\"C:\\\\code\\\\openTel_2_simulation\\\\common\\\\tracing.py\",\"code.function\":\"call_downstream\",\"code.lineno\":510},\"instrumentation_scope\":{\"name\":\"otel-sim\"}}",
+          "type": "unknown",
+          "event": "unknown"
+        },
+        {
+          "db.name": "",
+          "statement": "",
+          "error_message": "{\"body\":\"downstream request failed url=http://localhost:8022/idp-cloud-cg timeout=3.0s retries=0 error=HTTPConnectionPool(host='localhost', port=8022): Read timed out. (read timeout=3.0)\",\"traceid\":\"daea4e78a08e19743f9fcdaf52087cbd\",\"spanid\":\"e387deef78eec893\",\"severity\":\"WARN\",\"flags\":1,\"attributes\":{\"code.filepath\":\"C:\\\\code\\\\openTel_2_simulation\\\\common\\\\tracing.py\",\"code.function\":\"call_downstream\",\"code.lineno\":510},\"instrumentation_scope\":{\"name\":\"otel-sim\"}}",
+          "type": "unknown",
+          "event": "unknown"
+        }
+      ]
+    },
+    {
+      "id": "Task_55",
+      "type": "task",
+      "name": "IDP-Cloud-CG",
+      "x": 910,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=3899.2 millisecs"
+      ],
+      "errors": [
+        {
+          "db.name": "",
+          "statement": "",
+          "error_message": "{\"body\":\"downstream request failed url=http://localhost:8023/dpg-sales-sunrise timeout=3.0s retries=0 error=HTTPConnectionPool(host='localhost', port=8023): Read timed out. (read timeout=3.0)\",\"traceid\":\"c7ffe104e4b1c3eb8a5a335eb6f3f275\",\"spanid\":\"4371062ef82b767b\",\"severity\":\"WARN\",\"flags\":1,\"attributes\":{\"code.filepath\":\"C:\\\\code\\\\openTel_2_simulation\\\\common\\\\tracing.py\",\"code.function\":\"call_downstream\",\"code.lineno\":510},\"instrumentation_scope\":{\"name\":\"otel-sim\"}}",
+          "type": "unknown",
+          "event": "unknown"
+        },
+        {
+          "db.name": "",
+          "statement": "",
+          "error_message": "{\"body\":\"downstream request failed url=http://localhost:8023/dpg-sales-sunrise timeout=3.0s retries=0 error=HTTPConnectionPool(host='localhost', port=8023): Read timed out. (read timeout=3.0)\",\"traceid\":\"0ecc270eb7184ca68a16fe26837ced7c\",\"spanid\":\"cdd0bd29e769457e\",\"severity\":\"WARN\",\"flags\":1,\"attributes\":{\"code.filepath\":\"C:\\\\code\\\\openTel_2_simulation\\\\common\\\\tracing.py\",\"code.function\":\"call_downstream\",\"code.lineno\":510},\"instrumentation_scope\":{\"name\":\"otel-sim\"}}",
+          "type": "unknown",
+          "event": "unknown"
+        },
+        {
+          "db.name": "",
+          "statement": "",
+          "error_message": "{\"body\":\"downstream request failed url=http://localhost:8023/dpg-sales-sunrise timeout=3.0s retries=0 error=HTTPConnectionPool(host='localhost', port=8023): Read timed out. (read timeout=3.0)\",\"traceid\":\"daea4e78a08e19743f9fcdaf52087cbd\",\"spanid\":\"7cbcb088c6737ed3\",\"severity\":\"WARN\",\"flags\":1,\"attributes\":{\"code.filepath\":\"C:\\\\code\\\\openTel_2_simulation\\\\common\\\\tracing.py\",\"code.function\":\"call_downstream\",\"code.lineno\":510},\"instrumentation_scope\":{\"name\":\"otel-sim\"}}",
+          "type": "unknown",
+          "event": "unknown"
+        }
+      ]
+    },
+    {
+      "id": "Task_56",
+      "type": "task",
+      "name": "DPG - Sales & Sunrise",
+      "x": 1180,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=3189.7 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_57",
+      "type": "task",
+      "name": "Platform Support ATTFEDGOV1",
+      "x": 1450,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=1600.7 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_58",
+      "type": "task",
+      "name": "eTRACS",
+      "x": 1720,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=30.4 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Start_1",
+      "type": "event",
+      "name": "Request\nReceived",
+      "x": 180,
+      "y": 291.5,
+      "height": 36,
+      "width": 36,
+      "shape": "circle",
+      "color": null
+    },
+    {
+      "id": "End_1",
+      "type": "event",
+      "name": "Completed",
+      "x": 1990,
+      "y": 291.5,
+      "height": 36,
+      "width": 36,
+      "shape": "circle",
+      "color": null
+    },
+    {
+      "id": "Flow_61",
+      "sourceRef": "Start_1",
+      "targetRef": "Task_53",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 216,
+          "y": 309.5
+        },
+        {
+          "x": 370,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 2
+    },
+    {
+      "id": "Flow_64",
+      "sourceRef": "Task_53",
+      "targetRef": "Task_54",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 490,
+          "y": 309.5
+        },
+        {
+          "x": 640,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 2
+    },
+    {
+      "id": "Flow_67",
+      "sourceRef": "Task_54",
+      "targetRef": "Task_55",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 760,
+          "y": 309.5
+        },
+        {
+          "x": 910,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 2
+    },
+    {
+      "id": "Flow_70",
+      "sourceRef": "Task_55",
+      "targetRef": "Task_56",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 1030,
+          "y": 309.5
+        },
+        {
+          "x": 1180,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 2
+    },
+    {
+      "id": "Flow_73",
+      "sourceRef": "Task_56",
+      "targetRef": "Task_57",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 1300,
+          "y": 309.5
+        },
+        {
+          "x": 1450,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 2
+    },
+    {
+      "id": "Flow_76",
+      "sourceRef": "Task_57",
+      "targetRef": "Task_58",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 1570,
+          "y": 309.5
+        },
+        {
+          "x": 1720,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 2
+    },
+    {
+      "id": "Flow_77",
+      "sourceRef": "Task_58",
+      "targetRef": "End_1",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 1840,
+          "y": 309.5
+        },
+        {
+          "x": 1990,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 2
+    }
+  ],
+  "volumes": {
+    "service": "CCSF",
+    "root_span": "GET /ccsf",
+    "primary_trace_id": "c7ffe104e4b1c3eb8a5a335eb6f3f275",
+    "transaction_count": 1,
+    "avg_duration_ms": 5483.3,
+    "error_rate_pct": 0.0
   }
-]
+}

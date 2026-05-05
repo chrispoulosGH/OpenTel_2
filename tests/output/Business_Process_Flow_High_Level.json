@@ -1,138 +1,143 @@
-[
-  {
-    "id": "HL_SubProcess_LookupCustomer_1",
-    "type": "task",
-    "name": "Lookup Customer",
-    "x": 370,
-    "y": 98,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [],
-    "errors": [],
-    "subProcessFileNames": [
-      "C:\\code\\openTel_2\\tests\\output\\lookup_customer_chain_flow.json"
-    ],
-    "subProcessDisplayNames": [
-      "lookup_customer_chain_flow.json"
-    ]
-  },
-  {
-    "id": "HL_SubProcess_Troubleshoot_1",
-    "type": "task",
-    "name": "Troubleshoot",
-    "x": 640,
-    "y": 98,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [],
-    "errors": [],
-    "subProcessFileNames": [
-      "C:\\code\\openTel_2\\tests\\output\\test_scenario_1_flow.json",
-      "C:\\code\\openTel_2\\tests\\output\\test_scenario_2_flow.json",
-      "C:\\code\\openTel_2\\tests\\output\\test_scenario_3_flow.json",
-      "C:\\code\\openTel_2\\tests\\output\\test_scenario_4_flow.json",
-      "C:\\code\\openTel_2\\tests\\output\\test_scenario_5_flow.json",
-      "C:\\code\\openTel_2\\tests\\output\\test_scenario_6_flow.json",
-      "C:\\code\\openTel_2\\tests\\output\\test_scenario_7_flow.json",
-      "C:\\code\\openTel_2\\tests\\output\\test_scenario_8_flow.json",
-      "C:\\code\\openTel_2\\tests\\output\\test_scenario_9_flow.json",
-      "C:\\code\\openTel_2\\tests\\output\\test_scenario_10_flow.json",
-      "C:\\code\\openTel_2\\tests\\output\\flows_all_bpmn2.0.json"
-    ],
-    "subProcessDisplayNames": [
-      "test_scenario_1_flow.json",
-      "test_scenario_2_flow.json",
-      "test_scenario_3_flow.json",
-      "test_scenario_4_flow.json",
-      "test_scenario_5_flow.json",
-      "test_scenario_6_flow.json",
-      "test_scenario_7_flow.json",
-      "test_scenario_8_flow.json",
-      "test_scenario_9_flow.json",
-      "test_scenario_10_flow.json",
-      "flows_all_bpmn2.0.json"
-    ]
-  },
-  {
-    "id": "HighLevelStart_1",
-    "type": "event",
-    "name": "Start",
-    "x": 180,
-    "y": 112,
-    "height": 36,
-    "width": 36,
-    "shape": "circle",
-    "color": null
-  },
-  {
-    "id": "HighLevelEnd_1",
-    "type": "event",
-    "name": "End",
-    "x": 910,
-    "y": 112,
-    "height": 36,
-    "width": 36,
-    "shape": "circle",
-    "color": null
-  },
-  {
-    "id": "HL_Flow_1",
-    "sourceRef": "HighLevelStart_1",
-    "targetRef": "HL_SubProcess_LookupCustomer_1",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 216,
-        "y": 130
-      },
-      {
-        "x": 370,
-        "y": 130
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "HL_Flow_2",
-    "sourceRef": "HL_SubProcess_LookupCustomer_1",
-    "targetRef": "HL_SubProcess_Troubleshoot_1",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 490,
-        "y": 130
-      },
-      {
-        "x": 640,
-        "y": 130
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "HL_Flow_13",
-    "sourceRef": "HL_SubProcess_Troubleshoot_1",
-    "targetRef": "HighLevelEnd_1",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 760,
-        "y": 130
-      },
-      {
-        "x": 910,
-        "y": 130
-      }
-    ],
-    "color": null
-  }
-]
+{
+  "diagram": [
+    {
+      "id": "HL_SubProcess_LookupCustomer_1",
+      "type": "task",
+      "name": "Lookup Customer",
+      "x": 370,
+      "y": 98,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [],
+      "errors": [],
+      "subProcessFileNames": [
+        "C:\\code\\openTel_2\\tests\\output\\lookup_customer_chain_flow.json"
+      ],
+      "subProcessDisplayNames": [
+        "lookup_customer_chain_flow.json"
+      ]
+    },
+    {
+      "id": "HL_SubProcess_Troubleshoot_1",
+      "type": "task",
+      "name": "Troubleshoot",
+      "x": 640,
+      "y": 98,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [],
+      "errors": [],
+      "subProcessFileNames": [
+        "C:\\code\\openTel_2\\tests\\output\\test_scenario_1_flow.json",
+        "C:\\code\\openTel_2\\tests\\output\\test_scenario_2_flow.json",
+        "C:\\code\\openTel_2\\tests\\output\\test_scenario_3_flow.json",
+        "C:\\code\\openTel_2\\tests\\output\\test_scenario_4_flow.json",
+        "C:\\code\\openTel_2\\tests\\output\\test_scenario_5_flow.json",
+        "C:\\code\\openTel_2\\tests\\output\\test_scenario_6_flow.json",
+        "C:\\code\\openTel_2\\tests\\output\\test_scenario_7_flow.json",
+        "C:\\code\\openTel_2\\tests\\output\\test_scenario_8_flow.json",
+        "C:\\code\\openTel_2\\tests\\output\\test_scenario_9_flow.json",
+        "C:\\code\\openTel_2\\tests\\output\\test_scenario_10_flow.json",
+        "C:\\code\\openTel_2\\tests\\output\\flows_all_bpmn2.0.json"
+      ],
+      "subProcessDisplayNames": [
+        "test_scenario_1_flow.json",
+        "test_scenario_2_flow.json",
+        "test_scenario_3_flow.json",
+        "test_scenario_4_flow.json",
+        "test_scenario_5_flow.json",
+        "test_scenario_6_flow.json",
+        "test_scenario_7_flow.json",
+        "test_scenario_8_flow.json",
+        "test_scenario_9_flow.json",
+        "test_scenario_10_flow.json",
+        "flows_all_bpmn2.0.json"
+      ]
+    },
+    {
+      "id": "HighLevelStart_1",
+      "type": "event",
+      "name": "Start",
+      "x": 180,
+      "y": 112,
+      "height": 36,
+      "width": 36,
+      "shape": "circle",
+      "color": null
+    },
+    {
+      "id": "HighLevelEnd_1",
+      "type": "event",
+      "name": "End",
+      "x": 910,
+      "y": 112,
+      "height": 36,
+      "width": 36,
+      "shape": "circle",
+      "color": null
+    },
+    {
+      "id": "HL_Flow_1",
+      "sourceRef": "HighLevelStart_1",
+      "targetRef": "HL_SubProcess_LookupCustomer_1",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 216,
+          "y": 130
+        },
+        {
+          "x": 370,
+          "y": 130
+        }
+      ],
+      "color": null,
+      "transactionCount": 0
+    },
+    {
+      "id": "HL_Flow_2",
+      "sourceRef": "HL_SubProcess_LookupCustomer_1",
+      "targetRef": "HL_SubProcess_Troubleshoot_1",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 490,
+          "y": 130
+        },
+        {
+          "x": 640,
+          "y": 130
+        }
+      ],
+      "color": null,
+      "transactionCount": 0
+    },
+    {
+      "id": "HL_Flow_13",
+      "sourceRef": "HL_SubProcess_Troubleshoot_1",
+      "targetRef": "HighLevelEnd_1",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 760,
+          "y": 130
+        },
+        {
+          "x": 910,
+          "y": 130
+        }
+      ],
+      "color": null,
+      "transactionCount": 0
+    }
+  ]
+}

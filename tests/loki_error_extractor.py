@@ -41,12 +41,25 @@ class ErrorRecord:
 
 
 def _parse_kv_pairs(text: str) -> Dict[str, str]:
-    """Parse key=value pairs from plaintext log content."""
+    """Parse key=value pairs from plaintext log content.
+
+    Supports values that include spaces by consuming text until the next
+    ` key=` token. This is required for tails such as:
+      message=column "customer_segment" does not exist
+      service=Amp-MM - Invenio
+    """
     parsed: Dict[str, str] = {}
-    for match in re.finditer(r"(\w+)=([^\s]+)", text):
+    if not text:
+        return parsed
+
+    # Capture "key=value ..." blocks until the next whitespace+key= or end.
+    # Example: message=column "customer_segment" does not exist
+    pattern = re.compile(r"(\b[\w\.]+)=((?:(?!\s+[\w\.]+=).)+)")
+    for match in pattern.finditer(text):
         key = match.group(1).strip()
         value = match.group(2).strip().strip('"\'')
-        parsed[key] = value
+        if key:
+            parsed[key] = value
     return parsed
 
 

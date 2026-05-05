@@ -97,7 +97,7 @@ def build_high_level_business_process_flow(output_dir: str = "."):
         "name": "All Scenarios (Merged)",
     })
     doc_all_scenarios = ET.SubElement(all_scenarios_sub, f"{{{BPMN_NS}}}documentation")
-    doc_all_scenarios.text = "See: flows_all_bpmn2.0.xml"
+    doc_all_scenarios.text = "See: flows_all_bpmn2.0.json"
     if prev_sub_id is not None:
         fid = _next_id("HL_Flow")
         ET.SubElement(troubleshoot_sub, f"{{{BPMN_NS}}}sequenceFlow", {
@@ -134,18 +134,20 @@ def build_high_level_business_process_flow(output_dir: str = "."):
 Trace-to-BPMN 2.0 Generator (v2)
 ==================================
 Queries Grafana Tempo for traces, groups them by (service, root span),
-merges all observed paths into a single BPMN process per distinct flow,
-and also emits every contiguous service segment of length two or more.
+builds scenario BPMN outputs, emits scenario JSON outputs, and
+creates a merged flows_all JSON from individual scenario JSON files.
 
 Usage:
     $env:NO_PROXY = "localhost,127.0.0.1"
     python trace_to_bpmn2.py
 
     # Options:
-    python trace_to_bpmn2.py --tempo-url http://localhost:3200 --limit 60 --output flows.xml --segments-output service_segments.txt
+    python trace_to_bpmn2.py --tempo-url http://localhost:3200 --limit 60 --output flows_all_bpmn2.0.json --segments-output service_segments.txt
 
 Outputs:
-    - BPMN 2.0 XML importable into Camunda Modeler, Bizagi, bpmn.js, etc.
+    - Per-scenario BPMN 2.0 XML files (test_scenario_*_flow.xml)
+    - Per-scenario JSON files (test_scenario_*_flow.json)
+    - Merged JSON (flows_all_bpmn2.0.json)
     - Plain-text list of ordered service combinations.
 """
 
@@ -170,6 +172,207 @@ except ImportError:
     # If loki_error_extractor is not available, define stub functions
     query_errors_per_service = lambda **kwargs: {}
     get_errors_for_service_if_any = lambda service_name, errors_by_service: []
+
+try:
+    from xml2json import parse_bpmn_file, aggregate_process_volumes, volumes_from_process
+except ImportError:
+    parse_bpmn_file = None
+    aggregate_process_volumes = None
+    volumes_from_process = None
+
+try:
+    from build_flows_all_from_individual_json import run_from_files as build_flows_all_json_from_files
+except ImportError:
+    build_flows_all_json_from_files = None
+
+
+def _write_json_for_xml(xml_path: Path) -> Optional[Path]:
+    if parse_bpmn_file is None:
+        return None
+
+    rows = parse_bpmn_file(xml_path, base_dir=xml_path.parent)
+    root = ET.parse(xml_path).getroot()
+    process_elems = root.findall(f"{{{BPMN_NS}}}process")
+
+    volumes: Dict[str, Any] = {}
+    if len(process_elems) > 1 and aggregate_process_volumes is not None:
+        volumes = aggregate_process_volumes(process_elems)
+    elif process_elems and volumes_from_process is not None:
+        volumes = volumes_from_process(process_elems[0])
+
+    output_payload: Dict[str, Any] = {"diagram": rows}
+    if volumes:
+        output_payload["volumes"] = volumes
+
+    json_path = xml_path.with_suffix(".json")
+    json_path.write_text(json.dumps(output_payload, indent=2), encoding="utf-8")
+    return json_path
+
+
+def _error_record_to_json(error: "ErrorRecord") -> Dict[str, str]:
+    attrs = error.attributes or {}
+    db_name = attrs.get("db", attrs.get("db.name", ""))
+
+    statement = (
+        attrs.get("db.statement")
+        or attrs.get("statement")
+        or attrs.get("sql_statement")
+        or attrs.get("sql")
+        or ""
+    )
+
+    # Best-effort SQL text for simulator-style sql_error logs.
+    if not statement and attrs.get("kind") == "column_not_found":
+        table_name = attrs.get("table", "")
+        column_name = attrs.get("column", "")
+        if table_name and column_name:
+            statement = f"SELECT {column_name} FROM {table_name}"
+
+    error_message = attrs.get("message", "") or (error.message or "")
+
+    return {
+        "db.name": db_name,
+        "statement": statement,
+        "error_message": error_message,
+        "type": attrs.get("kind", error.event or ""),
+        "event": error.event or "",
+    }
+
+
+def _is_sql_error_record(error: "ErrorRecord") -> bool:
+    attrs = error.attributes or {}
+    tokens = [
+        str(error.event or ""),
+        str(error.message or ""),
+        str(attrs.get("event") or ""),
+        str(attrs.get("kind") or ""),
+        str(attrs.get("db.statement") or ""),
+    ]
+    blob = " ".join(tokens).lower()
+    return "sql_error" in blob or "sql" in blob
+
+
+def _is_sql_error_obj(error_obj: Dict[str, Any]) -> bool:
+    tokens = [
+        str(error_obj.get("event") or ""),
+        str(error_obj.get("type") or ""),
+        str(error_obj.get("error_message") or ""),
+        str(error_obj.get("statement") or ""),
+    ]
+    blob = " ".join(tokens).lower()
+    return "sql_error" in blob or "sql" in blob
+
+
+def _error_obj_quality(error_obj: Dict[str, Any]) -> int:
+    """Rank SQL error objects so richer entries win during dedupe."""
+    statement = str(error_obj.get("statement") or "").strip()
+    message = str(error_obj.get("error_message") or "").strip()
+    score = 0
+    if statement:
+        score += 100
+    # Prefer fuller human-readable SQL message over tokenized fragments.
+    score += min(len(message), 200)
+    return score
+
+
+def _collapse_sql_error_objects(errors: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Deduplicate SQL errors and keep the richest payload per logical error."""
+    best_by_key: Dict[Tuple[str, str, str], Dict[str, Any]] = {}
+    for item in errors:
+        if not isinstance(item, dict):
+            continue
+        key = (
+            str(item.get("db.name") or ""),
+            str(item.get("type") or ""),
+            str(item.get("event") or ""),
+        )
+        current = best_by_key.get(key)
+        if current is None or _error_obj_quality(item) > _error_obj_quality(current):
+            best_by_key[key] = item
+    return list(best_by_key.values())
+
+
+def _enrich_json_with_service_errors(
+    json_path: Path,
+    errors_by_service: Dict[str, List["ErrorRecord"]],
+) -> bool:
+    """Inject current Loki service errors into task rows by service name.
+
+    This updates existing scenario JSON files as well, so stale scenario outputs
+    still reflect the latest known service-level errors even when a scenario was
+    not regenerated in the current Tempo query window.
+    """
+    try:
+        payload = json.loads(json_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return False
+
+    if not isinstance(payload, dict):
+        return False
+
+    rows = payload.get("diagram")
+    if not isinstance(rows, list):
+        return False
+
+    changed = False
+    for row in rows:
+        if not isinstance(row, dict) or row.get("type") != "task":
+            continue
+
+        service_name = str(row.get("name") or "").strip()
+        if not service_name:
+            continue
+
+        service_errors = [
+            error
+            for error in get_errors_for_service_if_any(service_name, errors_by_service)
+            if _is_sql_error_record(error)
+        ]
+
+        existing_errors = row.get("errors")
+        if not isinstance(existing_errors, list):
+            existing_errors = []
+
+        existing_errors = [
+            item for item in existing_errors
+            if isinstance(item, dict) and _is_sql_error_obj(item)
+        ]
+
+        seen = {
+            (
+                str(item.get("db.name") or ""),
+                str(item.get("statement") or ""),
+                str(item.get("error_message") or ""),
+                str(item.get("type") or ""),
+            )
+            for item in existing_errors
+            if isinstance(item, dict)
+        }
+
+        merged_errors = list(existing_errors)
+        for error in service_errors:
+            error_obj = _error_record_to_json(error)
+            dedup_key = (
+                error_obj["db.name"],
+                error_obj["statement"],
+                error_obj["error_message"],
+                error_obj["type"],
+            )
+            if dedup_key in seen:
+                continue
+            seen.add(dedup_key)
+            merged_errors.append(error_obj)
+
+        merged_errors = _collapse_sql_error_objects(merged_errors)
+
+        current_row_errors = row.get("errors") if isinstance(row.get("errors"), list) else []
+        if merged_errors != current_row_errors:
+            row["errors"] = merged_errors
+            changed = True
+
+    if changed:
+        json_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    return changed
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -297,9 +500,10 @@ def build_span_tree(spans: List[SpanNode]) -> Optional[SpanNode]:
 
 @dataclass
 class FlowGroup:
-    """All traces sharing the same (service, root_span_name)."""
+    """All traces sharing the same chain_id + flow signature bucket."""
     service_name: str
     root_span_name: str
+    chain_id: Optional[str] = None
     trace_ids: List[str] = field(default_factory=list)
     trees: List[SpanNode] = field(default_factory=list)
     total_duration_ms: float = 0.0
@@ -422,7 +626,7 @@ def group_traces(
     end_unix_seconds: Optional[int] = None,
     traceql_query: Optional[str] = None,
 ) -> Tuple[Dict[str, FlowGroup], List[TraceFlow]]:
-    """Fetch traces, build trees, group by (service, root span)."""
+    """Fetch traces, build trees, group by (chain_id, service path signature)."""
     trace_ids = fetch_trace_ids(
         tempo_url,
         limit,
@@ -435,6 +639,13 @@ def group_traces(
         sys.exit(1)
     print(f"Fetched {len(trace_ids)} trace IDs from Tempo.")
 
+    def trace_path_signature(root: SpanNode) -> str:
+        # Stable signature from distinct root->leaf service paths.
+        ordered = [" -> ".join(path) for path in extract_ordered_service_paths(root)]
+        if not ordered:
+            return root.service_name
+        return " || ".join(sorted(set(ordered)))
+
     groups: Dict[str, FlowGroup] = {}
     trace_flows: List[TraceFlow] = []
     for tid in trace_ids:
@@ -443,9 +654,12 @@ def group_traces(
         if root is None:
             continue
 
+        chain_id = extract_chain_id_from_tree(root)
+        signature = trace_path_signature(root)
+
         trace_flows.append(TraceFlow(
             trace_id=tid,
-            chain_id=extract_chain_id_from_tree(root),
+            chain_id=chain_id,
             ticket_id=extract_ticket_id_from_tree(root),
             earliest_start_ns=earliest_span_start_ns(root),
             root=root,
@@ -455,11 +669,12 @@ def group_traces(
             status_ok=root.status_ok,
         ))
 
-        key = f"{root.service_name}::{root.name}"
+        key = f"{chain_id or 'no_chain'}::{signature}"
         if key not in groups:
             groups[key] = FlowGroup(
                 service_name=root.service_name,
                 root_span_name=root.name,
+                chain_id=chain_id,
             )
         g = groups[key]
         g.trace_ids.append(tid)
@@ -853,6 +1068,49 @@ class ChainSummary:
     error_count: int
 
 
+def summarize_by_chain(trace_flows: List[TraceFlow]) -> Dict[str, ChainSummary]:
+    """Collapse traces by chain_id so per-scenario outputs can show transaction counts."""
+    buckets: Dict[str, Dict[str, Any]] = defaultdict(lambda: {
+        "ticket_id": "",
+        "earliest_start_ns": 10 ** 18,
+        "root_span_names": [],
+        "trace_count": 0,
+        "total_duration_ms": 0.0,
+        "error_count": 0,
+        "trace_ids": [],
+    })
+
+    for tf in trace_flows:
+        if not tf.chain_id:
+            continue
+
+        acc = buckets[tf.chain_id]
+        if not acc["ticket_id"] and tf.ticket_id:
+            acc["ticket_id"] = tf.ticket_id
+        if tf.earliest_start_ns and tf.earliest_start_ns < acc["earliest_start_ns"]:
+            acc["earliest_start_ns"] = tf.earliest_start_ns
+        if tf.root_span_name not in acc["root_span_names"]:
+            acc["root_span_names"].append(tf.root_span_name)
+        acc["trace_count"] += 1
+        acc["total_duration_ms"] += tf.duration_ms
+        if not tf.status_ok:
+            acc["error_count"] += 1
+        acc["trace_ids"].append(tf.trace_id)
+
+    return {
+        chain_id: ChainSummary(
+            chain_id=chain_id,
+            ticket_id=acc["ticket_id"],
+            earliest_start_ns=acc["earliest_start_ns"],
+            root_span_names=acc["root_span_names"],
+            trace_count=acc["trace_count"],
+            total_duration_ms=acc["total_duration_ms"],
+            error_count=acc["error_count"],
+        )
+        for chain_id, acc in buckets.items()
+    }
+
+
 def group_by_ticket(trace_flows: List[TraceFlow]) -> Dict[str, List[ChainSummary]]:
     """
     Group trace flows by ticket_id, then collapse by chain_id.
@@ -961,7 +1219,7 @@ class BPMNBuilder:
         title_id = f"TraceTitle_{self.proc_idx}"
         plane_start_idx = len(self.plane)
 
-        count = len(group.trees)
+        count = len(group.trace_ids) if group.trace_ids else len(group.trees)
         avg_dur = group.total_duration_ms / count if count else 0
         err_pct = (group.error_count / count * 100) if count else 0
         trace_title = self._build_trace_title(group)
@@ -971,6 +1229,8 @@ class BPMNBuilder:
             f"({count} traces, avg {avg_dur:.0f}ms"
             f"{f', {err_pct:.0f}% errors' if group.error_count else ''})"
         )
+        if group.chain_id:
+            pool_label = f"{group.chain_id}\n" + pool_label
 
         ET.SubElement(self.collaboration, f"{{{BPMN_NS}}}participant", {
             "id": participant_id,
@@ -985,6 +1245,7 @@ class BPMNBuilder:
         doc = ET.SubElement(process, f"{{{BPMN_NS}}}documentation")
         doc.text = (
             f"Auto-generated from OpenTelemetry trace data.\n"
+            f"Chain ID: {group.chain_id or 'n/a'}\n"
             f"Service: {group.service_name}\n"
             f"Root span: {group.root_span_name}\n"
             f"Primary trace ID: {group.trace_ids[0] if group.trace_ids else 'n/a'}\n"
@@ -1181,8 +1442,21 @@ class BPMNBuilder:
         span_data: List[SpanRecord],
         errors_by_service: Dict[str, List[ErrorRecord]],
     ) -> List[ErrorRecord]:
-        """Return only Loki errors that correlate to this task's trace/span IDs."""
-        service_errors = get_errors_for_service_if_any(service_name, errors_by_service)
+        """Return Loki errors for this service.
+
+        First attempts trace/span-ID correlation so that a precise match is
+        preferred.  If no trace-correlated errors are found but the service
+        does have errors recorded in Loki, all service-level errors are
+        returned (deduplicated by message).  This guarantees that a service
+        whose errors are logged with a different trace context (e.g. a SQL
+        error emitted before the span context propagates) is still surfaced on
+        every task instance for that service in every flow.
+        """
+        service_errors = [
+            error
+            for error in get_errors_for_service_if_any(service_name, errors_by_service)
+            if _is_sql_error_record(error)
+        ]
         if not service_errors or not span_data:
             return []
 
@@ -1197,31 +1471,43 @@ class BPMNBuilder:
             if (record.span_id or "").strip()
         }
 
-        if not trace_ids and not span_ids:
-            return []
-
+        # --- attempt trace/span-correlated matching ---
         matched: List[ErrorRecord] = []
         seen = set()
+        if trace_ids or span_ids:
+            for error in service_errors:
+                error_trace_id = (error.trace_id or "").strip().lower()
+                error_span_id = (error.span_id or "").strip()
+                trace_match = bool(error_trace_id and error_trace_id in trace_ids)
+                span_match = bool(error_span_id and error_span_id in span_ids)
+                if not (trace_match or span_match):
+                    continue
+                dedup_key = (
+                    error.timestamp_ns,
+                    error.trace_id or "",
+                    error.span_id or "",
+                    error.message,
+                )
+                if dedup_key in seen:
+                    continue
+                seen.add(dedup_key)
+                matched.append(error)
+
+        if matched:
+            return matched
+
+        # --- fallback: service-level errors (dedup by event+message) ---
+        # Loki errors for this service exist but their trace IDs differ from
+        # the Tempo spans (common when errors are emitted outside the span
+        # context).  Return all unique error messages so every task instance
+        # of this service shows the known error.
+        seen_msg: set = set()
         for error in service_errors:
-            error_trace_id = (error.trace_id or "").strip().lower()
-            error_span_id = (error.span_id or "").strip()
-
-            trace_match = bool(error_trace_id and error_trace_id in trace_ids)
-            span_match = bool(error_span_id and error_span_id in span_ids)
-            if not (trace_match or span_match):
+            dedup_key = (error.event or "", error.message or "")
+            if dedup_key in seen_msg:
                 continue
-
-            dedup_key = (
-                error.timestamp_ns,
-                error.trace_id or "",
-                error.span_id or "",
-                error.message,
-            )
-            if dedup_key in seen:
-                continue
-            seen.add(dedup_key)
+            seen_msg.add(dedup_key)
             matched.append(error)
-
         return matched
 
     def _emit_nodes(self, process, nodes, x, y, x_step, prev_ids, max_y_used, errors_by_service: Optional[Dict[str, List[ErrorRecord]]] = None):
@@ -1789,14 +2075,14 @@ def build_business_flow_bpmn(ticket_id: str, chains: List[ChainSummary]) -> str:
 def main():
 
     parser = argparse.ArgumentParser(
-        description="Generate BPMN 2.0 XML and ordered service segment combinations from OpenTelemetry traces in Tempo")
+        description="Generate per-scenario BPMN/JSON outputs, merged flows_all JSON, and ordered service segment combinations from OpenTelemetry traces in Tempo")
     parser.add_argument("--tempo-url", default="http://localhost:3200")
     parser.add_argument("--loki-url", default="http://localhost:3100", 
                         help="Loki backend URL for querying error logs")
     parser.add_argument("--loki-hours-back", type=int, default=None,
                         help="Look back N hours in Loki for error logs (defaults to --last-hours when provided, else 2)")
     parser.add_argument("--limit", type=int, default=60)
-    parser.add_argument("--output", default="flows_all_bpmn2.0.xml")
+    parser.add_argument("--output", default="flows_all_bpmn2.0.json")
     parser.add_argument("--segments-output", default="service_segments.txt")
     parser.add_argument("--individual-limit", type=int, default=10,
                         help="Maximum number of individual trace BPMN files to write")
@@ -1864,8 +2150,6 @@ def main():
 
     print(f"\nDiscovered {len(groups)} distinct flow(s):\n")
 
-    builder = BPMNBuilder()
-
     for key in sorted(groups.keys(), key=lambda k: -len(groups[k].trees)):
         g = groups[key]
         avg = g.total_duration_ms / len(g.trees)
@@ -1880,35 +2164,37 @@ def main():
 
         print()
 
-        builder.add_process(g, flow_nodes, errors_by_service)
-
     segments = collect_service_segments(groups)
     output_text = serialize_service_segments(segments)
     primary_trace = primary_trace_id(groups)
-
-    xml_output = builder.serialize()
     resolved_segments_output = resolve_output_path(
         output_path_with_trace_id(args.segments_output, primary_trace)
     )
-
-    os.makedirs(os.path.dirname(resolved_output) or ".", exist_ok=True)
-    with open(resolved_output, "w", encoding="utf-8") as f:
-        f.write(xml_output)
 
     os.makedirs(os.path.dirname(resolved_segments_output) or ".", exist_ok=True)
     with open(resolved_segments_output, "w", encoding="utf-8") as f:
         f.write(output_text)
 
+    chain_summaries = summarize_by_chain(trace_flows)
+    chain_trace_ids: Dict[str, List[str]] = defaultdict(list)
+    for trace_flow in trace_flows:
+        if trace_flow.chain_id:
+            chain_trace_ids[trace_flow.chain_id].append(trace_flow.trace_id)
+
     selected_trace_flows = select_traces_for_individual_outputs(trace_flows, errors_by_service)
     individual_count = min(args.individual_limit, len(selected_trace_flows))
+    individual_json_count = 0
+    generated_individual_json_paths: List[Path] = []
     for trace in selected_trace_flows[:individual_count]:
+        chain_summary = chain_summaries.get(trace.chain_id or "")
         individual_group = FlowGroup(
             service_name=trace.service_name,
             root_span_name=trace.root_span_name,
-            trace_ids=[trace.trace_id],
+            chain_id=trace.chain_id,
+            trace_ids=chain_trace_ids.get(trace.chain_id or "", [trace.trace_id]),
             trees=[trace.root],
-            total_duration_ms=trace.duration_ms,
-            error_count=0 if trace.status_ok else 1,
+            total_duration_ms=chain_summary.total_duration_ms if chain_summary else trace.duration_ms,
+            error_count=chain_summary.error_count if chain_summary else (0 if trace.status_ok else 1),
         )
         individual_nodes = merge_group_to_flow(individual_group)
         individual_builder = BPMNBuilder()
@@ -1923,8 +2209,45 @@ def main():
         with open(individual_output, "w", encoding="utf-8") as f:
             f.write(individual_xml)
 
-    print(f"BPMN 2.0 XML written to: {resolved_output}")
+        json_path = _write_json_for_xml(Path(individual_output))
+        if json_path is not None:
+            _enrich_json_with_service_errors(json_path, errors_by_service)
+            individual_json_count += 1
+            generated_individual_json_paths.append(json_path)
+
+    for existing_json in Path(resolved_output_dir).glob("test_scenario_*_flow.json"):
+        _enrich_json_with_service_errors(existing_json, errors_by_service)
+
+    combined_json_output = Path(resolved_output).with_suffix(".json")
+    combined_json_written = False
+    if build_flows_all_json_from_files is not None:
+        try:
+            scenario_json_map: Dict[str, Path] = {
+                path.stem: path for path in generated_individual_json_paths
+            }
+            for existing_json in Path(resolved_output_dir).glob("test_scenario_*_flow.json"):
+                if existing_json.stem not in scenario_json_map:
+                    scenario_json_map[existing_json.stem] = existing_json
+
+            build_flows_all_json_from_files(list(scenario_json_map.values()), combined_json_output)
+            combined_json_written = True
+        except Exception as exc:
+            print(f"Warning: failed to build {combined_json_output.name} from individual JSON files: {exc}")
+    else:
+        print("Warning: build_flows_all_from_individual_json module not available; skipped combined JSON generation")
+
+    legacy_combined_xml = Path(resolved_output_dir) / "flows_all_bpmn2.0.xml"
+    if legacy_combined_xml.exists():
+        try:
+            legacy_combined_xml.unlink()
+        except OSError as exc:
+            print(f"Warning: could not remove legacy combined XML {legacy_combined_xml}: {exc}")
+
+    print("Legacy combined BPMN XML generation disabled.")
     print(f"Wrote {individual_count} individual BPMN trace diagram(s) with pattern: <chain_id>_flow.xml")
+    print(f"Wrote {individual_json_count} individual JSON diagram(s) with pattern: <chain_id>_flow.json")
+    if combined_json_written:
+        print(f"Wrote merged JSON from individual scenarios: {combined_json_output}")
     print(f"Wrote {len(segments)} service segment combination(s) to: {resolved_segments_output}")
 
     ticket_groups = group_by_ticket(trace_flows)
@@ -1944,7 +2267,7 @@ def main():
     else:
         print("No ticket_id found in traces — no business flow XMLs written.")
 
-    print("Import the XML into Camunda Modeler, Bizagi, bpmn.js, or any BPMN 2.0 tool.")
+    print("Import per-scenario XML into Camunda Modeler, Bizagi, bpmn.js, or any BPMN 2.0 tool.")
 
 
 if __name__ == "__main__":

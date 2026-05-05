@@ -1,0 +1,43 @@
+ABPT -> IDP-IDM
+IDP-IDM -> SHM
+ABPT -> IDP-IDM -> SHM
+SHM -> IDP-Commerce-ES
+IDP-IDM -> SHM -> IDP-Commerce-ES
+ABPT -> IDP-IDM -> SHM -> IDP-Commerce-ES
+IDP-Commerce-ES -> TRiP
+SHM -> IDP-Commerce-ES -> TRiP
+IDP-IDM -> SHM -> IDP-Commerce-ES -> TRiP
+ABPT -> IDP-IDM -> SHM -> IDP-Commerce-ES -> TRiP
+TRiP -> GRP-ICAP
+IDP-Commerce-ES -> TRiP -> GRP-ICAP
+SHM -> IDP-Commerce-ES -> TRiP -> GRP-ICAP
+IDP-IDM -> SHM -> IDP-Commerce-ES -> TRiP -> GRP-ICAP
+ABPT -> IDP-IDM -> SHM -> IDP-Commerce-ES -> TRiP -> GRP-ICAP
+GRP-ICAP -> Nimbus
+TRiP -> GRP-ICAP -> Nimbus
+IDP-Commerce-ES -> TRiP -> GRP-ICAP -> Nimbus
+SHM -> IDP-Commerce-ES -> TRiP -> GRP-ICAP -> Nimbus
+IDP-IDM -> SHM -> IDP-Commerce-ES -> TRiP -> GRP-ICAP -> Nimbus
+ABPT -> IDP-IDM -> SHM -> IDP-Commerce-ES -> TRiP -> GRP-ICAP -> Nimbus
+Nimbus -> TDICE
+GRP-ICAP -> Nimbus -> TDICE
+TRiP -> GRP-ICAP -> Nimbus -> TDICE
+IDP-Commerce-ES -> TRiP -> GRP-ICAP -> Nimbus -> TDICE
+SHM -> IDP-Commerce-ES -> TRiP -> GRP-ICAP -> Nimbus -> TDICE
+IDP-IDM -> SHM -> IDP-Commerce-ES -> TRiP -> GRP-ICAP -> Nimbus -> TDICE
+ABPT -> IDP-IDM -> SHM -> IDP-Commerce-ES -> TRiP -> GRP-ICAP -> Nimbus -> TDICE
+CCSF -> CCMULE
+CCMULE -> IDP-Cloud-CG
+CCSF -> CCMULE -> IDP-Cloud-CG
+IDP-Cloud-CG -> DPG - Sales & Sunrise
+CCMULE -> IDP-Cloud-CG -> DPG - Sales & Sunrise
+CCSF -> CCMULE -> IDP-Cloud-CG -> DPG - Sales & Sunrise
+DPG - Sales & Sunrise -> Platform Support ATTFEDGOV1
+IDP-Cloud-CG -> DPG - Sales & Sunrise -> Platform Support ATTFEDGOV1
+CCMULE -> IDP-Cloud-CG -> DPG - Sales & Sunrise -> Platform Support ATTFEDGOV1
+CCSF -> CCMULE -> IDP-Cloud-CG -> DPG - Sales & Sunrise -> Platform Support ATTFEDGOV1
+Platform Support ATTFEDGOV1 -> eTRACS
+DPG - Sales & Sunrise -> Platform Support ATTFEDGOV1 -> eTRACS
+IDP-Cloud-CG -> DPG - Sales & Sunrise -> Platform Support ATTFEDGOV1 -> eTRACS
+CCMULE -> IDP-Cloud-CG -> DPG - Sales & Sunrise -> Platform Support ATTFEDGOV1 -> eTRACS
+CCSF -> CCMULE -> IDP-Cloud-CG -> DPG - Sales & Sunrise -> Platform Support ATTFEDGOV1 -> eTRACS

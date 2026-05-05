@@ -86,7 +86,7 @@ Tasks: Lookup Customer, Troubleshoot.</documentation>
       </subProcess>
       <sequenceFlow id="HL_Flow_11" sourceRef="HL_SubProcess_Troubleshoot_Scenario9_1" targetRef="HL_SubProcess_Troubleshoot_Scenario10_1" />
       <subProcess id="HL_SubProcess_Troubleshoot_AllScenarios_1" name="All Scenarios (Merged)">
-        <documentation>See: flows_all_bpmn2.0.xml</documentation>
+        <documentation>See: flows_all_bpmn2.0.json</documentation>
       </subProcess>
       <sequenceFlow id="HL_Flow_12" sourceRef="HL_SubProcess_Troubleshoot_Scenario10_1" targetRef="HL_SubProcess_Troubleshoot_AllScenarios_1" />
     </subProcess>

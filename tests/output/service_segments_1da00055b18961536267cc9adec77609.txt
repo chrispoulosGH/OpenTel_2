@@ -1,0 +1,36 @@
+ABPT -> T.Data
+T.Data -> IDP-IDM
+ABPT -> T.Data -> IDP-IDM
+IDP-IDM -> (FED) - TDICE
+T.Data -> IDP-IDM -> (FED) - TDICE
+ABPT -> T.Data -> IDP-IDM -> (FED) - TDICE
+(FED) - TDICE -> Amp-MM - Invenio
+IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio
+T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio
+ABPT -> T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio
+Amp-MM - Invenio -> ECO Suite
+(FED) - TDICE -> Amp-MM - Invenio -> ECO Suite
+IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite
+T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite
+ABPT -> T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite
+ECO Suite -> TDICE
+Amp-MM - Invenio -> ECO Suite -> TDICE
+(FED) - TDICE -> Amp-MM - Invenio -> ECO Suite -> TDICE
+IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite -> TDICE
+T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite -> TDICE
+ABPT -> T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite -> TDICE
+CCSF -> CCMULE
+CCMULE -> IDP-Cloud-CG
+CCSF -> CCMULE -> IDP-Cloud-CG
+IDP-Cloud-CG -> DPG - Sales & Sunrise
+CCMULE -> IDP-Cloud-CG -> DPG - Sales & Sunrise
+CCSF -> CCMULE -> IDP-Cloud-CG -> DPG - Sales & Sunrise
+DPG - Sales & Sunrise -> Platform Support ATTFEDGOV1
+IDP-Cloud-CG -> DPG - Sales & Sunrise -> Platform Support ATTFEDGOV1
+CCMULE -> IDP-Cloud-CG -> DPG - Sales & Sunrise -> Platform Support ATTFEDGOV1
+CCSF -> CCMULE -> IDP-Cloud-CG -> DPG - Sales & Sunrise -> Platform Support ATTFEDGOV1
+Platform Support ATTFEDGOV1 -> eTRACS
+DPG - Sales & Sunrise -> Platform Support ATTFEDGOV1 -> eTRACS
+IDP-Cloud-CG -> DPG - Sales & Sunrise -> Platform Support ATTFEDGOV1 -> eTRACS
+CCMULE -> IDP-Cloud-CG -> DPG - Sales & Sunrise -> Platform Support ATTFEDGOV1 -> eTRACS
+CCSF -> CCMULE -> IDP-Cloud-CG -> DPG - Sales & Sunrise -> Platform Support ATTFEDGOV1 -> eTRACS

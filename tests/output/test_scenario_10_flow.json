@@ -1,542 +1,568 @@
-[
-  {
-    "id": "Task_486",
-    "type": "task",
-    "name": "ABPT",
-    "x": 370,
-    "y": 435,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=4235.1 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_487",
-    "type": "task",
-    "name": "T.Data",
-    "x": 640,
-    "y": 435,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=6642.0 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_489",
-    "type": "task",
-    "name": "IDP-IDM",
-    "x": 1140,
-    "y": 285,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=2532.2 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_490",
-    "type": "task",
-    "name": "Amp-MM - Invenio",
-    "x": 1410,
-    "y": 285,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=239.5 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_491",
-    "type": "task",
-    "name": "GRP-ICAP",
-    "x": 1140,
-    "y": 435,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=220.7 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_492",
-    "type": "task",
-    "name": "IDP-Commerce-ES",
-    "x": 1140,
-    "y": 585,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=4035.7 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_493",
-    "type": "task",
-    "name": "SHM",
-    "x": 1410,
-    "y": 585,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=4111.4 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_494",
-    "type": "task",
-    "name": "IDP-Order Graph Cloud",
-    "x": 1680,
-    "y": 585,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=4040.1 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_495",
-    "type": "task",
-    "name": "TRiP",
-    "x": 1950,
-    "y": 585,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=3233.9 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_496",
-    "type": "task",
-    "name": "Nimbus",
-    "x": 2220,
-    "y": 585,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=1643.0 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_497",
-    "type": "task",
-    "name": "TDICE",
-    "x": 2490,
-    "y": 585,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=85.9 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Start_1",
-    "type": "event",
-    "name": "Request\nReceived",
-    "x": 180,
-    "y": 449,
-    "height": 36,
-    "width": 36,
-    "shape": "circle",
-    "color": null
-  },
-  {
-    "id": "End_1",
-    "type": "event",
-    "name": "Completed",
-    "x": 2990,
-    "y": 449,
-    "height": 36,
-    "width": 36,
-    "shape": "circle",
-    "color": null
-  },
-  {
-    "id": "ParGW_488_fork",
-    "name": "",
-    "soureRef": [
-      "Task_487"
-    ],
-    "targetRef": [
-      "Task_489",
-      "Task_491",
-      "Task_492"
-    ],
-    "type": "parallel",
-    "shape": "diamond",
-    "x": 910,
-    "y": 442,
-    "width": 50,
-    "height": 50,
-    "color": null
-  },
-  {
-    "id": "ParGW_488_join",
-    "name": "",
-    "soureRef": [
-      "Task_490",
-      "Task_491",
-      "Task_497"
-    ],
-    "targetRef": [
-      "End_1"
-    ],
-    "type": "parallel",
-    "shape": "diamond",
-    "x": 2760,
-    "y": 442,
-    "width": 50,
-    "height": 50,
-    "color": null
-  },
-  {
-    "id": "Flow_500",
-    "sourceRef": "Start_1",
-    "targetRef": "Task_486",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 216,
-        "y": 467
-      },
-      {
-        "x": 370,
-        "y": 467
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_503",
-    "sourceRef": "Task_486",
-    "targetRef": "Task_487",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 490,
-        "y": 467
-      },
-      {
-        "x": 640,
-        "y": 467
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_504",
-    "sourceRef": "Task_487",
-    "targetRef": "ParGW_488_fork",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 760,
-        "y": 467
-      },
-      {
-        "x": 910,
-        "y": 467
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_507",
-    "sourceRef": "ParGW_488_fork",
-    "targetRef": "Task_489",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 935,
-        "y": 442
-      },
-      {
-        "x": 935,
-        "y": 317
-      },
-      {
-        "x": 1140,
-        "y": 317
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_510",
-    "sourceRef": "Task_489",
-    "targetRef": "Task_490",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 1260,
-        "y": 317
-      },
-      {
-        "x": 1410,
-        "y": 317
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_513",
-    "sourceRef": "ParGW_488_fork",
-    "targetRef": "Task_491",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 960,
-        "y": 467
-      },
-      {
-        "x": 1140,
-        "y": 467
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_516",
-    "sourceRef": "ParGW_488_fork",
-    "targetRef": "Task_492",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 935,
-        "y": 492
-      },
-      {
-        "x": 935,
-        "y": 617
-      },
-      {
-        "x": 1140,
-        "y": 617
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_519",
-    "sourceRef": "Task_492",
-    "targetRef": "Task_493",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 1260,
-        "y": 617
-      },
-      {
-        "x": 1410,
-        "y": 617
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_522",
-    "sourceRef": "Task_493",
-    "targetRef": "Task_494",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 1530,
-        "y": 617
-      },
-      {
-        "x": 1680,
-        "y": 617
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_525",
-    "sourceRef": "Task_494",
-    "targetRef": "Task_495",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 1800,
-        "y": 617
-      },
-      {
-        "x": 1950,
-        "y": 617
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_528",
-    "sourceRef": "Task_495",
-    "targetRef": "Task_496",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 2070,
-        "y": 617
-      },
-      {
-        "x": 2220,
-        "y": 617
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_531",
-    "sourceRef": "Task_496",
-    "targetRef": "Task_497",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 2340,
-        "y": 617
-      },
-      {
-        "x": 2490,
-        "y": 617
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_532",
-    "sourceRef": "Task_490",
-    "targetRef": "ParGW_488_join",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 1530,
-        "y": 317
-      },
-      {
-        "x": 2785,
-        "y": 317
-      },
-      {
-        "x": 2785,
-        "y": 442
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_533",
-    "sourceRef": "Task_491",
-    "targetRef": "ParGW_488_join",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 1260,
-        "y": 467
-      },
-      {
-        "x": 2760,
-        "y": 467
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_534",
-    "sourceRef": "Task_497",
-    "targetRef": "ParGW_488_join",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 2610,
-        "y": 617
-      },
-      {
-        "x": 2785,
-        "y": 617
-      },
-      {
-        "x": 2785,
-        "y": 492
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_535",
-    "sourceRef": "ParGW_488_join",
-    "targetRef": "End_1",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 2810,
-        "y": 467
-      },
-      {
-        "x": 2990,
-        "y": 467
-      }
-    ],
-    "color": null
+{
+  "diagram": [
+    {
+      "id": "Task_56",
+      "type": "task",
+      "name": "ABPT",
+      "x": 370,
+      "y": 435,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=3828.4 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_57",
+      "type": "task",
+      "name": "T.Data",
+      "x": 640,
+      "y": 435,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=5696.3 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_59",
+      "type": "task",
+      "name": "IDP-IDM",
+      "x": 1140,
+      "y": 285,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=1583.1 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_60",
+      "type": "task",
+      "name": "Amp-MM - Invenio",
+      "x": 1410,
+      "y": 285,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=23.0 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_61",
+      "type": "task",
+      "name": "GRP-ICAP",
+      "x": 1140,
+      "y": 435,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=54.6 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_62",
+      "type": "task",
+      "name": "IDP-Commerce-ES",
+      "x": 1140,
+      "y": 585,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=3840.4 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_63",
+      "type": "task",
+      "name": "SHM",
+      "x": 1410,
+      "y": 585,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=3856.1 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_64",
+      "type": "task",
+      "name": "IDP-Order Graph Cloud",
+      "x": 1680,
+      "y": 585,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=3830.4 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_65",
+      "type": "task",
+      "name": "TRiP",
+      "x": 1950,
+      "y": 585,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=3198.6 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_66",
+      "type": "task",
+      "name": "Nimbus",
+      "x": 2220,
+      "y": 585,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=1607.2 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_67",
+      "type": "task",
+      "name": "TDICE",
+      "x": 2490,
+      "y": 585,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=34.3 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Start_1",
+      "type": "event",
+      "name": "Request\nReceived",
+      "x": 180,
+      "y": 449,
+      "height": 36,
+      "width": 36,
+      "shape": "circle",
+      "color": null
+    },
+    {
+      "id": "End_1",
+      "type": "event",
+      "name": "Completed",
+      "x": 2990,
+      "y": 449,
+      "height": 36,
+      "width": 36,
+      "shape": "circle",
+      "color": null
+    },
+    {
+      "id": "ParGW_58_fork",
+      "name": "",
+      "soureRef": [
+        "Task_57"
+      ],
+      "targetRef": [
+        "Task_59",
+        "Task_61",
+        "Task_62"
+      ],
+      "type": "parallel",
+      "shape": "diamond",
+      "x": 910,
+      "y": 442,
+      "width": 50,
+      "height": 50,
+      "color": null
+    },
+    {
+      "id": "ParGW_58_join",
+      "name": "",
+      "soureRef": [
+        "Task_60",
+        "Task_61",
+        "Task_67"
+      ],
+      "targetRef": [
+        "End_1"
+      ],
+      "type": "parallel",
+      "shape": "diamond",
+      "x": 2760,
+      "y": 442,
+      "width": 50,
+      "height": 50,
+      "color": null
+    },
+    {
+      "id": "Flow_70",
+      "sourceRef": "Start_1",
+      "targetRef": "Task_56",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 216,
+          "y": 467
+        },
+        {
+          "x": 370,
+          "y": 467
+        }
+      ],
+      "color": null,
+      "transactionCount": 2
+    },
+    {
+      "id": "Flow_73",
+      "sourceRef": "Task_56",
+      "targetRef": "Task_57",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 490,
+          "y": 467
+        },
+        {
+          "x": 640,
+          "y": 467
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_74",
+      "sourceRef": "Task_57",
+      "targetRef": "ParGW_58_fork",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 760,
+          "y": 467
+        },
+        {
+          "x": 910,
+          "y": 467
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_77",
+      "sourceRef": "ParGW_58_fork",
+      "targetRef": "Task_59",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 935,
+          "y": 442
+        },
+        {
+          "x": 935,
+          "y": 317
+        },
+        {
+          "x": 1140,
+          "y": 317
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_80",
+      "sourceRef": "Task_59",
+      "targetRef": "Task_60",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 1260,
+          "y": 317
+        },
+        {
+          "x": 1410,
+          "y": 317
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_83",
+      "sourceRef": "ParGW_58_fork",
+      "targetRef": "Task_61",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 960,
+          "y": 467
+        },
+        {
+          "x": 1140,
+          "y": 467
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_86",
+      "sourceRef": "ParGW_58_fork",
+      "targetRef": "Task_62",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 935,
+          "y": 492
+        },
+        {
+          "x": 935,
+          "y": 617
+        },
+        {
+          "x": 1140,
+          "y": 617
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_89",
+      "sourceRef": "Task_62",
+      "targetRef": "Task_63",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 1260,
+          "y": 617
+        },
+        {
+          "x": 1410,
+          "y": 617
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_92",
+      "sourceRef": "Task_63",
+      "targetRef": "Task_64",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 1530,
+          "y": 617
+        },
+        {
+          "x": 1680,
+          "y": 617
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_95",
+      "sourceRef": "Task_64",
+      "targetRef": "Task_65",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 1800,
+          "y": 617
+        },
+        {
+          "x": 1950,
+          "y": 617
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_98",
+      "sourceRef": "Task_65",
+      "targetRef": "Task_66",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 2070,
+          "y": 617
+        },
+        {
+          "x": 2220,
+          "y": 617
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_101",
+      "sourceRef": "Task_66",
+      "targetRef": "Task_67",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 2340,
+          "y": 617
+        },
+        {
+          "x": 2490,
+          "y": 617
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_102",
+      "sourceRef": "Task_60",
+      "targetRef": "ParGW_58_join",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 1530,
+          "y": 317
+        },
+        {
+          "x": 2785,
+          "y": 317
+        },
+        {
+          "x": 2785,
+          "y": 442
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_103",
+      "sourceRef": "Task_61",
+      "targetRef": "ParGW_58_join",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 1260,
+          "y": 467
+        },
+        {
+          "x": 2760,
+          "y": 467
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_104",
+      "sourceRef": "Task_67",
+      "targetRef": "ParGW_58_join",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 2610,
+          "y": 617
+        },
+        {
+          "x": 2785,
+          "y": 617
+        },
+        {
+          "x": 2785,
+          "y": 492
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_105",
+      "sourceRef": "ParGW_58_join",
+      "targetRef": "End_1",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 2810,
+          "y": 467
+        },
+        {
+          "x": 2990,
+          "y": 467
+        }
+      ],
+      "color": null,
+      "transactionCount": 0
+    }
+  ],
+  "volumes": {
+    "service": "ABPT",
+    "root_span": "GET /d",
+    "primary_trace_id": "ae225c129378c7d9af1d4d8111d96098",
+    "transaction_count": 12,
+    "avg_duration_ms": 5180.9,
+    "error_rate_pct": 0.0
   }
-]
+}

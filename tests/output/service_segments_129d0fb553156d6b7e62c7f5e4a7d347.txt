@@ -1,0 +1,74 @@
+ABPT -> GRP-ICAP
+GRP-ICAP -> IDP-Commerce-ES
+ABPT -> GRP-ICAP -> IDP-Commerce-ES
+IDP-Commerce-ES -> IDP-Order Graph Cloud
+GRP-ICAP -> IDP-Commerce-ES -> IDP-Order Graph Cloud
+ABPT -> GRP-ICAP -> IDP-Commerce-ES -> IDP-Order Graph Cloud
+IDP-Order Graph Cloud -> SHM
+IDP-Commerce-ES -> IDP-Order Graph Cloud -> SHM
+GRP-ICAP -> IDP-Commerce-ES -> IDP-Order Graph Cloud -> SHM
+ABPT -> GRP-ICAP -> IDP-Commerce-ES -> IDP-Order Graph Cloud -> SHM
+SHM -> TRiP
+IDP-Order Graph Cloud -> SHM -> TRiP
+IDP-Commerce-ES -> IDP-Order Graph Cloud -> SHM -> TRiP
+GRP-ICAP -> IDP-Commerce-ES -> IDP-Order Graph Cloud -> SHM -> TRiP
+ABPT -> GRP-ICAP -> IDP-Commerce-ES -> IDP-Order Graph Cloud -> SHM -> TRiP
+TRiP -> TDICE
+SHM -> TRiP -> TDICE
+IDP-Order Graph Cloud -> SHM -> TRiP -> TDICE
+IDP-Commerce-ES -> IDP-Order Graph Cloud -> SHM -> TRiP -> TDICE
+GRP-ICAP -> IDP-Commerce-ES -> IDP-Order Graph Cloud -> SHM -> TRiP -> TDICE
+ABPT -> GRP-ICAP -> IDP-Commerce-ES -> IDP-Order Graph Cloud -> SHM -> TRiP -> TDICE
+ABPT -> T.Data
+T.Data -> IDP-IDM
+ABPT -> T.Data -> IDP-IDM
+IDP-IDM -> Amp-MM - Invenio
+T.Data -> IDP-IDM -> Amp-MM - Invenio
+ABPT -> T.Data -> IDP-IDM -> Amp-MM - Invenio
+T.Data -> GRP-ICAP
+ABPT -> T.Data -> GRP-ICAP
+T.Data -> IDP-Commerce-ES
+ABPT -> T.Data -> IDP-Commerce-ES
+IDP-Commerce-ES -> SHM
+T.Data -> IDP-Commerce-ES -> SHM
+ABPT -> T.Data -> IDP-Commerce-ES -> SHM
+SHM -> IDP-Order Graph Cloud
+IDP-Commerce-ES -> SHM -> IDP-Order Graph Cloud
+T.Data -> IDP-Commerce-ES -> SHM -> IDP-Order Graph Cloud
+ABPT -> T.Data -> IDP-Commerce-ES -> SHM -> IDP-Order Graph Cloud
+IDP-Order Graph Cloud -> TRiP
+SHM -> IDP-Order Graph Cloud -> TRiP
+IDP-Commerce-ES -> SHM -> IDP-Order Graph Cloud -> TRiP
+T.Data -> IDP-Commerce-ES -> SHM -> IDP-Order Graph Cloud -> TRiP
+ABPT -> T.Data -> IDP-Commerce-ES -> SHM -> IDP-Order Graph Cloud -> TRiP
+TRiP -> Nimbus
+IDP-Order Graph Cloud -> TRiP -> Nimbus
+SHM -> IDP-Order Graph Cloud -> TRiP -> Nimbus
+IDP-Commerce-ES -> SHM -> IDP-Order Graph Cloud -> TRiP -> Nimbus
+T.Data -> IDP-Commerce-ES -> SHM -> IDP-Order Graph Cloud -> TRiP -> Nimbus
+ABPT -> T.Data -> IDP-Commerce-ES -> SHM -> IDP-Order Graph Cloud -> TRiP -> Nimbus
+Nimbus -> TDICE
+TRiP -> Nimbus -> TDICE
+IDP-Order Graph Cloud -> TRiP -> Nimbus -> TDICE
+SHM -> IDP-Order Graph Cloud -> TRiP -> Nimbus -> TDICE
+IDP-Commerce-ES -> SHM -> IDP-Order Graph Cloud -> TRiP -> Nimbus -> TDICE
+T.Data -> IDP-Commerce-ES -> SHM -> IDP-Order Graph Cloud -> TRiP -> Nimbus -> TDICE
+ABPT -> T.Data -> IDP-Commerce-ES -> SHM -> IDP-Order Graph Cloud -> TRiP -> Nimbus -> TDICE
+IDP-IDM -> (FED) - TDICE
+T.Data -> IDP-IDM -> (FED) - TDICE
+ABPT -> T.Data -> IDP-IDM -> (FED) - TDICE
+(FED) - TDICE -> Amp-MM - Invenio
+IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio
+T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio
+ABPT -> T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio
+Amp-MM - Invenio -> ECO Suite
+(FED) - TDICE -> Amp-MM - Invenio -> ECO Suite
+IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite
+T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite
+ABPT -> T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite
+ECO Suite -> TDICE
+Amp-MM - Invenio -> ECO Suite -> TDICE
+(FED) - TDICE -> Amp-MM - Invenio -> ECO Suite -> TDICE
+IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite -> TDICE
+T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite -> TDICE
+ABPT -> T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite -> TDICE

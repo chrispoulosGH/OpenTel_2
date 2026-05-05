@@ -198,11 +198,13 @@ python nydmv_sim.py
 
 These scripts send traces to the central collector, which forwards them to Tempo.
 
-## Generate BPMN XML And Service Segment Lists
+## Generate BPMN And Service Segment Outputs
 
-The generator reads traces from Tempo and always writes both:
+The generator reads traces from Tempo and writes:
 
-- a BPMN 2.0 XML file
+- per-scenario BPMN XML files (`test_scenario_*_flow.xml`)
+- per-scenario JSON files (`test_scenario_*_flow.json`)
+- merged JSON (`flows_all_bpmn2.0.json`) built from individual scenario JSON files
 - a plain-text list of contiguous service combinations
 
 ### Generate outputs from current traces
@@ -216,10 +218,12 @@ What this does:
 
 1. Queries Tempo for recent traces
 2. Groups related traces into flows
-3. Builds a BPMN 2.0 process model
+3. Builds per-scenario BPMN 2.0 process models
 4. Extracts every contiguous ordered service segment of length 2 or more
-5. Writes the XML to `tests\flows_<trace_id>.xml`
-6. Writes the segment list to `tests\service_segments_<trace_id>.txt`
+5. Writes scenario BPMN XML files to `tests\output\test_scenario_*_flow.xml`
+6. Writes scenario JSON files to `tests\output\test_scenario_*_flow.json`
+7. Writes merged JSON to `tests\output\flows_all_bpmn2.0.json`
+8. Writes the segment list to `tests\output\service_segments_<trace_id>.txt`
 
 ### Generator options
 
@@ -227,7 +231,7 @@ What this does:
 |---|---|---|
 | `--tempo-url` | `http://localhost:3200` | Tempo API endpoint |
 | `--limit` | `60` | Maximum traces to read |
-| `--output` | `flows.xml` | Base BPMN XML name. The script writes `flows_<trace_id>.xml` |
+| `--output` | `flows_all_bpmn2.0.json` | Base name used for merged JSON output path (`<name>.json`) and scenario XML naming |
 | `--segments-output` | `service_segments.txt` | Base segment list name. The script writes `service_segments_<trace_id>.txt` |
 
 ## Typical Workflow
@@ -343,8 +347,7 @@ This gives a direct flow:
 ## Notes
 
 - `trace_to_bpmn2.py` does not create traces. It only reads what is already stored in Tempo.
-- `trace_to_bpmn2.py` always writes both outputs in the same run.
-- `trace_to_bpmn2.py` appends the primary trace ID to the BPMN output file name, so `flows.xml` becomes `flows_<trace_id>.xml`.
+- `trace_to_bpmn2.py` writes per-scenario XML/JSON files and then builds `flows_all_bpmn2.0.json` from the scenario JSON files.
 - `trace_to_bpmn2.py` appends the primary trace ID to the segment output file name, so `service_segments.txt` becomes `service_segments_<trace_id>.txt`.
 - For a path like `A -> B -> C`, the output includes `A -> B`, `B -> C`, and `A -> B -> C`.
 - If you see `No traces found in Tempo.`, run one of the trace-producing scripts first.

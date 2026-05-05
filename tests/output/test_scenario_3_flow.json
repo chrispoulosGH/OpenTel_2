@@ -1,280 +1,298 @@
-[
-  {
-    "id": "Task_399",
-    "type": "task",
-    "name": "ABPT",
-    "x": 370,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=3860.1 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_400",
-    "type": "task",
-    "name": "Nimbus",
-    "x": 640,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=3867.0 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_401",
-    "type": "task",
-    "name": "ISBUS",
-    "x": 910,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=4044.6 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_402",
-    "type": "task",
-    "name": "IDP_Platform",
-    "x": 1180,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=3936.7 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_403",
-    "type": "task",
-    "name": "IDP-IDM",
-    "x": 1450,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=3324.8 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_404",
-    "type": "task",
-    "name": "ECO Suite",
-    "x": 1720,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=1713.2 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Task_405",
-    "type": "task",
-    "name": "TDICE",
-    "x": 1990,
-    "y": 277.5,
-    "height": 64,
-    "width": 120,
-    "shape": "rectangle",
-    "color": null,
-    "applications": [],
-    "metrics": [
-      "duarationDataSet\nkey=avg duration\nvalue=107.7 millisecs"
-    ],
-    "errors": []
-  },
-  {
-    "id": "Start_1",
-    "type": "event",
-    "name": "Request\nReceived",
-    "x": 180,
-    "y": 291.5,
-    "height": 36,
-    "width": 36,
-    "shape": "circle",
-    "color": null
-  },
-  {
-    "id": "End_1",
-    "type": "event",
-    "name": "Completed",
-    "x": 2260,
-    "y": 291.5,
-    "height": 36,
-    "width": 36,
-    "shape": "circle",
-    "color": null
-  },
-  {
-    "id": "Flow_408",
-    "sourceRef": "Start_1",
-    "targetRef": "Task_399",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 216,
-        "y": 309.5
-      },
-      {
-        "x": 370,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_411",
-    "sourceRef": "Task_399",
-    "targetRef": "Task_400",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 490,
-        "y": 309.5
-      },
-      {
-        "x": 640,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_414",
-    "sourceRef": "Task_400",
-    "targetRef": "Task_401",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 760,
-        "y": 309.5
-      },
-      {
-        "x": 910,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_417",
-    "sourceRef": "Task_401",
-    "targetRef": "Task_402",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 1030,
-        "y": 309.5
-      },
-      {
-        "x": 1180,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_420",
-    "sourceRef": "Task_402",
-    "targetRef": "Task_403",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 1300,
-        "y": 309.5
-      },
-      {
-        "x": 1450,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_423",
-    "sourceRef": "Task_403",
-    "targetRef": "Task_404",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 1570,
-        "y": 309.5
-      },
-      {
-        "x": 1720,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_426",
-    "sourceRef": "Task_404",
-    "targetRef": "Task_405",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 1840,
-        "y": 309.5
-      },
-      {
-        "x": 1990,
-        "y": 309.5
-      }
-    ],
-    "color": null
-  },
-  {
-    "id": "Flow_427",
-    "sourceRef": "Task_405",
-    "targetRef": "End_1",
-    "type": "flow",
-    "shape": "line",
-    "waypoints": [
-      {
-        "x": 2110,
-        "y": 309.5
-      },
-      {
-        "x": 2260,
-        "y": 309.5
-      }
-    ],
-    "color": null
+{
+  "diagram": [
+    {
+      "id": "Task_542",
+      "type": "task",
+      "name": "ABPT",
+      "x": 370,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=3825.4 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_543",
+      "type": "task",
+      "name": "Nimbus",
+      "x": 640,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=3822.3 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_544",
+      "type": "task",
+      "name": "ISBUS",
+      "x": 910,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=3833.7 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_545",
+      "type": "task",
+      "name": "IDP_Platform",
+      "x": 1180,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=3838.6 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_546",
+      "type": "task",
+      "name": "IDP-IDM",
+      "x": 1450,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=3136.1 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_547",
+      "type": "task",
+      "name": "ECO Suite",
+      "x": 1720,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=1568.4 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Task_548",
+      "type": "task",
+      "name": "TDICE",
+      "x": 1990,
+      "y": 277.5,
+      "height": 64,
+      "width": 120,
+      "shape": "rectangle",
+      "color": null,
+      "applications": [],
+      "metrics": [
+        "duarationDataSet\nkey=avg duration\nvalue=27.7 millisecs"
+      ],
+      "errors": []
+    },
+    {
+      "id": "Start_1",
+      "type": "event",
+      "name": "Request\nReceived",
+      "x": 180,
+      "y": 291.5,
+      "height": 36,
+      "width": 36,
+      "shape": "circle",
+      "color": null
+    },
+    {
+      "id": "End_1",
+      "type": "event",
+      "name": "Completed",
+      "x": 2260,
+      "y": 291.5,
+      "height": 36,
+      "width": 36,
+      "shape": "circle",
+      "color": null
+    },
+    {
+      "id": "Flow_551",
+      "sourceRef": "Start_1",
+      "targetRef": "Task_542",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 216,
+          "y": 309.5
+        },
+        {
+          "x": 370,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 2
+    },
+    {
+      "id": "Flow_554",
+      "sourceRef": "Task_542",
+      "targetRef": "Task_543",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 490,
+          "y": 309.5
+        },
+        {
+          "x": 640,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_557",
+      "sourceRef": "Task_543",
+      "targetRef": "Task_544",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 760,
+          "y": 309.5
+        },
+        {
+          "x": 910,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_560",
+      "sourceRef": "Task_544",
+      "targetRef": "Task_545",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 1030,
+          "y": 309.5
+        },
+        {
+          "x": 1180,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_563",
+      "sourceRef": "Task_545",
+      "targetRef": "Task_546",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 1300,
+          "y": 309.5
+        },
+        {
+          "x": 1450,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_566",
+      "sourceRef": "Task_546",
+      "targetRef": "Task_547",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 1570,
+          "y": 309.5
+        },
+        {
+          "x": 1720,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_569",
+      "sourceRef": "Task_547",
+      "targetRef": "Task_548",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 1840,
+          "y": 309.5
+        },
+        {
+          "x": 1990,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    },
+    {
+      "id": "Flow_570",
+      "sourceRef": "Task_548",
+      "targetRef": "End_1",
+      "type": "flow",
+      "shape": "line",
+      "waypoints": [
+        {
+          "x": 2110,
+          "y": 309.5
+        },
+        {
+          "x": 2260,
+          "y": 309.5
+        }
+      ],
+      "color": null,
+      "transactionCount": 1
+    }
+  ],
+  "volumes": {
+    "service": "ABPT",
+    "root_span": "GET /d",
+    "primary_trace_id": "5fe7f647442f5a62c0a61d0088ddf786",
+    "transaction_count": 2,
+    "avg_duration_ms": 5108.0,
+    "error_rate_pct": 0.0
   }
-]
+}

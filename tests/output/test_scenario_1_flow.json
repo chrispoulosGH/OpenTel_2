@@ -1,7 +1,7 @@
 {
   "diagram": [
     {
-      "id": "Task_457",
+      "id": "Task_106",
       "type": "task",
       "name": "ABPT",
       "x": 370,
@@ -12,12 +12,12 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=4212.3 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3974.9 millisecs"
       ],
       "errors": []
     },
     {
-      "id": "Task_458",
+      "id": "Task_107",
       "type": "task",
       "name": "T.Data",
       "x": 640,
@@ -28,12 +28,12 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=4851.2 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3828.7 millisecs"
       ],
       "errors": []
     },
     {
-      "id": "Task_459",
+      "id": "Task_108",
       "type": "task",
       "name": "IDP-IDM",
       "x": 910,
@@ -44,12 +44,12 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3981.2 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3819.3 millisecs"
       ],
       "errors": []
     },
     {
-      "id": "Task_460",
+      "id": "Task_109",
       "type": "task",
       "name": "(FED) - TDICE",
       "x": 1180,
@@ -60,12 +60,12 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=4480.8 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3817.3 millisecs"
       ],
       "errors": []
     },
     {
-      "id": "Task_461",
+      "id": "Task_110",
       "type": "task",
       "name": "Amp-MM - Invenio",
       "x": 1450,
@@ -76,19 +76,12 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=4043.5 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3472.4 millisecs"
       ],
-      "errors": [
-        {
-          "db.name": "db_e",
-          "statement": "SELECT customer_segment FROM db_e.main_table WHERE id = ?",
-          "error_message": "column \"customer_segment\" does not exist",
-          "type": "SQL_COLUMN_NOT_FOUND"
-        }
-      ]
+      "errors": []
     },
     {
-      "id": "Task_462",
+      "id": "Task_111",
       "type": "task",
       "name": "ECO Suite",
       "x": 1720,
@@ -99,12 +92,12 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=2243.0 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=1587.9 millisecs"
       ],
       "errors": []
     },
     {
-      "id": "Task_463",
+      "id": "Task_112",
       "type": "task",
       "name": "TDICE",
       "x": 1990,
@@ -115,7 +108,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=200.9 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=30.0 millisecs"
       ],
       "errors": []
     },
@@ -142,9 +135,9 @@
       "color": null
     },
     {
-      "id": "Flow_466",
+      "id": "Flow_115",
       "sourceRef": "Start_1",
-      "targetRef": "Task_457",
+      "targetRef": "Task_106",
       "type": "flow",
       "shape": "line",
       "waypoints": [
@@ -157,12 +150,13 @@
           "y": 309.5
         }
       ],
-      "color": null
+      "color": null,
+      "transactionCount": 2
     },
     {
-      "id": "Flow_469",
-      "sourceRef": "Task_457",
-      "targetRef": "Task_458",
+      "id": "Flow_118",
+      "sourceRef": "Task_106",
+      "targetRef": "Task_107",
       "type": "flow",
       "shape": "line",
       "waypoints": [
@@ -175,12 +169,13 @@
           "y": 309.5
         }
       ],
-      "color": null
+      "color": null,
+      "transactionCount": 1
     },
     {
-      "id": "Flow_472",
-      "sourceRef": "Task_458",
-      "targetRef": "Task_459",
+      "id": "Flow_121",
+      "sourceRef": "Task_107",
+      "targetRef": "Task_108",
       "type": "flow",
       "shape": "line",
       "waypoints": [
@@ -193,12 +188,13 @@
           "y": 309.5
         }
       ],
-      "color": null
+      "color": null,
+      "transactionCount": 1
     },
     {
-      "id": "Flow_475",
-      "sourceRef": "Task_459",
-      "targetRef": "Task_460",
+      "id": "Flow_124",
+      "sourceRef": "Task_108",
+      "targetRef": "Task_109",
       "type": "flow",
       "shape": "line",
       "waypoints": [
@@ -211,12 +207,13 @@
           "y": 309.5
         }
       ],
-      "color": null
+      "color": null,
+      "transactionCount": 1
     },
     {
-      "id": "Flow_478",
-      "sourceRef": "Task_460",
-      "targetRef": "Task_461",
+      "id": "Flow_127",
+      "sourceRef": "Task_109",
+      "targetRef": "Task_110",
       "type": "flow",
       "shape": "line",
       "waypoints": [
@@ -229,12 +226,13 @@
           "y": 309.5
         }
       ],
-      "color": null
+      "color": null,
+      "transactionCount": 1
     },
     {
-      "id": "Flow_481",
-      "sourceRef": "Task_461",
-      "targetRef": "Task_462",
+      "id": "Flow_130",
+      "sourceRef": "Task_110",
+      "targetRef": "Task_111",
       "type": "flow",
       "shape": "line",
       "waypoints": [
@@ -247,12 +245,13 @@
           "y": 309.5
         }
       ],
-      "color": null
+      "color": null,
+      "transactionCount": 1
     },
     {
-      "id": "Flow_484",
-      "sourceRef": "Task_462",
-      "targetRef": "Task_463",
+      "id": "Flow_133",
+      "sourceRef": "Task_111",
+      "targetRef": "Task_112",
       "type": "flow",
       "shape": "line",
       "waypoints": [
@@ -265,11 +264,12 @@
           "y": 309.5
         }
       ],
-      "color": null
+      "color": null,
+      "transactionCount": 1
     },
     {
-      "id": "Flow_485",
-      "sourceRef": "Task_463",
+      "id": "Flow_134",
+      "sourceRef": "Task_112",
       "targetRef": "End_1",
       "type": "flow",
       "shape": "line",
@@ -283,18 +283,16 @@
           "y": 309.5
         }
       ],
-      "color": null
+      "color": null,
+      "transactionCount": 1
     }
   ],
-  "notes": [
-    {
-      "id": "note-1777574875196-572e54",
-      "x": 1415.5660400390625,
-      "y": 367.03125,
-      "width": 209,
-      "height": 195,
-      "color": "#fecaca",
-      "text": "Outages\n\nClose\nAmp-MM - Invenio\n\nDB: db_e\nStatement: SELECT customer_segment FROM db_e.main_table WHERE id = ?\nError: column \"customer_segment\" does not exist\nType: SQL_COLUMN_NOT_FOUND"
-    }
-  ]
+  "volumes": {
+    "service": "ABPT",
+    "root_span": "GET /d",
+    "primary_trace_id": "16131ae3645d882d3e891a59f267df81",
+    "transaction_count": 5,
+    "avg_duration_ms": 5171.5,
+    "error_rate_pct": 0.0
+  }
 }
