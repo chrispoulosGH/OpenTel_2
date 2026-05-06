@@ -9,7 +9,7 @@
         <dc:Bounds x="370" y="98" width="120" height="64" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="HL_Flow_1_di" bpmnElement="HL_Flow_1">
-        <di:waypoint x="216" y="130.0" />
+        <di:waypoint x="216.0" y="130.0" />
         <di:waypoint x="370" y="130.0" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="HL_SubProcess_Troubleshoot_1_di" bpmnElement="HL_SubProcess_Troubleshoot_1">
@@ -24,7 +24,7 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="HL_Flow_13_di" bpmnElement="HL_Flow_13">
         <di:waypoint x="760" y="130.0" />
-        <di:waypoint x="910" y="130.0" />
+        <di:waypoint x="910.0" y="130.0" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="HighLevelTitle_1_di" bpmnElement="HighLevelTitle_1">
         <dc:Bounds x="717.5" y="24" width="320" height="36" />

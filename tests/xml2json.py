@@ -2264,6 +2264,8 @@ def _parse_process_items(
     for flow in sequence_flows:
         flow_id = flow.get("id", "")
         flow_di = edge_data.get(flow_id, {})
+        computed_txn_count = int(flow_txn_counts.get(flow_id, 0) or 0)
+        fallback_txn_count = int(transaction_count or 0)
         flow_row: dict[str, object] = {
             "id": flow_id,
             "sourceRef": flow.get("sourceRef", ""),
@@ -2273,7 +2275,7 @@ def _parse_process_items(
             "waypoints": flow_di.get("waypoints", []),
             "color": flow_di.get("stroke"),
         }
-        flow_row["transactionCount"] = flow_txn_counts.get(flow_id, transaction_count or 0)
+        flow_row["transactionCount"] = max(computed_txn_count, fallback_txn_count)
         rows.append(flow_row)
 
     return rows

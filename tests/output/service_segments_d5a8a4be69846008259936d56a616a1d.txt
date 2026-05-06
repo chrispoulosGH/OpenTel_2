@@ -1,0 +1,76 @@
+ABPT -> Nimbus
+Nimbus -> ISBUS
+ABPT -> Nimbus -> ISBUS
+ISBUS -> IDP_Platform
+Nimbus -> ISBUS -> IDP_Platform
+ABPT -> Nimbus -> ISBUS -> IDP_Platform
+IDP_Platform -> IDP-IDM
+ISBUS -> IDP_Platform -> IDP-IDM
+Nimbus -> ISBUS -> IDP_Platform -> IDP-IDM
+ABPT -> Nimbus -> ISBUS -> IDP_Platform -> IDP-IDM
+IDP-IDM -> ECO Suite
+IDP_Platform -> IDP-IDM -> ECO Suite
+ISBUS -> IDP_Platform -> IDP-IDM -> ECO Suite
+Nimbus -> ISBUS -> IDP_Platform -> IDP-IDM -> ECO Suite
+ABPT -> Nimbus -> ISBUS -> IDP_Platform -> IDP-IDM -> ECO Suite
+ECO Suite -> TDICE
+IDP-IDM -> ECO Suite -> TDICE
+IDP_Platform -> IDP-IDM -> ECO Suite -> TDICE
+ISBUS -> IDP_Platform -> IDP-IDM -> ECO Suite -> TDICE
+Nimbus -> ISBUS -> IDP_Platform -> IDP-IDM -> ECO Suite -> TDICE
+ABPT -> Nimbus -> ISBUS -> IDP_Platform -> IDP-IDM -> ECO Suite -> TDICE
+Nimbus -> IDP-Commerce-ES
+ABPT -> Nimbus -> IDP-Commerce-ES
+IDP-Commerce-ES -> (FED) - TDICE
+Nimbus -> IDP-Commerce-ES -> (FED) - TDICE
+ABPT -> Nimbus -> IDP-Commerce-ES -> (FED) - TDICE
+(FED) - TDICE -> SHM
+IDP-Commerce-ES -> (FED) - TDICE -> SHM
+Nimbus -> IDP-Commerce-ES -> (FED) - TDICE -> SHM
+ABPT -> Nimbus -> IDP-Commerce-ES -> (FED) - TDICE -> SHM
+SHM -> IDP-IDM
+(FED) - TDICE -> SHM -> IDP-IDM
+IDP-Commerce-ES -> (FED) - TDICE -> SHM -> IDP-IDM
+Nimbus -> IDP-Commerce-ES -> (FED) - TDICE -> SHM -> IDP-IDM
+ABPT -> Nimbus -> IDP-Commerce-ES -> (FED) - TDICE -> SHM -> IDP-IDM
+IDP-IDM -> TRiP
+SHM -> IDP-IDM -> TRiP
+(FED) - TDICE -> SHM -> IDP-IDM -> TRiP
+IDP-Commerce-ES -> (FED) - TDICE -> SHM -> IDP-IDM -> TRiP
+Nimbus -> IDP-Commerce-ES -> (FED) - TDICE -> SHM -> IDP-IDM -> TRiP
+ABPT -> Nimbus -> IDP-Commerce-ES -> (FED) - TDICE -> SHM -> IDP-IDM -> TRiP
+TRiP -> Amp-MM - Invenio
+IDP-IDM -> TRiP -> Amp-MM - Invenio
+SHM -> IDP-IDM -> TRiP -> Amp-MM - Invenio
+(FED) - TDICE -> SHM -> IDP-IDM -> TRiP -> Amp-MM - Invenio
+IDP-Commerce-ES -> (FED) - TDICE -> SHM -> IDP-IDM -> TRiP -> Amp-MM - Invenio
+Nimbus -> IDP-Commerce-ES -> (FED) - TDICE -> SHM -> IDP-IDM -> TRiP -> Amp-MM - Invenio
+ABPT -> Nimbus -> IDP-Commerce-ES -> (FED) - TDICE -> SHM -> IDP-IDM -> TRiP -> Amp-MM - Invenio
+Amp-MM - Invenio -> TDICE
+TRiP -> Amp-MM - Invenio -> TDICE
+IDP-IDM -> TRiP -> Amp-MM - Invenio -> TDICE
+SHM -> IDP-IDM -> TRiP -> Amp-MM - Invenio -> TDICE
+(FED) - TDICE -> SHM -> IDP-IDM -> TRiP -> Amp-MM - Invenio -> TDICE
+IDP-Commerce-ES -> (FED) - TDICE -> SHM -> IDP-IDM -> TRiP -> Amp-MM - Invenio -> TDICE
+Nimbus -> IDP-Commerce-ES -> (FED) - TDICE -> SHM -> IDP-IDM -> TRiP -> Amp-MM - Invenio -> TDICE
+ABPT -> Nimbus -> IDP-Commerce-ES -> (FED) - TDICE -> SHM -> IDP-IDM -> TRiP -> Amp-MM - Invenio -> TDICE
+ABPT -> T.Data
+T.Data -> IDP-IDM
+ABPT -> T.Data -> IDP-IDM
+IDP-IDM -> (FED) - TDICE
+T.Data -> IDP-IDM -> (FED) - TDICE
+ABPT -> T.Data -> IDP-IDM -> (FED) - TDICE
+(FED) - TDICE -> Amp-MM - Invenio
+IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio
+T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio
+ABPT -> T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio
+Amp-MM - Invenio -> ECO Suite
+(FED) - TDICE -> Amp-MM - Invenio -> ECO Suite
+IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite
+T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite
+ABPT -> T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite
+Amp-MM - Invenio -> ECO Suite -> TDICE
+(FED) - TDICE -> Amp-MM - Invenio -> ECO Suite -> TDICE
+IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite -> TDICE
+T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite -> TDICE
+ABPT -> T.Data -> IDP-IDM -> (FED) - TDICE -> Amp-MM - Invenio -> ECO Suite -> TDICE

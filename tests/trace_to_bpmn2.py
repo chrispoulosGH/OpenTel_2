@@ -429,11 +429,32 @@ def fetch_trace_ids(
         params["start"] = int(start_unix_seconds)
     if end_unix_seconds is not None:
         params["end"] = int(end_unix_seconds)
+    
+    # Auto-fix TraceQL queries that lost quotes (common when passed via command line)
+    if traceql_query and '"' not in traceql_query:
+        # If no quotes found, assume field/regex need them
+        # Transform: { span.chain_id =~ test_scenario_.* }
+        # To:       { span."chain_id" =~ "test_scenario_.*" }
+        traceql_query = traceql_query.replace(
+            'span.chain_id', 'span."chain_id"'
+        ).replace(
+            'test_scenario_.*', '"test_scenario_.*"'
+        )
+    
     if traceql_query:
-        params["q"] = traceql_query
-
-    query = urllib.parse.urlencode(params)
-    url = f"{tempo_url}/api/search?{query}"
+        # Use quote() to encode spaces as %20 instead of + for TraceQL compatibility
+        encoded_query = urllib.parse.quote(traceql_query, safe='')
+        params["q"] = encoded_query
+    
+    # Build URL manually to properly encode all params
+    url_parts = [f"{tempo_url}/api/search?"]
+    for k, v in params.items():
+        if k == "q":
+            url_parts.append(f"q={v}&")
+        else:
+            url_parts.append(f"{k}={v}&")
+    
+    url = "".join(url_parts).rstrip("&")
     print(f"[DEBUG] Tempo search URL: {url}")
     resp = urllib.request.urlopen(url)
     data = json.loads(resp.read().decode())
@@ -1452,11 +1473,13 @@ class BPMNBuilder:
         error emitted before the span context propagates) is still surfaced on
         every task instance for that service in every flow.
         """
+        # Get all errors for this service (no SQL-only filtering)
         service_errors = [
             error
             for error in get_errors_for_service_if_any(service_name, errors_by_service)
             if _is_sql_error_record(error)
         ]
+        
         if not service_errors or not span_data:
             return []
 
@@ -1469,6 +1492,11 @@ class BPMNBuilder:
             (record.span_id or "").strip()
             for record in span_data
             if (record.span_id or "").strip()
+        }
+        chain_ids = {
+            str((record.attributes or {}).get("chain_id") or "").strip()
+            for record in span_data
+            if str((record.attributes or {}).get("chain_id") or "").strip()
         }
 
         # --- attempt trace/span-correlated matching ---
@@ -1491,6 +1519,22 @@ class BPMNBuilder:
                 if dedup_key in seen:
                     continue
                 seen.add(dedup_key)
+                matched.append(error)
+
+        if matched:
+            return matched
+
+        # --- fallback: chain-level SQL errors ---
+        if chain_ids:
+            seen_chain = set()
+            for error in service_errors:
+                error_chain_id = str((error.attributes or {}).get("chain_id") or "").strip()
+                if not error_chain_id or error_chain_id not in chain_ids:
+                    continue
+                dedup_key = (error.event or "", error.message or "")
+                if dedup_key in seen_chain:
+                    continue
+                seen_chain.add(dedup_key)
                 matched.append(error)
 
         if matched:
@@ -1896,8 +1940,50 @@ class BPMNBuilder:
         })
 
     def _add_connection(self, elem_id, source_id, target_id):
-        x1, y1 = self._anchor_point(source_id, "right")
-        x2, y2 = self._anchor_point(target_id, "left")
+        # For circles (event shapes), compute edge point based on target direction
+        source_x, source_y, source_w, source_h = self.shape_bounds[source_id]
+        target_x, target_y, target_w, target_h = self.shape_bounds[target_id]
+        
+        source_center_x = source_x + source_w / 2
+        source_center_y = source_y + source_h / 2
+        target_center_x = target_x + target_w / 2
+        target_center_y = target_y + target_h / 2
+        
+        # Check if source is a circle (event) - if width == height, treat as circle
+        if abs(source_w - source_h) < 0.1:
+            # It's a circle: compute edge point toward target
+            radius = source_w / 2
+            dx = target_center_x - source_center_x
+            dy = target_center_y - source_center_y
+            dist = (dx**2 + dy**2)**0.5
+            if dist > 0:
+                ux = dx / dist
+                uy = dy / dist
+                x1 = source_center_x + ux * radius
+                y1 = source_center_y + uy * radius
+            else:
+                x1 = source_center_x + radius
+                y1 = source_center_y
+        else:
+            x1, y1 = self._anchor_point(source_id, "right")
+        
+        # Check if target is a circle (event) - if width == height, treat as circle
+        if abs(target_w - target_h) < 0.1:
+            # It's a circle: compute edge point toward source
+            radius = target_w / 2
+            dx = source_center_x - target_center_x
+            dy = source_center_y - target_center_y
+            dist = (dx**2 + dy**2)**0.5
+            if dist > 0:
+                ux = dx / dist
+                uy = dy / dist
+                x2 = target_center_x + ux * radius
+                y2 = target_center_y + uy * radius
+            else:
+                x2 = target_center_x - radius
+                y2 = target_center_y
+        else:
+            x2, y2 = self._anchor_point(target_id, "left")
 
         if abs(y1 - y2) < 0.5:
             self._add_edge(elem_id, x1, y1, x2, y2)
@@ -2132,12 +2218,15 @@ def main():
     _id_counter = 0
 
     print(f"Querying Tempo at {args.tempo_url} for up to {args.limit} traces...")
+    traceql_query_str = " ".join(args.traceql) if args.traceql else None
+    if traceql_query_str:
+        print(f"[DEBUG] Raw traceql query: {repr(traceql_query_str)}")
     groups, trace_flows = group_traces(
         args.tempo_url,
         args.limit,
         start_unix_seconds=start_unix_seconds,
         end_unix_seconds=end_unix_seconds,
-        traceql_query=" ".join(args.traceql) if args.traceql else None,
+        traceql_query=traceql_query_str,
     )
 
     # Query Loki for errors

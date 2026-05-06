@@ -95,6 +95,12 @@ def _parse_log_message(log_text: str) -> Dict[str, str]:
     # Normalize severity field names
     if "level" not in data and "severity_text" in data:
         data["level"] = data["severity_text"]
+        if "level" not in data and "severity" in data:
+            data["level"] = data["severity"]
+        if "trace_id" not in data and "traceid" in data:
+            data["trace_id"] = data["traceid"]
+        if "span_id" not in data and "spanid" in data:
+            data["span_id"] = data["spanid"]
 
     return data
 
@@ -140,57 +146,80 @@ def query_errors_for_service(
         end_ns = int(datetime.utcnow().timestamp() * 1e9)
         start_ns = int((datetime.utcnow() - timedelta(hours=hours_back)).timestamp() * 1e9)
 
-        # Build LogQL query: look for service and filter for errors in message
-        # Note: LogQL doesn't support OR in filters, so we query all and filter in Python
-        logql_query = f'{{service_name="{service_name}"}}'
-        encoded_query = urllib.parse.quote(logql_query)
-
-        url = (
-            f"{loki_url}/loki/api/v1/query_range"
-            f"?query={encoded_query}"
-            f"&start={start_ns}"
-            f"&end={end_ns}"
-            f"&limit={limit}"
-            f"&direction=backward"
-        )
-
-        resp = urllib.request.urlopen(url, timeout=30)
-        data = json.loads(resp.read().decode())
-
         errors = []
-        status = data.get("status")
-        if status != "success":
-            print(f"Loki query failed for {service_name}: {data.get('error', 'unknown error')}")
-            return errors
+        seen = set()
+        queries = [
+            f'{{service_name="{service_name}", event="sql_error"}}',
+            f'{{service_name="{service_name}", level="ERROR"}}',
+        ]
 
-        results = data.get("data", {}).get("result", [])
-        for result in results:
-            values = result.get("values", [])
-            for timestamp_ns_str, log_text in values:
-                timestamp_ns = int(timestamp_ns_str)
-                timestamp_s = timestamp_ns / 1e9
-                timestamp = datetime.utcfromtimestamp(timestamp_s).isoformat() + "Z"
+        for logql_query in queries:
+            encoded_query = urllib.parse.quote(logql_query)
+            url = (
+                f"{loki_url}/loki/api/v1/query_range"
+                f"?query={encoded_query}"
+                f"&start={start_ns}"
+                f"&end={end_ns}"
+                f"&limit={limit}"
+                f"&direction=backward"
+            )
 
-                # Check if log contains error indicators
-                log_lower = log_text.lower()
-                if not any(indicator in log_lower for indicator in ["error", "sql_error", "event=sql_error"]):
-                    continue
+            resp = urllib.request.urlopen(url, timeout=30)
+            data = json.loads(resp.read().decode())
 
-                # Parse log message for structured data
-                parsed = _parse_log_message(log_text)
-                
-                error = ErrorRecord(
-                    timestamp=timestamp,
-                    timestamp_ns=timestamp_ns,
-                    service_name=service_name,
-                    level=parsed.get("level", "ERROR"),
-                    event=parsed.get("event", "unknown"),
-                    message=log_text,
-                    trace_id=parsed.get("trace_id"),
-                    span_id=parsed.get("span_id"),
-                    attributes=parsed,
-                )
-                errors.append(error)
+            status = data.get("status")
+            if status != "success":
+                print(f"Loki query failed for {service_name}: {data.get('error', 'unknown error')}")
+                continue
+
+            results = data.get("data", {}).get("result", [])
+            for result in results:
+                stream = result.get("stream", {}) or {}
+                values = result.get("values", [])
+                for timestamp_ns_str, log_text in values:
+                    timestamp_ns = int(timestamp_ns_str)
+                    timestamp_s = timestamp_ns / 1e9
+                    timestamp = datetime.utcfromtimestamp(timestamp_s).isoformat() + "Z"
+
+                    parsed = _parse_log_message(log_text)
+                    if stream.get("event") and "event" not in parsed:
+                        parsed["event"] = str(stream["event"])
+                    if stream.get("level") and "level" not in parsed:
+                        parsed["level"] = str(stream["level"])
+                    if stream.get("service_name") and "service" not in parsed:
+                        parsed["service"] = str(stream["service_name"])
+
+                    blob = " ".join([
+                        str(parsed.get("event") or ""),
+                        str(parsed.get("kind") or ""),
+                        str(parsed.get("db.statement") or ""),
+                        str(log_text or ""),
+                    ]).lower()
+                    if "sql_error" not in blob:
+                        continue
+
+                    dedup_key = (
+                        timestamp_ns,
+                        parsed.get("trace_id") or "",
+                        parsed.get("span_id") or "",
+                        log_text,
+                    )
+                    if dedup_key in seen:
+                        continue
+                    seen.add(dedup_key)
+
+                    error = ErrorRecord(
+                        timestamp=timestamp,
+                        timestamp_ns=timestamp_ns,
+                        service_name=service_name,
+                        level=parsed.get("level", "ERROR"),
+                        event=parsed.get("event", "unknown"),
+                        message=log_text,
+                        trace_id=parsed.get("trace_id"),
+                        span_id=parsed.get("span_id"),
+                        attributes=parsed,
+                    )
+                    errors.append(error)
 
         return errors
     except urllib.error.URLError as e:

@@ -1,7 +1,7 @@
 {
   "diagram": [
     {
-      "id": "Task_53",
+      "id": "Task_151",
       "type": "task",
       "name": "CCSF",
       "x": 370,
@@ -12,34 +12,12 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=4089.5 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3996.4 millisecs"
       ],
-      "errors": [
-        {
-          "db.name": "",
-          "statement": "",
-          "error_message": "{\"body\":\"downstream request failed url=http://localhost:8021/ccmule timeout=3.0s retries=0 error=HTTPConnectionPool(host='localhost', port=8021): Read timed out. (read timeout=3.0)\",\"traceid\":\"c7ffe104e4b1c3eb8a5a335eb6f3f275\",\"spanid\":\"13f6e3eb31358cb7\",\"severity\":\"WARN\",\"flags\":1,\"attributes\":{\"code.filepath\":\"C:\\\\code\\\\openTel_2_simulation\\\\common\\\\tracing.py\",\"code.function\":\"call_downstream\",\"code.lineno\":510},\"instrumentation_scope\":{\"name\":\"otel-sim\"}}",
-          "type": "unknown",
-          "event": "unknown"
-        },
-        {
-          "db.name": "",
-          "statement": "",
-          "error_message": "{\"body\":\"downstream request failed url=http://localhost:8021/ccmule timeout=3.0s retries=0 error=HTTPConnectionPool(host='localhost', port=8021): Read timed out. (read timeout=3.0)\",\"traceid\":\"0ecc270eb7184ca68a16fe26837ced7c\",\"spanid\":\"35400c9ffde8ad50\",\"severity\":\"WARN\",\"flags\":1,\"attributes\":{\"code.filepath\":\"C:\\\\code\\\\openTel_2_simulation\\\\common\\\\tracing.py\",\"code.function\":\"call_downstream\",\"code.lineno\":510},\"instrumentation_scope\":{\"name\":\"otel-sim\"}}",
-          "type": "unknown",
-          "event": "unknown"
-        },
-        {
-          "db.name": "",
-          "statement": "",
-          "error_message": "{\"body\":\"downstream request failed url=http://localhost:8021/ccmule timeout=3.0s retries=0 error=HTTPConnectionPool(host='localhost', port=8021): Read timed out. (read timeout=3.0)\",\"traceid\":\"daea4e78a08e19743f9fcdaf52087cbd\",\"spanid\":\"9be260191904d1d8\",\"severity\":\"WARN\",\"flags\":1,\"attributes\":{\"code.filepath\":\"C:\\\\code\\\\openTel_2_simulation\\\\common\\\\tracing.py\",\"code.function\":\"call_downstream\",\"code.lineno\":510},\"instrumentation_scope\":{\"name\":\"otel-sim\"}}",
-          "type": "unknown",
-          "event": "unknown"
-        }
-      ]
+      "errors": []
     },
     {
-      "id": "Task_54",
+      "id": "Task_152",
       "type": "task",
       "name": "CCMULE",
       "x": 640,
@@ -50,34 +28,12 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3826.3 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3829.9 millisecs"
       ],
-      "errors": [
-        {
-          "db.name": "",
-          "statement": "",
-          "error_message": "{\"body\":\"downstream request failed url=http://localhost:8022/idp-cloud-cg timeout=3.0s retries=0 error=HTTPConnectionPool(host='localhost', port=8022): Read timed out. (read timeout=3.0)\",\"traceid\":\"c7ffe104e4b1c3eb8a5a335eb6f3f275\",\"spanid\":\"21b73b0383fc971c\",\"severity\":\"WARN\",\"flags\":1,\"attributes\":{\"code.filepath\":\"C:\\\\code\\\\openTel_2_simulation\\\\common\\\\tracing.py\",\"code.function\":\"call_downstream\",\"code.lineno\":510},\"instrumentation_scope\":{\"name\":\"otel-sim\"}}",
-          "type": "unknown",
-          "event": "unknown"
-        },
-        {
-          "db.name": "",
-          "statement": "",
-          "error_message": "{\"body\":\"downstream request failed url=http://localhost:8022/idp-cloud-cg timeout=3.0s retries=0 error=HTTPConnectionPool(host='localhost', port=8022): Read timed out. (read timeout=3.0)\",\"traceid\":\"0ecc270eb7184ca68a16fe26837ced7c\",\"spanid\":\"7a569034ef14e72e\",\"severity\":\"WARN\",\"flags\":1,\"attributes\":{\"code.filepath\":\"C:\\\\code\\\\openTel_2_simulation\\\\common\\\\tracing.py\",\"code.function\":\"call_downstream\",\"code.lineno\":510},\"instrumentation_scope\":{\"name\":\"otel-sim\"}}",
-          "type": "unknown",
-          "event": "unknown"
-        },
-        {
-          "db.name": "",
-          "statement": "",
-          "error_message": "{\"body\":\"downstream request failed url=http://localhost:8022/idp-cloud-cg timeout=3.0s retries=0 error=HTTPConnectionPool(host='localhost', port=8022): Read timed out. (read timeout=3.0)\",\"traceid\":\"daea4e78a08e19743f9fcdaf52087cbd\",\"spanid\":\"e387deef78eec893\",\"severity\":\"WARN\",\"flags\":1,\"attributes\":{\"code.filepath\":\"C:\\\\code\\\\openTel_2_simulation\\\\common\\\\tracing.py\",\"code.function\":\"call_downstream\",\"code.lineno\":510},\"instrumentation_scope\":{\"name\":\"otel-sim\"}}",
-          "type": "unknown",
-          "event": "unknown"
-        }
-      ]
+      "errors": []
     },
     {
-      "id": "Task_55",
+      "id": "Task_153",
       "type": "task",
       "name": "IDP-Cloud-CG",
       "x": 910,
@@ -88,34 +44,12 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3899.2 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3820.0 millisecs"
       ],
-      "errors": [
-        {
-          "db.name": "",
-          "statement": "",
-          "error_message": "{\"body\":\"downstream request failed url=http://localhost:8023/dpg-sales-sunrise timeout=3.0s retries=0 error=HTTPConnectionPool(host='localhost', port=8023): Read timed out. (read timeout=3.0)\",\"traceid\":\"c7ffe104e4b1c3eb8a5a335eb6f3f275\",\"spanid\":\"4371062ef82b767b\",\"severity\":\"WARN\",\"flags\":1,\"attributes\":{\"code.filepath\":\"C:\\\\code\\\\openTel_2_simulation\\\\common\\\\tracing.py\",\"code.function\":\"call_downstream\",\"code.lineno\":510},\"instrumentation_scope\":{\"name\":\"otel-sim\"}}",
-          "type": "unknown",
-          "event": "unknown"
-        },
-        {
-          "db.name": "",
-          "statement": "",
-          "error_message": "{\"body\":\"downstream request failed url=http://localhost:8023/dpg-sales-sunrise timeout=3.0s retries=0 error=HTTPConnectionPool(host='localhost', port=8023): Read timed out. (read timeout=3.0)\",\"traceid\":\"0ecc270eb7184ca68a16fe26837ced7c\",\"spanid\":\"cdd0bd29e769457e\",\"severity\":\"WARN\",\"flags\":1,\"attributes\":{\"code.filepath\":\"C:\\\\code\\\\openTel_2_simulation\\\\common\\\\tracing.py\",\"code.function\":\"call_downstream\",\"code.lineno\":510},\"instrumentation_scope\":{\"name\":\"otel-sim\"}}",
-          "type": "unknown",
-          "event": "unknown"
-        },
-        {
-          "db.name": "",
-          "statement": "",
-          "error_message": "{\"body\":\"downstream request failed url=http://localhost:8023/dpg-sales-sunrise timeout=3.0s retries=0 error=HTTPConnectionPool(host='localhost', port=8023): Read timed out. (read timeout=3.0)\",\"traceid\":\"daea4e78a08e19743f9fcdaf52087cbd\",\"spanid\":\"7cbcb088c6737ed3\",\"severity\":\"WARN\",\"flags\":1,\"attributes\":{\"code.filepath\":\"C:\\\\code\\\\openTel_2_simulation\\\\common\\\\tracing.py\",\"code.function\":\"call_downstream\",\"code.lineno\":510},\"instrumentation_scope\":{\"name\":\"otel-sim\"}}",
-          "type": "unknown",
-          "event": "unknown"
-        }
-      ]
+      "errors": []
     },
     {
-      "id": "Task_56",
+      "id": "Task_154",
       "type": "task",
       "name": "DPG - Sales & Sunrise",
       "x": 1180,
@@ -126,12 +60,12 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3189.7 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3146.2 millisecs"
       ],
       "errors": []
     },
     {
-      "id": "Task_57",
+      "id": "Task_155",
       "type": "task",
       "name": "Platform Support ATTFEDGOV1",
       "x": 1450,
@@ -142,12 +76,12 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=1600.7 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=1586.5 millisecs"
       ],
       "errors": []
     },
     {
-      "id": "Task_58",
+      "id": "Task_156",
       "type": "task",
       "name": "eTRACS",
       "x": 1720,
@@ -158,7 +92,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=30.4 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=32.0 millisecs"
       ],
       "errors": []
     },
@@ -185,9 +119,9 @@
       "color": null
     },
     {
-      "id": "Flow_61",
+      "id": "Flow_159",
       "sourceRef": "Start_1",
-      "targetRef": "Task_53",
+      "targetRef": "Task_151",
       "type": "flow",
       "shape": "line",
       "waypoints": [
@@ -204,9 +138,9 @@
       "transactionCount": 2
     },
     {
-      "id": "Flow_64",
-      "sourceRef": "Task_53",
-      "targetRef": "Task_54",
+      "id": "Flow_162",
+      "sourceRef": "Task_151",
+      "targetRef": "Task_152",
       "type": "flow",
       "shape": "line",
       "waypoints": [
@@ -223,9 +157,9 @@
       "transactionCount": 2
     },
     {
-      "id": "Flow_67",
-      "sourceRef": "Task_54",
-      "targetRef": "Task_55",
+      "id": "Flow_165",
+      "sourceRef": "Task_152",
+      "targetRef": "Task_153",
       "type": "flow",
       "shape": "line",
       "waypoints": [
@@ -242,9 +176,9 @@
       "transactionCount": 2
     },
     {
-      "id": "Flow_70",
-      "sourceRef": "Task_55",
-      "targetRef": "Task_56",
+      "id": "Flow_168",
+      "sourceRef": "Task_153",
+      "targetRef": "Task_154",
       "type": "flow",
       "shape": "line",
       "waypoints": [
@@ -261,9 +195,9 @@
       "transactionCount": 2
     },
     {
-      "id": "Flow_73",
-      "sourceRef": "Task_56",
-      "targetRef": "Task_57",
+      "id": "Flow_171",
+      "sourceRef": "Task_154",
+      "targetRef": "Task_155",
       "type": "flow",
       "shape": "line",
       "waypoints": [
@@ -280,9 +214,9 @@
       "transactionCount": 2
     },
     {
-      "id": "Flow_76",
-      "sourceRef": "Task_57",
-      "targetRef": "Task_58",
+      "id": "Flow_174",
+      "sourceRef": "Task_155",
+      "targetRef": "Task_156",
       "type": "flow",
       "shape": "line",
       "waypoints": [
@@ -299,8 +233,8 @@
       "transactionCount": 2
     },
     {
-      "id": "Flow_77",
-      "sourceRef": "Task_58",
+      "id": "Flow_175",
+      "sourceRef": "Task_156",
       "targetRef": "End_1",
       "type": "flow",
       "shape": "line",
@@ -321,9 +255,9 @@
   "volumes": {
     "service": "CCSF",
     "root_span": "GET /ccsf",
-    "primary_trace_id": "c7ffe104e4b1c3eb8a5a335eb6f3f275",
+    "primary_trace_id": "5586e071e27a05745bb8f4b21d43727f",
     "transaction_count": 1,
-    "avg_duration_ms": 5483.3,
+    "avg_duration_ms": 5347.2,
     "error_rate_pct": 0.0
   }
 }

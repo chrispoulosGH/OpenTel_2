@@ -1,7 +1,7 @@
 {
-    "loki":  75260,
-    "prometheus":  53232,
-    "otelcollector":  73560,
-    "grafana":  13340,
-    "tempo":  107296
+    "loki":  117748,
+    "prometheus":  46592,
+    "otelcollector":  57992,
+    "grafana":  84768,
+    "tempo":  85592
 }

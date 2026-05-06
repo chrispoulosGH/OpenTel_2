@@ -23,15 +23,15 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3974.9 millisecs",
-        "duarationDataSet\nkey=avg duration\nvalue=3806.1 millisecs",
-        "duarationDataSet\nkey=avg duration\nvalue=3825.4 millisecs",
-        "duarationDataSet\nkey=avg duration\nvalue=3819.4 millisecs",
-        "duarationDataSet\nkey=avg duration\nvalue=3813.1 millisecs",
-        "duarationDataSet\nkey=avg duration\nvalue=3827.7 millisecs",
-        "duarationDataSet\nkey=avg duration\nvalue=3811.2 millisecs",
-        "duarationDataSet\nkey=avg duration\nvalue=3819.5 millisecs",
-        "duarationDataSet\nkey=avg duration\nvalue=3828.4 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3841.9 millisecs",
+        "duarationDataSet\nkey=avg duration\nvalue=3813.7 millisecs",
+        "duarationDataSet\nkey=avg duration\nvalue=3868.0 millisecs",
+        "duarationDataSet\nkey=avg duration\nvalue=3834.7 millisecs",
+        "duarationDataSet\nkey=avg duration\nvalue=3822.7 millisecs",
+        "duarationDataSet\nkey=avg duration\nvalue=3818.8 millisecs",
+        "duarationDataSet\nkey=avg duration\nvalue=3830.0 millisecs",
+        "duarationDataSet\nkey=avg duration\nvalue=3810.1 millisecs",
+        "duarationDataSet\nkey=avg duration\nvalue=3885.9 millisecs"
       ],
       "errors": []
     },
@@ -99,15 +99,15 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=30.0 millisecs",
+        "duarationDataSet\nkey=avg duration\nvalue=36.6 millisecs",
         "duarationDataSet\nkey=avg duration\nvalue=35.7 millisecs",
-        "duarationDataSet\nkey=avg duration\nvalue=27.7 millisecs",
-        "duarationDataSet\nkey=avg duration\nvalue=37.2 millisecs",
-        "duarationDataSet\nkey=avg duration\nvalue=38.5 millisecs",
-        "duarationDataSet\nkey=avg duration\nvalue=30.3 millisecs",
-        "duarationDataSet\nkey=avg duration\nvalue=39.8 millisecs",
-        "duarationDataSet\nkey=avg duration\nvalue=45.1 millisecs",
-        "duarationDataSet\nkey=avg duration\nvalue=34.3 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=33.9 millisecs",
+        "duarationDataSet\nkey=avg duration\nvalue=40.3 millisecs",
+        "duarationDataSet\nkey=avg duration\nvalue=43.9 millisecs",
+        "duarationDataSet\nkey=avg duration\nvalue=21.4 millisecs",
+        "duarationDataSet\nkey=avg duration\nvalue=35.0 millisecs",
+        "duarationDataSet\nkey=avg duration\nvalue=30.5 millisecs",
+        "duarationDataSet\nkey=avg duration\nvalue=43.1 millisecs"
       ],
       "errors": []
     },
@@ -139,8 +139,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 51,
-      "lineWidth": 10.2
+      "transactionCount": 243,
+      "lineWidth": 48.6
     },
     {
       "id": "Flow_ABPT_to_Fork",
@@ -159,8 +159,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 51,
-      "lineWidth": 10.2
+      "transactionCount": 243,
+      "lineWidth": 48.6
     },
     {
       "id": "Flow_Join_to_TDICE",
@@ -179,8 +179,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 51,
-      "lineWidth": 10.2
+      "transactionCount": 243,
+      "lineWidth": 48.6
     },
     {
       "id": "Flow_TDICE_to_End",
@@ -199,8 +199,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 51,
-      "lineWidth": 10.2
+      "transactionCount": 243,
+      "lineWidth": 48.6
     },
     {
       "id": "Task_test_scenario_1_1",
@@ -214,7 +214,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3828.7 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3855.1 millisecs"
       ],
       "errors": []
     },
@@ -230,7 +230,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3819.3 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3832.3 millisecs"
       ],
       "errors": []
     },
@@ -246,7 +246,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3817.3 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3858.0 millisecs"
       ],
       "errors": []
     },
@@ -262,9 +262,17 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3472.4 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3172.0 millisecs"
       ],
-      "errors": []
+      "errors": [
+        {
+          "db.name": "db_e",
+          "statement": "SELECT customer_segment FROM main_table",
+          "error_message": "column \"customer_segment\" does not exist",
+          "type": "column_not_found",
+          "event": "sql_error"
+        }
+      ]
     },
     {
       "id": "Task_test_scenario_1_5",
@@ -278,12 +286,12 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=1587.9 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=1594.6 millisecs"
       ],
       "errors": []
     },
     {
-      "id": "Flow_test_scenario_1_Flow_121",
+      "id": "Flow_test_scenario_1_Flow_76",
       "sourceRef": "Task_test_scenario_1_1",
       "targetRef": "Task_test_scenario_1_2",
       "type": "flow",
@@ -299,12 +307,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 5,
-      "lineWidth": 1.0,
+      "transactionCount": 7,
+      "lineWidth": 1.4,
       "chain_id": "test_scenario_1"
     },
     {
-      "id": "Flow_test_scenario_1_Flow_124",
+      "id": "Flow_test_scenario_1_Flow_79",
       "sourceRef": "Task_test_scenario_1_2",
       "targetRef": "Task_test_scenario_1_3",
       "type": "flow",
@@ -320,12 +328,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 5,
-      "lineWidth": 1.0,
+      "transactionCount": 7,
+      "lineWidth": 1.4,
       "chain_id": "test_scenario_1"
     },
     {
-      "id": "Flow_test_scenario_1_Flow_127",
+      "id": "Flow_test_scenario_1_Flow_82",
       "sourceRef": "Task_test_scenario_1_3",
       "targetRef": "Task_test_scenario_1_4",
       "type": "flow",
@@ -341,12 +349,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 5,
-      "lineWidth": 1.0,
+      "transactionCount": 7,
+      "lineWidth": 1.4,
       "chain_id": "test_scenario_1"
     },
     {
-      "id": "Flow_test_scenario_1_Flow_130",
+      "id": "Flow_test_scenario_1_Flow_85",
       "sourceRef": "Task_test_scenario_1_4",
       "targetRef": "Task_test_scenario_1_5",
       "type": "flow",
@@ -362,8 +370,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 5,
-      "lineWidth": 1.0,
+      "transactionCount": 7,
+      "lineWidth": 1.4,
       "chain_id": "test_scenario_1"
     },
     {
@@ -391,8 +399,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 5,
-      "lineWidth": 1.0,
+      "transactionCount": 7,
+      "lineWidth": 1.4,
       "chain_id": "test_scenario_1"
     },
     {
@@ -429,8 +437,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 5,
-      "lineWidth": 1.0,
+      "transactionCount": 7,
+      "lineWidth": 1.4,
       "chain_id": "test_scenario_1"
     },
     {
@@ -445,7 +453,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3832.5 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3829.8 millisecs"
       ],
       "errors": []
     },
@@ -461,7 +469,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3850.7 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3837.7 millisecs"
       ],
       "errors": []
     },
@@ -477,7 +485,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3839.2 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3822.5 millisecs"
       ],
       "errors": []
     },
@@ -493,7 +501,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3179.1 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3177.6 millisecs"
       ],
       "errors": []
     },
@@ -509,12 +517,12 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=1607.1 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=1604.9 millisecs"
       ],
       "errors": []
     },
     {
-      "id": "Flow_test_scenario_2_Flow_42",
+      "id": "Flow_test_scenario_2_Flow_114",
       "sourceRef": "Task_test_scenario_2_1",
       "targetRef": "Task_test_scenario_2_2",
       "type": "flow",
@@ -530,12 +538,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 13,
-      "lineWidth": 2.6,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_2"
     },
     {
-      "id": "Flow_test_scenario_2_Flow_45",
+      "id": "Flow_test_scenario_2_Flow_117",
       "sourceRef": "Task_test_scenario_2_2",
       "targetRef": "Task_test_scenario_2_3",
       "type": "flow",
@@ -551,12 +559,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 13,
-      "lineWidth": 2.6,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_2"
     },
     {
-      "id": "Flow_test_scenario_2_Flow_48",
+      "id": "Flow_test_scenario_2_Flow_120",
       "sourceRef": "Task_test_scenario_2_3",
       "targetRef": "Task_test_scenario_2_4",
       "type": "flow",
@@ -572,12 +580,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 13,
-      "lineWidth": 2.6,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_2"
     },
     {
-      "id": "Flow_test_scenario_2_Flow_51",
+      "id": "Flow_test_scenario_2_Flow_123",
       "sourceRef": "Task_test_scenario_2_4",
       "targetRef": "Task_test_scenario_2_5",
       "type": "flow",
@@ -593,8 +601,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 13,
-      "lineWidth": 2.6,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_2"
     },
     {
@@ -622,8 +630,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 13,
-      "lineWidth": 2.6,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_2"
     },
     {
@@ -660,8 +668,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 13,
-      "lineWidth": 2.6,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_2"
     },
     {
@@ -676,7 +684,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3822.3 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=4014.0 millisecs"
       ],
       "errors": []
     },
@@ -692,7 +700,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3833.7 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3864.9 millisecs"
       ],
       "errors": []
     },
@@ -708,7 +716,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3838.6 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3863.4 millisecs"
       ],
       "errors": []
     },
@@ -724,7 +732,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3136.1 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3188.7 millisecs"
       ],
       "errors": []
     },
@@ -740,12 +748,12 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=1568.4 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=1607.6 millisecs"
       ],
       "errors": []
     },
     {
-      "id": "Flow_test_scenario_3_Flow_557",
+      "id": "Flow_test_scenario_3_Flow_105",
       "sourceRef": "Task_test_scenario_3_1",
       "targetRef": "Task_test_scenario_3_2",
       "type": "flow",
@@ -761,12 +769,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 13,
+      "lineWidth": 2.6,
       "chain_id": "test_scenario_3"
     },
     {
-      "id": "Flow_test_scenario_3_Flow_560",
+      "id": "Flow_test_scenario_3_Flow_108",
       "sourceRef": "Task_test_scenario_3_2",
       "targetRef": "Task_test_scenario_3_3",
       "type": "flow",
@@ -782,12 +790,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 13,
+      "lineWidth": 2.6,
       "chain_id": "test_scenario_3"
     },
     {
-      "id": "Flow_test_scenario_3_Flow_563",
+      "id": "Flow_test_scenario_3_Flow_111",
       "sourceRef": "Task_test_scenario_3_3",
       "targetRef": "Task_test_scenario_3_4",
       "type": "flow",
@@ -803,12 +811,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 13,
+      "lineWidth": 2.6,
       "chain_id": "test_scenario_3"
     },
     {
-      "id": "Flow_test_scenario_3_Flow_566",
+      "id": "Flow_test_scenario_3_Flow_114",
       "sourceRef": "Task_test_scenario_3_4",
       "targetRef": "Task_test_scenario_3_5",
       "type": "flow",
@@ -824,8 +832,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 13,
+      "lineWidth": 2.6,
       "chain_id": "test_scenario_3"
     },
     {
@@ -853,8 +861,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 13,
+      "lineWidth": 2.6,
       "chain_id": "test_scenario_3"
     },
     {
@@ -891,8 +899,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 13,
+      "lineWidth": 2.6,
       "chain_id": "test_scenario_3"
     },
     {
@@ -907,7 +915,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3847.5 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3839.9 millisecs"
       ],
       "errors": []
     },
@@ -923,7 +931,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3835.6 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3868.9 millisecs"
       ],
       "errors": []
     },
@@ -939,9 +947,15 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3813.7 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3833.6 millisecs"
       ],
       "errors": [
+        {
+          "db.name": "db_e",
+          "statement": "SELECT customer_segment FROM db_e.main_table WHERE id = ?",
+          "error_message": "column \"customer_segment\" does not exist",
+          "type": "SQL_COLUMN_NOT_FOUND"
+        },
         {
           "db.name": "db_e",
           "statement": "SELECT customer_segment FROM main_table",
@@ -963,7 +977,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3854.3 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3835.8 millisecs"
       ],
       "errors": []
     },
@@ -979,7 +993,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3166.0 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3174.3 millisecs"
       ],
       "errors": []
     },
@@ -995,12 +1009,12 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=1596.7 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=1605.9 millisecs"
       ],
       "errors": []
     },
     {
-      "id": "Flow_test_scenario_4_Flow_525",
+      "id": "Flow_test_scenario_4_Flow_46",
       "sourceRef": "Task_test_scenario_4_1",
       "targetRef": "Task_test_scenario_4_2",
       "type": "flow",
@@ -1016,12 +1030,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 57,
+      "lineWidth": 11.4,
       "chain_id": "test_scenario_4"
     },
     {
-      "id": "Flow_test_scenario_4_Flow_528",
+      "id": "Flow_test_scenario_4_Flow_49",
       "sourceRef": "Task_test_scenario_4_2",
       "targetRef": "Task_test_scenario_4_3",
       "type": "flow",
@@ -1037,12 +1051,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 57,
+      "lineWidth": 11.4,
       "chain_id": "test_scenario_4"
     },
     {
-      "id": "Flow_test_scenario_4_Flow_531",
+      "id": "Flow_test_scenario_4_Flow_52",
       "sourceRef": "Task_test_scenario_4_3",
       "targetRef": "Task_test_scenario_4_4",
       "type": "flow",
@@ -1058,12 +1072,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 57,
+      "lineWidth": 11.4,
       "chain_id": "test_scenario_4"
     },
     {
-      "id": "Flow_test_scenario_4_Flow_534",
+      "id": "Flow_test_scenario_4_Flow_55",
       "sourceRef": "Task_test_scenario_4_4",
       "targetRef": "Task_test_scenario_4_5",
       "type": "flow",
@@ -1079,12 +1093,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 57,
+      "lineWidth": 11.4,
       "chain_id": "test_scenario_4"
     },
     {
-      "id": "Flow_test_scenario_4_Flow_537",
+      "id": "Flow_test_scenario_4_Flow_58",
       "sourceRef": "Task_test_scenario_4_5",
       "targetRef": "Task_test_scenario_4_6",
       "type": "flow",
@@ -1100,8 +1114,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 57,
+      "lineWidth": 11.4,
       "chain_id": "test_scenario_4"
     },
     {
@@ -1129,8 +1143,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 57,
+      "lineWidth": 11.4,
       "chain_id": "test_scenario_4"
     },
     {
@@ -1167,8 +1181,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 57,
+      "lineWidth": 11.4,
       "chain_id": "test_scenario_4"
     },
     {
@@ -1439,7 +1453,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3832.9 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3832.2 millisecs"
       ],
       "errors": []
     },
@@ -1455,7 +1469,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3825.5 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=4000.5 millisecs"
       ],
       "errors": []
     },
@@ -1471,7 +1485,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3843.0 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3830.1 millisecs"
       ],
       "errors": []
     },
@@ -1487,7 +1501,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3827.1 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3831.7 millisecs"
       ],
       "errors": []
     },
@@ -1503,7 +1517,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3176.2 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3190.7 millisecs"
       ],
       "errors": []
     },
@@ -1519,12 +1533,12 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=1598.7 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=1613.2 millisecs"
       ],
       "errors": []
     },
     {
-      "id": "Flow_test_scenario_6_Flow_492",
+      "id": "Flow_test_scenario_6_Flow_82",
       "sourceRef": "Task_test_scenario_6_1",
       "targetRef": "Task_test_scenario_6_2",
       "type": "flow",
@@ -1540,12 +1554,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 55,
+      "lineWidth": 11.0,
       "chain_id": "test_scenario_6"
     },
     {
-      "id": "Flow_test_scenario_6_Flow_495",
+      "id": "Flow_test_scenario_6_Flow_85",
       "sourceRef": "Task_test_scenario_6_2",
       "targetRef": "Task_test_scenario_6_3",
       "type": "flow",
@@ -1561,12 +1575,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 55,
+      "lineWidth": 11.0,
       "chain_id": "test_scenario_6"
     },
     {
-      "id": "Flow_test_scenario_6_Flow_498",
+      "id": "Flow_test_scenario_6_Flow_88",
       "sourceRef": "Task_test_scenario_6_3",
       "targetRef": "Task_test_scenario_6_4",
       "type": "flow",
@@ -1582,12 +1596,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 55,
+      "lineWidth": 11.0,
       "chain_id": "test_scenario_6"
     },
     {
-      "id": "Flow_test_scenario_6_Flow_501",
+      "id": "Flow_test_scenario_6_Flow_91",
       "sourceRef": "Task_test_scenario_6_4",
       "targetRef": "Task_test_scenario_6_5",
       "type": "flow",
@@ -1603,12 +1617,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 55,
+      "lineWidth": 11.0,
       "chain_id": "test_scenario_6"
     },
     {
-      "id": "Flow_test_scenario_6_Flow_504",
+      "id": "Flow_test_scenario_6_Flow_94",
       "sourceRef": "Task_test_scenario_6_5",
       "targetRef": "Task_test_scenario_6_6",
       "type": "flow",
@@ -1624,8 +1638,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 55,
+      "lineWidth": 11.0,
       "chain_id": "test_scenario_6"
     },
     {
@@ -1653,8 +1667,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 55,
+      "lineWidth": 11.0,
       "chain_id": "test_scenario_6"
     },
     {
@@ -1691,8 +1705,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 55,
+      "lineWidth": 11.0,
       "chain_id": "test_scenario_6"
     },
     {
@@ -1707,7 +1721,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3818.2 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3816.9 millisecs"
       ],
       "errors": []
     },
@@ -1723,7 +1737,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3811.6 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3829.4 millisecs"
       ],
       "errors": [
         {
@@ -1747,7 +1761,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3825.7 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3809.3 millisecs"
       ],
       "errors": []
     },
@@ -1763,7 +1777,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3857.8 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3819.6 millisecs"
       ],
       "errors": []
     },
@@ -1779,7 +1793,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3840.8 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3827.0 millisecs"
       ],
       "errors": []
     },
@@ -1795,7 +1809,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3168.8 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3169.3 millisecs"
       ],
       "errors": []
     },
@@ -1811,12 +1825,12 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=1580.9 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=1578.3 millisecs"
       ],
       "errors": []
     },
     {
-      "id": "Flow_test_scenario_7_Flow_456",
+      "id": "Flow_test_scenario_7_Flow_102",
       "sourceRef": "Task_test_scenario_7_1",
       "targetRef": "Task_test_scenario_7_2",
       "type": "flow",
@@ -1832,12 +1846,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 19,
+      "lineWidth": 3.8,
       "chain_id": "test_scenario_7"
     },
     {
-      "id": "Flow_test_scenario_7_Flow_459",
+      "id": "Flow_test_scenario_7_Flow_105",
       "sourceRef": "Task_test_scenario_7_2",
       "targetRef": "Task_test_scenario_7_3",
       "type": "flow",
@@ -1853,12 +1867,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 19,
+      "lineWidth": 3.8,
       "chain_id": "test_scenario_7"
     },
     {
-      "id": "Flow_test_scenario_7_Flow_462",
+      "id": "Flow_test_scenario_7_Flow_108",
       "sourceRef": "Task_test_scenario_7_3",
       "targetRef": "Task_test_scenario_7_4",
       "type": "flow",
@@ -1874,12 +1888,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 19,
+      "lineWidth": 3.8,
       "chain_id": "test_scenario_7"
     },
     {
-      "id": "Flow_test_scenario_7_Flow_465",
+      "id": "Flow_test_scenario_7_Flow_111",
       "sourceRef": "Task_test_scenario_7_4",
       "targetRef": "Task_test_scenario_7_5",
       "type": "flow",
@@ -1895,12 +1909,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 19,
+      "lineWidth": 3.8,
       "chain_id": "test_scenario_7"
     },
     {
-      "id": "Flow_test_scenario_7_Flow_468",
+      "id": "Flow_test_scenario_7_Flow_114",
       "sourceRef": "Task_test_scenario_7_5",
       "targetRef": "Task_test_scenario_7_6",
       "type": "flow",
@@ -1916,12 +1930,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 19,
+      "lineWidth": 3.8,
       "chain_id": "test_scenario_7"
     },
     {
-      "id": "Flow_test_scenario_7_Flow_471",
+      "id": "Flow_test_scenario_7_Flow_117",
       "sourceRef": "Task_test_scenario_7_6",
       "targetRef": "Task_test_scenario_7_7",
       "type": "flow",
@@ -1937,8 +1951,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 19,
+      "lineWidth": 3.8,
       "chain_id": "test_scenario_7"
     },
     {
@@ -1966,8 +1980,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 19,
+      "lineWidth": 3.8,
       "chain_id": "test_scenario_7"
     },
     {
@@ -2004,8 +2018,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 19,
+      "lineWidth": 3.8,
       "chain_id": "test_scenario_7"
     },
     {
@@ -2020,7 +2034,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3858.5 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3896.3 millisecs"
       ],
       "errors": []
     },
@@ -2036,7 +2050,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3856.3 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3836.6 millisecs"
       ],
       "errors": []
     },
@@ -2052,7 +2066,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3818.3 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3815.7 millisecs"
       ],
       "errors": []
     },
@@ -2068,7 +2082,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3825.9 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3821.0 millisecs"
       ],
       "errors": []
     },
@@ -2084,7 +2098,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3832.1 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3831.0 millisecs"
       ],
       "errors": []
     },
@@ -2100,7 +2114,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3172.5 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3163.7 millisecs"
       ],
       "errors": []
     },
@@ -2116,9 +2130,15 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=1614.4 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=1578.9 millisecs"
       ],
       "errors": [
+        {
+          "db.name": "db_e",
+          "statement": "SELECT customer_segment FROM db_e.main_table WHERE id = ?",
+          "error_message": "column \"customer_segment\" does not exist",
+          "type": "SQL_COLUMN_NOT_FOUND"
+        },
         {
           "db.name": "db_e",
           "statement": "SELECT customer_segment FROM main_table",
@@ -2129,7 +2149,7 @@
       ]
     },
     {
-      "id": "Flow_test_scenario_8_Flow_419",
+      "id": "Flow_test_scenario_8_Flow_46",
       "sourceRef": "Task_test_scenario_8_1",
       "targetRef": "Task_test_scenario_8_2",
       "type": "flow",
@@ -2145,12 +2165,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 40,
+      "lineWidth": 8.0,
       "chain_id": "test_scenario_8"
     },
     {
-      "id": "Flow_test_scenario_8_Flow_422",
+      "id": "Flow_test_scenario_8_Flow_49",
       "sourceRef": "Task_test_scenario_8_2",
       "targetRef": "Task_test_scenario_8_3",
       "type": "flow",
@@ -2166,12 +2186,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 40,
+      "lineWidth": 8.0,
       "chain_id": "test_scenario_8"
     },
     {
-      "id": "Flow_test_scenario_8_Flow_425",
+      "id": "Flow_test_scenario_8_Flow_52",
       "sourceRef": "Task_test_scenario_8_3",
       "targetRef": "Task_test_scenario_8_4",
       "type": "flow",
@@ -2187,12 +2207,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 40,
+      "lineWidth": 8.0,
       "chain_id": "test_scenario_8"
     },
     {
-      "id": "Flow_test_scenario_8_Flow_428",
+      "id": "Flow_test_scenario_8_Flow_55",
       "sourceRef": "Task_test_scenario_8_4",
       "targetRef": "Task_test_scenario_8_5",
       "type": "flow",
@@ -2208,12 +2228,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 40,
+      "lineWidth": 8.0,
       "chain_id": "test_scenario_8"
     },
     {
-      "id": "Flow_test_scenario_8_Flow_431",
+      "id": "Flow_test_scenario_8_Flow_58",
       "sourceRef": "Task_test_scenario_8_5",
       "targetRef": "Task_test_scenario_8_6",
       "type": "flow",
@@ -2229,12 +2249,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 40,
+      "lineWidth": 8.0,
       "chain_id": "test_scenario_8"
     },
     {
-      "id": "Flow_test_scenario_8_Flow_434",
+      "id": "Flow_test_scenario_8_Flow_61",
       "sourceRef": "Task_test_scenario_8_6",
       "targetRef": "Task_test_scenario_8_7",
       "type": "flow",
@@ -2250,8 +2270,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 40,
+      "lineWidth": 8.0,
       "chain_id": "test_scenario_8"
     },
     {
@@ -2279,8 +2299,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 40,
+      "lineWidth": 8.0,
       "chain_id": "test_scenario_8"
     },
     {
@@ -2317,8 +2337,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 2,
-      "lineWidth": 1.0,
+      "transactionCount": 40,
+      "lineWidth": 8.0,
       "chain_id": "test_scenario_8"
     },
     {
@@ -2333,7 +2353,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3840.1 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3805.2 millisecs"
       ],
       "errors": []
     },
@@ -2349,7 +2369,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3841.2 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3811.9 millisecs"
       ],
       "errors": []
     },
@@ -2365,7 +2385,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3814.5 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3812.1 millisecs"
       ],
       "errors": []
     },
@@ -2381,7 +2401,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3821.4 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3831.5 millisecs"
       ],
       "errors": []
     },
@@ -2397,7 +2417,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3842.4 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3817.9 millisecs"
       ],
       "errors": []
     },
@@ -2413,7 +2433,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3140.7 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3193.3 millisecs"
       ],
       "errors": []
     },
@@ -2429,12 +2449,12 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=1590.1 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=1608.2 millisecs"
       ],
       "errors": []
     },
     {
-      "id": "Flow_test_scenario_9_Flow_27",
+      "id": "Flow_test_scenario_9_Flow_136",
       "sourceRef": "Task_test_scenario_9_1",
       "targetRef": "Task_test_scenario_9_2",
       "type": "flow",
@@ -2450,12 +2470,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 10,
-      "lineWidth": 2.0,
+      "transactionCount": 5,
+      "lineWidth": 1.0,
       "chain_id": "test_scenario_9"
     },
     {
-      "id": "Flow_test_scenario_9_Flow_30",
+      "id": "Flow_test_scenario_9_Flow_139",
       "sourceRef": "Task_test_scenario_9_2",
       "targetRef": "Task_test_scenario_9_3",
       "type": "flow",
@@ -2471,12 +2491,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 10,
-      "lineWidth": 2.0,
+      "transactionCount": 5,
+      "lineWidth": 1.0,
       "chain_id": "test_scenario_9"
     },
     {
-      "id": "Flow_test_scenario_9_Flow_33",
+      "id": "Flow_test_scenario_9_Flow_142",
       "sourceRef": "Task_test_scenario_9_3",
       "targetRef": "Task_test_scenario_9_4",
       "type": "flow",
@@ -2492,12 +2512,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 10,
-      "lineWidth": 2.0,
+      "transactionCount": 5,
+      "lineWidth": 1.0,
       "chain_id": "test_scenario_9"
     },
     {
-      "id": "Flow_test_scenario_9_Flow_36",
+      "id": "Flow_test_scenario_9_Flow_145",
       "sourceRef": "Task_test_scenario_9_4",
       "targetRef": "Task_test_scenario_9_5",
       "type": "flow",
@@ -2513,12 +2533,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 10,
-      "lineWidth": 2.0,
+      "transactionCount": 5,
+      "lineWidth": 1.0,
       "chain_id": "test_scenario_9"
     },
     {
-      "id": "Flow_test_scenario_9_Flow_39",
+      "id": "Flow_test_scenario_9_Flow_148",
       "sourceRef": "Task_test_scenario_9_5",
       "targetRef": "Task_test_scenario_9_6",
       "type": "flow",
@@ -2534,12 +2554,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 10,
-      "lineWidth": 2.0,
+      "transactionCount": 5,
+      "lineWidth": 1.0,
       "chain_id": "test_scenario_9"
     },
     {
-      "id": "Flow_test_scenario_9_Flow_42",
+      "id": "Flow_test_scenario_9_Flow_151",
       "sourceRef": "Task_test_scenario_9_6",
       "targetRef": "Task_test_scenario_9_7",
       "type": "flow",
@@ -2555,8 +2575,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 10,
-      "lineWidth": 2.0,
+      "transactionCount": 5,
+      "lineWidth": 1.0,
       "chain_id": "test_scenario_9"
     },
     {
@@ -2584,8 +2604,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 10,
-      "lineWidth": 2.0,
+      "transactionCount": 5,
+      "lineWidth": 1.0,
       "chain_id": "test_scenario_9"
     },
     {
@@ -2622,8 +2642,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 10,
-      "lineWidth": 2.0,
+      "transactionCount": 5,
+      "lineWidth": 1.0,
       "chain_id": "test_scenario_9"
     },
     {
@@ -2638,7 +2658,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=5696.3 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=5737.5 millisecs"
       ],
       "errors": []
     },
@@ -2654,7 +2674,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=1583.1 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=1605.1 millisecs"
       ],
       "errors": []
     },
@@ -2670,9 +2690,23 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=23.0 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=29.7 millisecs"
       ],
-      "errors": []
+      "errors": [
+        {
+          "db.name": "db_e",
+          "statement": "SELECT customer_segment FROM db_e.main_table WHERE id = ?",
+          "error_message": "column \"customer_segment\" does not exist",
+          "type": "SQL_COLUMN_NOT_FOUND"
+        },
+        {
+          "db.name": "db_e",
+          "statement": "SELECT customer_segment FROM main_table",
+          "error_message": "column \"customer_segment\" does not exist",
+          "type": "column_not_found",
+          "event": "sql_error"
+        }
+      ]
     },
     {
       "id": "Task_test_scenario_10_4",
@@ -2686,7 +2720,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=54.6 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=47.0 millisecs"
       ],
       "errors": []
     },
@@ -2702,7 +2736,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3840.4 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3924.5 millisecs"
       ],
       "errors": []
     },
@@ -2718,7 +2752,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3856.1 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3845.0 millisecs"
       ],
       "errors": []
     },
@@ -2734,7 +2768,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3830.4 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3850.7 millisecs"
       ],
       "errors": []
     },
@@ -2750,7 +2784,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=3198.6 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=3239.3 millisecs"
       ],
       "errors": []
     },
@@ -2766,7 +2800,7 @@
       "color": null,
       "applications": [],
       "metrics": [
-        "duarationDataSet\nkey=avg duration\nvalue=1607.2 millisecs"
+        "duarationDataSet\nkey=avg duration\nvalue=1642.5 millisecs"
       ],
       "errors": []
     },
@@ -2806,7 +2840,7 @@
       "color": null
     },
     {
-      "id": "Flow_test_scenario_10_Flow_74",
+      "id": "Flow_test_scenario_10_Flow_118",
       "sourceRef": "Task_test_scenario_10_1",
       "targetRef": "GW_test_scenario_10_10",
       "type": "flow",
@@ -2822,12 +2856,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 12,
-      "lineWidth": 2.4,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_10"
     },
     {
-      "id": "Flow_test_scenario_10_Flow_77",
+      "id": "Flow_test_scenario_10_Flow_121",
       "sourceRef": "GW_test_scenario_10_10",
       "targetRef": "Task_test_scenario_10_2",
       "type": "flow",
@@ -2851,12 +2885,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 12,
-      "lineWidth": 2.4,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_10"
     },
     {
-      "id": "Flow_test_scenario_10_Flow_80",
+      "id": "Flow_test_scenario_10_Flow_124",
       "sourceRef": "Task_test_scenario_10_2",
       "targetRef": "Task_test_scenario_10_3",
       "type": "flow",
@@ -2872,12 +2906,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 12,
-      "lineWidth": 2.4,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_10"
     },
     {
-      "id": "Flow_test_scenario_10_Flow_83",
+      "id": "Flow_test_scenario_10_Flow_127",
       "sourceRef": "GW_test_scenario_10_10",
       "targetRef": "Task_test_scenario_10_4",
       "type": "flow",
@@ -2893,12 +2927,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 12,
-      "lineWidth": 2.4,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_10"
     },
     {
-      "id": "Flow_test_scenario_10_Flow_86",
+      "id": "Flow_test_scenario_10_Flow_130",
       "sourceRef": "GW_test_scenario_10_10",
       "targetRef": "Task_test_scenario_10_5",
       "type": "flow",
@@ -2922,12 +2956,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 12,
-      "lineWidth": 2.4,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_10"
     },
     {
-      "id": "Flow_test_scenario_10_Flow_89",
+      "id": "Flow_test_scenario_10_Flow_133",
       "sourceRef": "Task_test_scenario_10_5",
       "targetRef": "Task_test_scenario_10_6",
       "type": "flow",
@@ -2943,12 +2977,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 12,
-      "lineWidth": 2.4,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_10"
     },
     {
-      "id": "Flow_test_scenario_10_Flow_92",
+      "id": "Flow_test_scenario_10_Flow_136",
       "sourceRef": "Task_test_scenario_10_6",
       "targetRef": "Task_test_scenario_10_7",
       "type": "flow",
@@ -2964,12 +2998,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 12,
-      "lineWidth": 2.4,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_10"
     },
     {
-      "id": "Flow_test_scenario_10_Flow_95",
+      "id": "Flow_test_scenario_10_Flow_139",
       "sourceRef": "Task_test_scenario_10_7",
       "targetRef": "Task_test_scenario_10_8",
       "type": "flow",
@@ -2985,12 +3019,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 12,
-      "lineWidth": 2.4,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_10"
     },
     {
-      "id": "Flow_test_scenario_10_Flow_98",
+      "id": "Flow_test_scenario_10_Flow_142",
       "sourceRef": "Task_test_scenario_10_8",
       "targetRef": "Task_test_scenario_10_9",
       "type": "flow",
@@ -3006,12 +3040,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 12,
-      "lineWidth": 2.4,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_10"
     },
     {
-      "id": "Flow_test_scenario_10_Flow_102",
+      "id": "Flow_test_scenario_10_Flow_146",
       "sourceRef": "Task_test_scenario_10_3",
       "targetRef": "GW_test_scenario_10_11",
       "type": "flow",
@@ -3031,12 +3065,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 12,
-      "lineWidth": 2.4,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_10"
     },
     {
-      "id": "Flow_test_scenario_10_Flow_103",
+      "id": "Flow_test_scenario_10_Flow_147",
       "sourceRef": "Task_test_scenario_10_4",
       "targetRef": "GW_test_scenario_10_11",
       "type": "flow",
@@ -3052,12 +3086,12 @@
         }
       ],
       "color": null,
-      "transactionCount": 12,
-      "lineWidth": 2.4,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_10"
     },
     {
-      "id": "Flow_test_scenario_10_Bypass_TDICE_Task_66_ParGW_58_join",
+      "id": "Flow_test_scenario_10_Bypass_TDICE_Task_110_ParGW_102_join",
       "sourceRef": "Task_test_scenario_10_9",
       "targetRef": "GW_test_scenario_10_11",
       "type": "flow",
@@ -3077,8 +3111,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 12,
-      "lineWidth": 2.4,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_10"
     },
     {
@@ -3106,8 +3140,8 @@
         }
       ],
       "color": null,
-      "transactionCount": 12,
-      "lineWidth": 2.4,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_10"
     },
     {
@@ -3144,15 +3178,15 @@
         }
       ],
       "color": null,
-      "transactionCount": 12,
-      "lineWidth": 2.4,
+      "transactionCount": 23,
+      "lineWidth": 4.6,
       "chain_id": "test_scenario_10"
     }
   ],
   "volumes": {
-    "transaction_count": 51,
+    "transaction_count": 243,
     "process_count": 10,
-    "avg_duration_ms": 5143.7,
+    "avg_duration_ms": 5154.9,
     "error_rate_pct": 0.0,
     "services": [
       "ABPT"
